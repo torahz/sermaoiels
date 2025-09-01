@@ -2,154 +2,185 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sermões - Esperança Campus Lagoa Santa</title>
+
+  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- PWA -->
   <link rel="manifest" href="manifest.json" />
+
   <style>
-    :root {
-      --verde-escuro: #22401E;
-      --verde-medio: #597C3C;
-      --terracota: #A56241;
-      --bege: #AC9177;
-      --azul-claro: #D6E6FA;
-      --text: #333;
-      --muted: #666;
+    :root{
+      --verde-escuro:#22401E;
+      --verde-medio:#597C3C;
+      --terracota:#A56241;
+      --bege:#AC9177;
+      --azul-claro:#D6E6FA;
+      --text:#2b2b2b;
+      --muted:#666;
+      --card:#ffffffee;
     }
 
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 1rem;
-      color: var(--text);
-      background: url('background-2560x1440.png') no-repeat center center fixed;
-      background-size: cover;
-      background-color: #000;
-      filter: grayscale(100%) brightness(0.9);
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      padding:1rem;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:#f7f8fa;
+    }
+    /* background P&B desbotado sem afetar o conteúdo */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(to bottom, #fff8, #fff8),
+        url('background-2560x1440.png') center/cover no-repeat fixed;
+      filter:grayscale(100%);
+      opacity:.45;
+      z-index:-1;
+      pointer-events:none;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 1.5rem;
+    header{
+      text-align:center;
+      margin-bottom:1.25rem;
     }
 
-    /* BOTÃO INSTALAR */
-    #installBtn {
-      background: var(--verde-escuro);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      margin-bottom: 1rem;
+    /* Botão instalar */
+    #installBtn{
+      appearance:none;
+      background:var(--verde-escuro);
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      padding:.6rem 1.1rem;
+      font-size:.92rem;
+      cursor:pointer;
+      transition:transform .05s ease, background .25s ease, box-shadow .25s ease;
+      box-shadow:0 2px 10px rgba(0,0,0,.08);
+      margin:0 0 1rem 0;
     }
-    #installBtn:hover {
-      background: var(--verde-medio);
+    #installBtn:hover{ background:var(--verde-medio) }
+    #installBtn:active{ transform:translateY(1px) }
+
+    .filters{
+      display:flex;
+      gap:.75rem;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-bottom:.5rem;
+    }
+    .filters select{
+      appearance:none;
+      padding:.5rem .75rem;
+      border-radius:10px;
+      border:1px solid #dcdcdc;
+      background:#fff;
+      font-size:.92rem;
+      min-width:210px;
+      box-shadow:0 1px 4px rgba(0,0,0,.06);
     }
 
-    .filters {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-    .filters select {
-      padding: 0.4rem 0.6rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 0.9rem;
-      background: #fff;
+    .year{
+      margin-top:.4rem;
+      color:#2e2e2e;
+      font-weight:300;
+      font-size:1.6rem;
+      text-shadow:0 1px 2px rgba(255,255,255,.8);
     }
 
-    header .year {
-      margin-top: 0.4rem;
-      color: #fff;
-      font-weight: 300;
-      font-size: 1.6rem;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    main{ max-width:980px; margin:0 auto }
+
+    section{ margin:1.5rem 0 }
+    section h2{
+      margin:0 0 .6rem 0;
+      font-weight:400;
+      font-size:1.05rem;
+      color:var(--terracota);
+      text-align:center;
     }
 
-    main { max-width: 980px; margin: 0 auto; }
-
-    section { margin-bottom: 1.75rem; }
-    section h2 {
-      font-weight: 400;
-      margin: 0 0 0.5rem 0;
-      font-size: 1.1rem;
-      color: var(--terracota);
-      text-align: center;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:.75rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 0.75rem;
+    .day{
+      background:var(--card);
+      padding:.8rem 1rem;
+      border-radius:12px;
+      box-shadow:0 2px 6px rgba(0,0,0,.08);
+      font-size:.95rem;
+      line-height:1.35;
+      backdrop-filter:saturate(1.1) blur(1px);
     }
 
-    .day {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 0.75rem 1rem;
-      border-radius: 0.75rem;
-      font-size: 0.95rem;
-      line-height: 1.35;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    .info{
+      font-size:.78rem;
+      color:var(--muted);
+      margin-bottom:.35rem;
     }
 
-    .info {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
+    a{
+      color:var(--verde-escuro);
+      text-decoration:none;
+      display:block;
     }
+    a:hover{ text-decoration:underline }
 
-    a {
-      color: var(--verde-escuro);
-      text-decoration: none;
-      font-weight: 400;
-      display: block;
-      word-break: break-word;
+    /* cores por estação (se quiser usar como variação futura) */
+    .epifania .day{ /* opcional de leve */
+      /* outline:1px dashed #b0e0e6; */
     }
+    .quaresma .day{ /* ... */ }
+    .pascoa .day{ /* ... */ }
+    .tempo-comum .day{ /* ... */ }
 
-    @media (max-width: 420px) {
-      body { padding: 0.75rem; }
-      .grid { gap: 0.5rem; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-      header .year { font-size: 1.3rem; }
+    /* Responsivo */
+    @media (max-width:420px){
+      body{ padding:.75rem }
+      .grid{ gap:.55rem; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)) }
+      .year{ font-size:1.35rem }
     }
   </style>
 </head>
 <body>
+
   <header>
     <button id="installBtn" hidden>Instalar App</button>
 
     <div class="filters">
       <select id="filterPreletor">
         <option value="">Filtrar por Preletor</option>
-        <option value="Rosifran Macedo">Rosifran Macedo</option>
-        <option value="Rodolfo Amorim">Rodolfo Amorim</option>
-        <option value="Igor Miguel">Igor Miguel</option>
-        <option value="Douglas Rafael">Douglas Rafael</option>
-        <option value="Felipe dos Anjos">Felipe dos Anjos</option>
-        <option value="Vanessa Belmonte">Vanessa Belmonte</option>
-        <option value="Leonardo Amaral">Leonardo Amaral</option>
-        <option value="Sabrina Uchôa">Sabrina Uchôa</option>
-        <option value="Guilherme de Carvalho">Guilherme de Carvalho</option>
-        <option value="Beto Mello">Beto Mello</option>
-        <option value="Filipe Breder">Filipe Breder</option>
+        <option>Rosifran Macedo</option>
+        <option>Rodolfo Amorim</option>
+        <option>Igor Miguel</option>
+        <option>Douglas Rafael</option>
+        <option>Felipe dos Anjos</option>
+        <option>Vanessa Belmonte</option>
+        <option>Leonardo Amaral</option>
+        <option>Sabrina Uchôa</option>
+        <option>Guilherme de Carvalho</option>
+        <option>Beto Mello</option>
+        <option>Filipe Breder</option>
       </select>
 
       <select id="filterMes">
         <option value="">Filtrar por Mês</option>
-        <option value="Janeiro">Janeiro</option>
-        <option value="Fevereiro">Fevereiro</option>
-        <option value="Março">Março</option>
-        <option value="Abril">Abril</option>
-        <option value="Maio">Maio</option>
-        <option value="Junho">Junho</option>
-        <option value="Julho">Julho</option>
-        <option value="Agosto">Agosto</option>
+        <option>Janeiro</option>
+        <option>Fevereiro</option>
+        <option>Março</option>
+        <option>Abril</option>
+        <option>Maio</option>
+        <option>Junho</option>
+        <option>Julho</option>
+        <option>Agosto</option>
       </select>
 
       <select id="filterEstacao">
@@ -166,30 +197,178 @@
   </header>
 
   <main>
-    <!-- Aqui entra o calendário litúrgico com os sermões -->
-    <!-- (mantém a estrutura que você já tem com as divs .day) -->
+    <!-- TEMPO COMUM (mais recente primeiro) -->
+    <section class="season tempo-comum">
+      <h2>Tempo Comum</h2>
+      <div class="grid">
+
+        <div class="day">
+          <div class="info">Agosto - 12º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing">
+            Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Felipe dos Anjos
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Agosto - 11º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link">
+            Série "Carta às Sete Igrejas - Carta a Igreja de Éfeso" - Filipe Breder
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Agosto - 10º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing">
+            Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Guilherme de Carvalho
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Agosto - 9º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing">
+            Sermão Especial "A Autoridade da Palavra de Deus" - Rosifran Macedo
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Julho - 8º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing">
+            Série "Carta às Sete Igrejas - Apocalipse Para Bem-Aventurados" - Rodolfo Amorim
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Julho - 7º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing">
+            Série "A Igreja do Futuro" - Rosifran Macedo
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Julho - 6º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=sharing">
+            Sermão Especial - Igor Miguel
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Junho - 5º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing">
+            Série "A Igreja do Futuro" - Douglas Rafael
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Junho - 2º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link">
+            Série "A Igreja do Futuro" - Felipe dos Anjos
+          </a>
+        </div>
+
+        <div class="day">
+          <div class="info">Junho - 1º Domingo após Pentecostes</div>
+          <a href="https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view">
+            Série "A Igreja do Futuro" - Vanessa Belmonte
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PÁSCOA -->
+    <section class="season pascoa">
+      <h2>Páscoa</h2>
+      <div class="grid">
+        <div class="day">
+          <div class="info">Maio - 7º Domingo da Páscoa</div>
+          <a href="https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing">
+            Série "A Igreja do Futuro" - Felipe dos Anjos
+          </a>
+        </div>
+        <div class="day">
+          <div class="info">Maio - 6º Domingo da Páscoa</div>
+          <a href="https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing">
+            Série "A Igreja do Futuro" - Sabrina Uchôa
+          </a>
+        </div>
+        <div class="day">
+          <div class="info">Maio - 5º Domingo da Páscoa</div>
+          <a href="https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing">
+            Série "A Igreja do Futuro" - Leonardo Amaral
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUARESMA -->
+    <section class="season quaresma">
+      <h2>Quaresma</h2>
+      <div class="grid">
+        <div class="day">
+          <div class="info">Abril - 5º Domingo da Quaresma</div>
+          <a href="https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link">
+            Série "A Igreja do Futuro" - Felipe dos Anjos
+          </a>
+        </div>
+        <div class="day">
+          <div class="info">Março - 3º Domingo da Quaresma</div>
+          <a href="https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link">
+            Série "A Igreja do Futuro" - Leonardo Amaral
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EPIFANIA -->
+    <section class="season epifania">
+      <h2>Epifania</h2>
+      <div class="grid">
+        <div class="day">
+          <div class="info">Fevereiro - 6º Domingo da Epifania</div>
+          <a href="https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link">
+            Série "A Igreja Importa" - Igor Miguel
+          </a>
+        </div>
+        <div class="day">
+          <div class="info">Fevereiro - 5º Domingo da Epifania</div>
+          <a href="https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link">
+            Série "A Igreja Importa" - Felipe dos Anjos
+          </a>
+        </div>
+        <div class="day">
+          <div class="info">Janeiro - 3º Domingo da Epifania</div>
+          <a href="https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link">
+            Série "A Igreja Importa" - Guilherme de Carvalho
+          </a>
+        </div>
+        <div class="day">
+          <div class="info">Janeiro - 2º Domingo da Epifania</div>
+          <a href="https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link">
+            Série "A Igreja Importa" - Beto Mello
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script>
-    // --- FILTRO ---
+    // ---------- FILTROS ----------
     const filterPreletor = document.getElementById('filterPreletor');
     const filterMes = document.getElementById('filterMes');
     const filterEstacao = document.getElementById('filterEstacao');
 
-    function aplicarFiltro() {
-      const preletor = filterPreletor.value.toLowerCase();
-      const mes = filterMes.value.toLowerCase();
+    function aplicarFiltro(){
+      const preletor = (filterPreletor.value || "").toLowerCase();
+      const mes = (filterMes.value || "").toLowerCase();
       const estacao = filterEstacao.value;
 
-      document.querySelectorAll('.day').forEach(day => {
+      document.querySelectorAll('.day').forEach(day=>{
         const texto = day.innerText.toLowerCase();
-        const estacaoClasse = estacao ? day.closest('section').classList.contains(estacao) : true;
+        const okPreletor = !preletor || texto.includes(preletor);
+        const okMes = !mes || texto.includes(mes);
+        const okEstacao = !estacao || day.closest('section')?.classList.contains(estacao);
 
-        const matchPreletor = !preletor || texto.includes(preletor);
-        const matchMes = !mes || texto.includes(mes);
-        const matchEstacao = estacaoClasse;
-
-        day.style.display = (matchPreletor && matchMes && matchEstacao) ? '' : 'none';
+        day.style.display = (okPreletor && okMes && okEstacao) ? "" : "none";
       });
     }
 
@@ -197,27 +376,29 @@
     filterMes.addEventListener('change', aplicarFiltro);
     filterEstacao.addEventListener('change', aplicarFiltro);
 
-    // --- INSTALAÇÃO PWA ---
+    // ---------- PWA: botão instalar ----------
     let deferredPrompt;
     const installBtn = document.getElementById('installBtn');
 
-    window.addEventListener('beforeinstallprompt', (e) => {
+    window.addEventListener('beforeinstallprompt', (e)=>{
       e.preventDefault();
       deferredPrompt = e;
       installBtn.hidden = false;
     });
 
-    installBtn.addEventListener('click', () => {
-      installBtn.hidden = true;
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(() => {
+    installBtn.addEventListener('click', async ()=>{
+      try{
+        installBtn.hidden = true;
+        await deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+      }finally{
         deferredPrompt = null;
-      });
+      }
     });
 
-    // --- SERVICE WORKER ---
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(err => console.error('SW fail', err));
+    // ---------- Service Worker ----------
+    if ('serviceWorker' in navigator && (window.isSecureContext || location.hostname === 'localhost')){
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
     }
   </script>
 </body>

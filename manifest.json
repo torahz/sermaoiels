@@ -2,7 +2,7 @@
   "name": "Sermões - Esperança Campus Lagoa Santa",
   "short_name": "Sermões",
   "description": "Acompanhe os sermões e séries da Esperança Campus Lagoa Santa.",
-  "start_url": "index.html",
+  "start_url": "https://torahz.github.io/sermaoiels/",
   "display": "standalone",
   "background_color": "#22401E",
   "theme_color": "#22401E",
