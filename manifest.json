@@ -1,0 +1,21 @@
+{
+  "name": "Sermões - Esperança Campus Lagoa Santa",
+  "short_name": "Sermões",
+  "description": "Acompanhe os sermões e séries da Esperança Campus Lagoa Santa.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#22401E",
+  "theme_color": "#22401E",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
