@@ -3,8 +3,8 @@
   "short_name": "Sermões Esperança",
   "start_url": "https://torahz.github.io/sermaoiels/",
   "display": "standalone",
-  "background_color": "#D6E6FA",
-  "theme_color": "#22401E",
+  "background_color": "#3D6982",
+  "theme_color": "#3D6982",
   "orientation": "portrait",
   "icons": [
     {
