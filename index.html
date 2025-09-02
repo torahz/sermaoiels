@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sermões - Esperança Campus Lagoa Santa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="manifest" href="manifest.json" />
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Sermões - Esperança Campus Lagoa Santa
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+  <link href="manifest.json" rel="manifest"/>
   <style>
-    :root {
+   :root {
       /* CORES DAS ESTAÇÕES */
       --advento: #87CEFA;
       --natal: #DAA520;
@@ -178,230 +180,332 @@
       .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
     }
   </style>
-</head>
-<body>
+ </head>
+ <body>
   <header>
-    <h1>SERMÕES IGREJA ESPERANÇA - CAMPUS LAGOA SANTA</h1>
-    <button id="installBtn" hidden>Instalar App</button>
-
-    <div class="filters">
-      <select id="filterPreletor">
-        <option value="">Filtrar por Preletor</option>
-        <option value="Rosifran Macedo">Rosifran Macedo</option>
-        <option value="Rodolfo Amorim">Rodolfo Amorim</option>
-        <option value="Igor Miguel">Igor Miguel</option>
-        <option value="Douglas Rafael">Douglas Rafael</option>
-        <option value="Felipe dos Anjos">Felipe dos Anjos</option>
-        <option value="Vanessa Belmonte">Vanessa Belmonte</option>
-        <option value="Leonardo Amaral">Leonardo Amaral</option>
-        <option value="Sabrina Uchôa">Sabrina Uchôa</option>
-        <option value="Guilherme de Carvalho">Guilherme de Carvalho</option>
-        <option value="Beto Mello">Beto Mello</option>
-        <option value="Filipe Breder">Filipe Breder</option>
-      </select>
-
-      <select id="filterMes">
-        <option value="">Filtrar por Mês</option>
-        <option value="Janeiro">Janeiro</option>
-        <option value="Fevereiro">Fevereiro</option>
-        <option value="Março">Março</option>
-        <option value="Abril">Abril</option>
-        <option value="Maio">Maio</option>
-        <option value="Junho">Junho</option>
-        <option value="Julho">Julho</option>
-        <option value="Agosto">Agosto</option>
-      </select>
-
-      <select id="filterEstacao">
-        <option value="">Filtrar por Estação</option>
-        <option value="advento">Advento</option>
-        <option value="natal">Natal</option>
-        <option value="epifania">Epifania</option>
-        <option value="quaresma">Quaresma</option>
-        <option value="pascoa">Páscoa</option>
-        <option value="pentecostes">Pentecostes</option>
-        <option value="tempo-comum">Tempo Comum</option>
-        <option value="criacao">Criação</option>
-      </select>
-    </div>
+   <h1>
+    SERMÕES IGREJA ESPERANÇA - CAMPUS LAGOA SANTA
+   </h1>
+   <button hidden="" id="installBtn">
+    Instalar App
+   </button>
+   <div class="filters">
+    <select id="filterPreletor">
+     <option value="">
+      Filtrar por Preletor
+     </option>
+     <option value="Rosifran Macedo">
+      Rosifran Macedo
+     </option>
+     <option value="Rodolfo Amorim">
+      Rodolfo Amorim
+     </option>
+     <option value="Igor Miguel">
+      Igor Miguel
+     </option>
+     <option value="Douglas Rafael">
+      Douglas Rafael
+     </option>
+     <option value="Felipe dos Anjos">
+      Felipe dos Anjos
+     </option>
+     <option value="Vanessa Belmonte">
+      Vanessa Belmonte
+     </option>
+     <option value="Leonardo Amaral">
+      Leonardo Amaral
+     </option>
+     <option value="Sabrina Uchôa">
+      Sabrina Uchôa
+     </option>
+     <option value="Guilherme de Carvalho">
+      Guilherme de Carvalho
+     </option>
+     <option value="Beto Mello">
+      Beto Mello
+     </option>
+     <option value="Filipe Breder">
+      Filipe Breder
+     </option>
+    </select>
+    <select id="filterMes">
+     <option value="">
+      Filtrar por Mês
+     </option>
+     <option value="Janeiro">
+      Janeiro
+     </option>
+     <option value="Fevereiro">
+      Fevereiro
+     </option>
+     <option value="Março">
+      Março
+     </option>
+     <option value="Abril">
+      Abril
+     </option>
+     <option value="Maio">
+      Maio
+     </option>
+     <option value="Junho">
+      Junho
+     </option>
+     <option value="Julho">
+      Julho
+     </option>
+     <option value="Agosto">
+      Agosto
+     </option>
+    </select>
+    <select id="filterEstacao">
+     <option value="">
+      Filtrar por Estação
+     </option>
+     <option value="advento">
+      Advento
+     </option>
+     <option value="natal">
+      Natal
+     </option>
+     <option value="epifania">
+      Epifania
+     </option>
+     <option value="quaresma">
+      Quaresma
+     </option>
+     <option value="pascoa">
+      Páscoa
+     </option>
+     <option value="pentecostes">
+      Pentecostes
+     </option>
+     <option value="tempo-comum">
+      Tempo Comum
+     </option>
+     <option value="criacao">
+      Criação
+     </option>
+    </select>
+   </div>
   </header>
-
   <main>
-    <!-- TEMPO COMUM (ordem do mais recente para o mais antigo) -->
-    <section class="season tempo-comum" aria-labelledby="tempo-comum-title">
-      <h2 id="tempo-comum-title">Tempo Comum</h2>
-      <div class="grid">
-        <div class="day">
-          <div class="info">Agosto - 14º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing" target="_blank" rel="noopener">
-            Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Felipe dos Anjos
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Agosto - 13º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/11BnIY6pCsY66qFLFYR4DN8pCzWppRyBQ/view?usp=sharing" target="_blank" rel="noopener">
-            Série "Carta às Sete Igrejas - Carta à Igreja de Esmirna" - Filipe Breder
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Agosto - 12º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing" target="_blank" rel="noopener">
-            Sermão Especial "A Autoridade da Palavra de Deus" - Rosifran Macedo
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Agosto - 11º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link" target="_blank" rel="noopener">
-            Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Filipe Breder
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Agosto - 10º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing" target="_blank" rel="noopener">
-            Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Guilherme de Carvalho
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Julho - 9º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing" target="_blank" rel="noopener">
-            Série "Carta às Sete Igrejas - Apocalipse Para Bem-Aventurados" - Rodolfo Amorim
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Julho - 8º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Rosifran Macedo
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Julho - 7º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=sharing" target="_blank" rel="noopener">
-            Sermão Especial - Igor Miguel
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Junho - 5º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Douglas Rafael
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Junho - 2º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Felipe dos Anjos
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Junho - 1º Domingo após Pentecostes</div>
-          <a class="link" href="https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Vanessa Belmonte
-          </a>
-        </div>
+   <!-- TEMPO COMUM (ordem do mais recente para o mais antigo) -->
+   <section aria-labelledby="tempo-comum-title" class="season tempo-comum">
+    <h2 id="tempo-comum-title">
+     Tempo Comum
+    </h2>
+    <div class="grid">
+     <div class="day">
+      <div class="info">
+       Agosto - 14º Domingo após Pentecostes
       </div>
-    </section>
-
-    <!-- PÁSCOA -->
-    <section class="season pascoa" aria-labelledby="pascoa-title">
-      <h2 id="pascoa-title">Páscoa</h2>
-      <div class="grid">
-        <div class="day">
-          <div class="info">Maio - 7º Domingo da Páscoa</div>
-          <a class="link" href="https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Felipe dos Anjos
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Maio - 6º Domingo da Páscoa</div>
-          <a class="link" href="https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Sabrina Uchôa
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Maio - 5º Domingo da Páscoa</div>
-          <a class="link" href="https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Leonardo Amaral
-          </a>
-        </div>
+      <a class="link" href="https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing" rel="noopener" target="_blank">
+       Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Felipe dos Anjos
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Agosto - 13º Domingo após Pentecostes
       </div>
-    </section>
-
-    <!-- QUARESMA -->
-    <section class="season quaresma" aria-labelledby="quaresma-title">
-      <h2 id="quaresma-title">Quaresma</h2>
-      <div class="grid">
-        <div class="day">
-          <div class="info">Abril - 5º Domingo da Quaresma</div>
-          <a class="link" href="https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Felipe dos Anjos
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Março - 3º Domingo da Quaresma</div>
-          <a class="link" href="https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link" target="_blank" rel="noopener">
-            Série "A Igreja do Futuro" - Leonardo Amaral
-          </a>
-        </div>
+      <a class="link" href="https://drive.google.com/file/d/11BnIY6pCsY66qFLFYR4DN8pCzWppRyBQ/view?usp=sharing" rel="noopener" target="_blank">
+       Série "Carta às Sete Igrejas - Carta à Igreja de Esmirna" - Filipe Breder
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Agosto - 12º Domingo após Pentecostes
       </div>
-    </section>
-
-    <!-- EPIFANIA -->
-    <section class="season epifania" aria-labelledby="epifania-title">
-      <h2 id="epifania-title">Epifania</h2>
-      <div class="grid">
-        <div class="day">
-          <div class="info">Fevereiro - 6º Domingo da Epifania</div>
-          <a class="link" href="https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link" target="_blank" rel="noopener">
-            Série "A Igreja Importa" - Igor Miguel
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Fevereiro - 5º Domingo da Epifania</div>
-          <a class="link" href="https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link" target="_blank" rel="noopener">
-            Série "A Igreja Importa" - Felipe dos Anjos
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Janeiro - 3º Domingo da Epifania</div>
-          <a class="link" href="https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link" target="_blank" rel="noopener">
-            Série "A Igreja Importa" - Guilherme de Carvalho
-          </a>
-        </div>
-
-        <div class="day">
-          <div class="info">Janeiro - 2º Domingo da Epifania</div>
-          <a class="link" href="https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link" target="_blank" rel="noopener">
-            Série "A Igreja Importa" - Beto Mello
-          </a>
-        </div>
+      <a class="link" href="https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing" rel="noopener" target="_blank">
+       Sermão Especial "A Autoridade da Palavra de Deus" - Rosifran Macedo
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Agosto - 11º Domingo após Pentecostes
       </div>
-    </section>
-
+      <a class="link" href="https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link" rel="noopener" target="_blank">
+       Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Filipe Breder
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Agosto - 10º Domingo após Pentecostes
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing" rel="noopener" target="_blank">
+       Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Guilherme de Carvalho
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Julho - 9º Domingo após Pentecostes
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing" rel="noopener" target="_blank">
+       Série "Carta às Sete Igrejas - Apocalipse Para Bem-Aventurados" - Rodolfo Amorim
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Julho - 8º Domingo após Pentecostes
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Rosifran Macedo
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Julho - 7º Domingo após Pentecostes
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=sharing" rel="noopener" target="_blank">
+       Sermão Especial - Igor Miguel
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Junho - 5º Domingo após Pentecostes
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Douglas Rafael
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Junho - 2º Domingo após Pentecostes
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Felipe dos Anjos
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Junho - 1º Domingo após Pentecostes
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Vanessa Belmonte
+      </a>
+     </div>
+    </div>
+   </section>
+   <!-- PÁSCOA -->
+   <section aria-labelledby="pascoa-title" class="season pascoa">
+    <h2 id="pascoa-title">
+     Páscoa
+    </h2>
+    <div class="grid">
+     <div class="day">
+      <div class="info">
+       Maio - 7º Domingo da Páscoa
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Felipe dos Anjos
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Maio - 6º Domingo da Páscoa
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Sabrina Uchôa
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Maio - 5º Domingo da Páscoa
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Leonardo Amaral
+      </a>
+     </div>
+    </div>
+   </section>
+   <!-- QUARESMA -->
+   <section aria-labelledby="quaresma-title" class="season quaresma">
+    <h2 id="quaresma-title">
+     Quaresma
+    </h2>
+    <div class="grid">
+     <div class="day">
+      <div class="info">
+       Abril - 5º Domingo da Quaresma
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Felipe dos Anjos
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Março - 3º Domingo da Quaresma
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link" rel="noopener" target="_blank">
+       Série "A Igreja do Futuro" - Leonardo Amaral
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       March - Quaresma - 3º Domingo da Quaresma
+      </div>
+      <a href="https://drive.google.com/file/d/1p86iu0WW47bYWTCoseTRnOXhZ3pHZ5QX/view?usp=sharing">
+       Série "A Igreja Importa" - A Glória do Ministério - Felipe dos Anjos
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       April - Quaresma - Domingo de Ramos
+      </div>
+      <a href="https://drive.google.com/file/d/1Oo_Pj1cNKaWuCpS-k8dnyeJR_Bn-GyQ1/view?usp=sharing">
+       Série "A Igreja do Futuro" - O Próprio Senhor Descerá Dos Céus - Felipe dos Anjos
+      </a>
+     </div>
+    </div>
+   </section>
+   <!-- EPIFANIA -->
+   <section aria-labelledby="epifania-title" class="season epifania">
+    <h2 id="epifania-title">
+     Epifania
+    </h2>
+    <div class="grid">
+     <div class="day">
+      <div class="info">
+       Fevereiro - 6º Domingo da Epifania
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link" rel="noopener" target="_blank">
+       Série "A Igreja Importa" - Igor Miguel
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Fevereiro - 5º Domingo da Epifania
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link" rel="noopener" target="_blank">
+       Série "A Igreja Importa" - Felipe dos Anjos
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Janeiro - 3º Domingo da Epifania
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link" rel="noopener" target="_blank">
+       Série "A Igreja Importa" - Guilherme de Carvalho
+      </a>
+     </div>
+     <div class="day">
+      <div class="info">
+       Janeiro - 2º Domingo da Epifania
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link" rel="noopener" target="_blank">
+       Série "A Igreja Importa" - Beto Mello
+      </a>
+     </div>
+    </div>
+   </section>
   </main>
-
-
-  <button class="visit-btn" onclick="window.open('https://maps.app.goo.gl/zEEwW7ffFNYz7Pxp8','_blank')">📍 Visite-nos</button>
-
+  <button class="visit-btn" onclick="window.open('https://maps.app.goo.gl/zEEwW7ffFNYz7Pxp8','_blank')">
+   📍 Visite-nos
+  </button>
   <footer>
-    © IGREJA ESPERANÇA ® 2025. TODOS OS DIREITOS RESERVADOS.
+   © IGREJA ESPERANÇA ® 2025. TODOS OS DIREITOS RESERVADOS.
   </footer>
-
   <script>
-    // --- FILTRO ---
+   // --- FILTRO ---
     const filterPreletor = document.getElementById('filterPreletor');
     const filterMes = document.getElementById('filterMes');
     const filterEstacao = document.getElementById('filterEstacao');
@@ -450,5 +554,5 @@
       navigator.serviceWorker.register('sw.js').catch(err => console.error('SW fail', err));
     }
   </script>
-</body>
+ </body>
 </html>
