@@ -1,235 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SERMÕES IGREJA ESPERANÇA - CAMPUS LAGOA SANTA</title>
-
-  <!-- Fonte Poppins -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sermões - Esperança Campus Lagoa Santa</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Manifest PWA -->
-  <link rel="manifest" href="manifest.json">
-
+  <link rel="manifest" href="manifest.json" />
   <style>
-    :root{
-      --advento:#E0FFFF;
-      --epifania:#B0E0E6;
-      --quaresma:#D8BFD8;
-      --pascoa:#FFDAB9;
-      --tempo-comum:#EEE8AA;
-      --verde-escuro:#22401E;
-      --verde-medio:#597C3C;
-      --terracota:#A56241;
-      --text:#2b2b2b;
-      --muted:#666666;
+    :root {
+      /* CORES DAS ESTAÇÕES */
+      --advento: #87CEFA;
+      --natal: #DAA520;
+      --epifania: #FFFFF0;
+      --quaresma: #483D8B;
+      --pascoa: #DCDCDC;
+      --pentecostes: #D2691E;
+      --tempo-comum: #9ACD32;
+      --criacao: #00CED1;
+
+      --bg-dark: #3C667F;
+      --text-light: #fff;
+      --muted: #ccc;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
-      color:var(--text);
-      background: url('background-2560x1440.png') no-repeat center center fixed;
-      background-size: cover;
-      line-height:1.35;
-      padding-top:90px; /* espaço para header fixo */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-light);
+  background: url('background-2560x1440.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+    header {
+      text-align: center;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      background: rgba(60, 102, 127, 0.95);
+      z-index: 1000;
     }
 
-    /* HEADER FIXO */
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      height:90px;
-      background: rgba(255,255,255,0.96);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      z-index:1000;
-      text-align:center;
-      padding: 0 12px;
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
     }
 
-    header h1{
-      margin:0;
-      font-size:1.4rem;
-      font-weight:600;
-      color:var(--verde-escuro);
-      letter-spacing:0.02em;
+    /* BOTÃO INSTALAR */
+    #installBtn {
+      background: var(--tempo-comum);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-bottom: 1rem;
+    }
+    #installBtn:hover {
+      background: var(--pentecostes);
     }
 
-    .year{
-      color:var(--muted);
-      font-weight:300;
-      font-size:1rem;
-      margin-top:4px;
-    }
-
-    /* install button (escondido por padrão) */
-    #installBtn{
-      position:absolute;
-      left:12px;
-      top:10px;
-      background:var(--verde-escuro);
-      color:#fff;
-      border:0;
-      padding:8px 12px;
-      border-radius:10px;
-      cursor:pointer;
-      font-size:0.88rem;
-      box-shadow:0 3px 8px rgba(34,64,30,0.15);
-    }
-
-    /* filtros */
     .filters {
-      margin-top:6px;
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
     }
-    .filters select{
-      padding:6px 10px;
-      border-radius:10px;
-      border:1px solid #ddd;
-      background:#fff;
-      min-width:150px;
-      font-size:0.9rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }
-
-    /* MAIN */
-    main{
-      max-width:980px;
-      margin: 0 auto;
-      padding: 12px;
+    .filters select {
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+      background: #fff;
+      color: #000;
     }
 
-    section{
-      margin-bottom:1.75rem;
+    /* ANO */
+    .year {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 1rem 0;
+      color: var(--text-light);
     }
 
-    section h2{
-      margin:0 0 10px 0;
-      text-align:center;
-      color:var(--terracota);
-      font-weight:500;
-      font-size:1.05rem;
+    main { max-width: 980px; margin: 0 auto; padding: 1rem; }
+
+    section { margin-bottom: 2rem; }
+    section h2 {
+      font-weight: 600;
+      margin: 0 0 0.8rem 0;
+      font-size: 1.2rem;
+      text-align: center;
+      color: var(--text-light);
     }
 
-    .grid{
-      display:grid;
-      gap:12px;
+    .grid {
+      display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.75rem;
     }
 
-    .day{
-      border-radius:12px;
-      padding:12px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
-      background: var(--card-white,#fff);
+    .day {
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      color: #000;
     }
 
-    .info{
-      font-size:0.8rem;
-      color:var(--muted);
-      margin-bottom:6px;
-    }
-    a.link {
-      color:var(--verde-escuro);
-      text-decoration:none;
-      font-weight:500;
-      display:block;
-      word-break:break-word;
-    }
-
-    /* CORES POR ESTAÇÃO */
-    .advento  .day { background: var(--advento); }
+    .advento .day { background: var(--advento); }
+    .natal .day { background: var(--natal); }
     .epifania .day { background: var(--epifania); }
-    .quaresma .day { background: var(--quaresma); }
-    .pascoa   .day { background: var(--pascoa); }
+    .quaresma .day { background: var(--quaresma); color: #fff; }
+    .pascoa .day { background: var(--pascoa); }
+    .pentecostes .day { background: var(--pentecostes); color: #fff; }
     .tempo-comum .day { background: var(--tempo-comum); }
+    .criacao .day { background: var(--criacao); }
 
-    /* RODAPÉ ESTÁTICO */
-    footer {
-      margin-top: 40px;
-      text-align:center;
-      font-size:0.82rem;
-      color:var(--muted);
-      padding:16px 8px;
-      background: rgba(255,255,255,0.9);
+    .info {
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+      color: #333;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+      word-break: break-word;
     }
 
     /* BOTÃO VISITE-NOS */
-    #visitBtn {
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      background:var(--verde-escuro);
-      color:#fff;
-      border:0;
-      border-radius:999px;
-      padding:10px 14px;
-      font-size:0.9rem;
-      box-shadow:0 8px 18px rgba(34,64,30,0.18);
-      cursor:pointer;
-      z-index:1002;
+    .visit-btn {
+      position: fixed;
+      bottom: 70px;
+      right: 15px;
+      background: var(--verde);
+      background: #22401E;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      z-index: 1000;
     }
-    #visitBtn:hover{ background:var(--verde-medio) }
+    .visit-btn:hover {
+      background: #597C3C;
+    }
 
-    @media (max-width:420px){
-      header h1{ font-size:1.1rem }
-      .filters select{ min-width:120px; font-size:0.85rem }
-      .grid{ gap:10px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) }
+    /* RODAPÉ */
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 0.8rem;
+      background: rgba(0,0,0,0.3);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1rem; }
+      .year { font-size: 1.3rem; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>SERMÕES IGREJA ESPERANÇA - CAMPUS LAGOA SANTA</h1>
-    <div class="year">2025</div>
+    <button id="installBtn" hidden>Instalar App</button>
 
     <div class="filters">
       <select id="filterPreletor">
         <option value="">Filtrar por Preletor</option>
-        <option>Rosifran Macedo</option>
-        <option>Rodolfo Amorim</option>
-        <option>Igor Miguel</option>
-        <option>Douglas Rafael</option>
-        <option>Felipe dos Anjos</option>
-        <option>Vanessa Belmonte</option>
-        <option>Leonardo Amaral</option>
-        <option>Sabrina Uchôa</option>
-        <option>Guilherme de Carvalho</option>
-        <option>Beto Mello</option>
-        <option>Filipe Breder</option>
+        <option value="Rosifran Macedo">Rosifran Macedo</option>
+        <option value="Rodolfo Amorim">Rodolfo Amorim</option>
+        <option value="Igor Miguel">Igor Miguel</option>
+        <option value="Douglas Rafael">Douglas Rafael</option>
+        <option value="Felipe dos Anjos">Felipe dos Anjos</option>
+        <option value="Vanessa Belmonte">Vanessa Belmonte</option>
+        <option value="Leonardo Amaral">Leonardo Amaral</option>
+        <option value="Sabrina Uchôa">Sabrina Uchôa</option>
+        <option value="Guilherme de Carvalho">Guilherme de Carvalho</option>
+        <option value="Beto Mello">Beto Mello</option>
+        <option value="Filipe Breder">Filipe Breder</option>
       </select>
 
       <select id="filterMes">
         <option value="">Filtrar por Mês</option>
-        <option>Janeiro</option>
-        <option>Fevereiro</option>
-        <option>Março</option>
-        <option>Abril</option>
-        <option>Maio</option>
-        <option>Junho</option>
-        <option>Julho</option>
-        <option>Agosto</option>
+        <option value="Janeiro">Janeiro</option>
+        <option value="Fevereiro">Fevereiro</option>
+        <option value="Março">Março</option>
+        <option value="Abril">Abril</option>
+        <option value="Maio">Maio</option>
+        <option value="Junho">Junho</option>
+        <option value="Julho">Julho</option>
+        <option value="Agosto">Agosto</option>
       </select>
 
       <select id="filterEstacao">
         <option value="">Filtrar por Estação</option>
+        <option value="advento">Advento</option>
+        <option value="natal">Natal</option>
         <option value="epifania">Epifania</option>
         <option value="quaresma">Quaresma</option>
         <option value="pascoa">Páscoa</option>
+        <option value="pentecostes">Pentecostes</option>
         <option value="tempo-comum">Tempo Comum</option>
-        <option value="advento">Advento</option>
+        <option value="criacao">Criação</option>
       </select>
     </div>
   </header>
@@ -401,32 +393,61 @@
 
   </main>
 
-  <footer>© IGREJA ESPERANÇA ® 2025. TODOS OS DIREITOS RESERVADOS.</footer>
 
-  <button id="visitBtn" onclick="window.open('https://maps.app.goo.gl/zEEwW7ffFNYz7Pxp8','_blank')">📍 Visite-nos</button>
+  <button class="visit-btn" onclick="window.open('https://maps.app.goo.gl/zEEwW7ffFNYz7Pxp8','_blank')">📍 Visite-nos</button>
+
+  <footer>
+    © IGREJA ESPERANÇA ® 2025. TODOS OS DIREITOS RESERVADOS.
+  </footer>
 
   <script>
-    // filtros
-    const filterPreletor=document.getElementById('filterPreletor');
-    const filterMes=document.getElementById('filterMes');
-    const filterEstacao=document.getElementById('filterEstacao');
-    function aplicarFiltro(){
-      const preletor=(filterPreletor.value||'').toLowerCase();
-      const mes=(filterMes.value||'').toLowerCase();
-      const estacao=filterEstacao.value;
-      document.querySelectorAll('.day').forEach(day=>{
-        const texto=day.innerText.toLowerCase();
-        const okPreletor=!preletor||texto.includes(preletor);
-        const okMes=!mes||texto.includes(mes);
-        const okEstacao=!estacao||day.closest('section')?.classList.contains(estacao);
-        day.style.display=(okPreletor&&okMes&&okEstacao)?'':'none';
+    // --- FILTRO ---
+    const filterPreletor = document.getElementById('filterPreletor');
+    const filterMes = document.getElementById('filterMes');
+    const filterEstacao = document.getElementById('filterEstacao');
+
+    function aplicarFiltro() {
+      const preletor = filterPreletor.value.toLowerCase();
+      const mes = filterMes.value.toLowerCase();
+      const estacao = filterEstacao.value;
+
+      document.querySelectorAll('.day').forEach(day => {
+        const texto = day.innerText.toLowerCase();
+        const estacaoClasse = estacao ? day.closest('section').classList.contains(estacao) : true;
+
+        const matchPreletor = !preletor || texto.includes(preletor);
+        const matchMes = !mes || texto.includes(mes);
+        const matchEstacao = estacaoClasse;
+
+        day.style.display = (matchPreletor && matchMes && matchEstacao) ? '' : 'none';
       });
     }
-    [filterPreletor,filterMes,filterEstacao].forEach(el=>el.addEventListener('change',aplicarFiltro));
 
-    // Service Worker
-    if('serviceWorker'in navigator&&(window.isSecureContext||location.hostname==='localhost')){
-      navigator.serviceWorker.register('sw.js').catch(err=>console.warn('sw fail',err));
+    filterPreletor.addEventListener('change', aplicarFiltro);
+    filterMes.addEventListener('change', aplicarFiltro);
+    filterEstacao.addEventListener('change', aplicarFiltro);
+
+    // --- INSTALAÇÃO PWA ---
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.hidden = false;
+    });
+
+    installBtn.addEventListener('click', () => {
+      installBtn.hidden = true;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        deferredPrompt = null;
+      });
+    });
+
+    // --- SERVICE WORKER ---
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(err => console.error('SW fail', err));
     }
   </script>
 </body>
