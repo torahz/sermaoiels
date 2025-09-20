@@ -4,6 +4,12 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>SERMÕES IGREJA ESPERANÇA - CAMPUS LAGOA SANTA</title>
+
+  <!-- PWA manifest & theme -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#3C564A">
+  <link rel="icon" href="icon-512.png" type="image/png">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -104,8 +110,7 @@
 
     a.link { font-weight:600; text-decoration:none; display:block; word-break:break-word; margin-top:8px; }
 
-    /* cores por estação - apenas background; cor do texto será ajustada por JS
-       para escolher automaticamente entre preto/branco conforme contraste */
+    /* cores por estação - apenas background; cor do texto será ajustada por JS */
     .advento .day { background: var(--advento); }
     .natal .day { background: var(--natal); }
     .epifania .day { background: var(--epifania); }
@@ -184,7 +189,8 @@
     </div>
 
     <div class="actions">
-        <button id="installBtn" class="btn" hidden>Instalar</button>
+      <!-- botão ficará oculto até beforeinstallprompt ser disparado -->
+      <button id="installBtn" class="btn" hidden>Instalar</button>
     </div>
   </header>
 
@@ -458,7 +464,6 @@
      </div>
     </div>
    </section>
-
   </main>
 
   <footer>&copy; IGREJA ESPERANÇA ® 2025. TODOS OS DIREITOS RESERVADOS.</footer>
@@ -598,11 +603,8 @@
     function adjustCardText(){
       document.querySelectorAll('.day').forEach(card => {
         let bg = window.getComputedStyle(card).backgroundColor;
-        // bg format: 'rgb(r, g, b)' or 'rgba(...)'
         const nums = bg.match(/\d+/g);
         if(!nums || nums.length < 3){
-          // fallback: try to compute from CSS variable fallback
-          // default to dark text
           card.style.color = '#000';
           card.querySelectorAll('a,.info').forEach(el => el.style.color = '#000');
           return;
@@ -648,61 +650,51 @@
       });
       grids.forEach(g => observer.observe(g, { childList:true }));
 
-      // 6) PWA install prompt handling (exibe botão instalar)
-      let deferredPrompt;
-      const installBtn = document.getElementById('installBtn');
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installBtn.hidden = false;
-      });
+      // 7) Visit button
+      const visitBtn = document.getElementById('visitBtn');
+      if (visitBtn) {
+        visitBtn.addEventListener('click', ()=> {
+          window.open('https://maps.app.goo.gl/fHui3ZgWdFU8hWVcA', '_blank', 'noopener');
+        });
+      }
+    });
+
+    /* -------------------------
+       BEFOREINSTALLPROMPT & SW
+       (fora do DOMContentLoaded para garantir captura)
+       ------------------------- */
+    let deferredPrompt = null;
+    const installBtn = document.getElementById('installBtn');
+
+    // capture event as early as possible
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (installBtn) installBtn.hidden = false;
+    });
+
+    // install button click
+    if (installBtn) {
       installBtn.addEventListener('click', async () => {
-        if(!deferredPrompt) return;
+        if (!deferredPrompt) return;
         installBtn.hidden = true;
         deferredPrompt.prompt();
-        const choice = await deferredPrompt.userChoice;
-        deferredPrompt = null;
+        try {
+          const choice = await deferredPrompt.userChoice;
+          // choice.outcome is 'accepted' or 'dismissed'
+          deferredPrompt = null;
+        } catch (err) {
+          deferredPrompt = null;
+        }
       });
-      // registrar service worker (tenta, falha silenciosamente em file://)
-      if('serviceWorker' in navigator){
-        navigator.serviceWorker && navigator.serviceWorker.register('sw.js').catch(()=>{/*sw failed*/});
-      }
-
-      // 7) Visit button
-      document.getElementById('visitBtn').addEventListener('click', ()=> {
-        window.open('https://maps.app.goo.gl/fHui3ZgWdFU8hWVcA', '_blank', 'noopener');
-      });
-    });
-  </script>
-<!-- Botão de Instalar (fica escondido até o evento ser disparado) -->
-<button id="btnInstalar" style="display:none;position:fixed;bottom:70px;right:20px;padding:10px 18px;
-  background-color:#3C564A;color:#fff;border:none;border-radius:8px;cursor:pointer;z-index:2000;">
-  Instalar
-</button>
-
-<script>
-  let deferredPrompt;
-  const btnInstalar = document.getElementById("btnInstalar");
-
-  window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    btnInstalar.style.display = "block"; // mostra botão quando disponível
-  });
-
-  btnInstalar.addEventListener("click", async () => {
-    btnInstalar.style.display = "none";
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === "accepted") {
-        console.log("Usuário aceitou instalar o PWA");
-      } else {
-        console.log("Usuário recusou instalar o PWA");
-      }
-      deferredPrompt = null;
     }
-  });
-</script>
+
+    // register service worker on load
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {/* silent */});
+      });
+    }
+  </script>
 </body>
 </html>
