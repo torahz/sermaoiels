@@ -670,9 +670,39 @@
 
       // 7) Visit button
       document.getElementById('visitBtn').addEventListener('click', ()=> {
-        window.open('https://share.google/DrEsHpR6p8odMP5uE', '_blank', 'noopener');
+        window.open('https://maps.app.goo.gl/fHui3ZgWdFU8hWVcA', '_blank', 'noopener');
       });
     });
   </script>
+<!-- Botão de Instalar (fica escondido até o evento ser disparado) -->
+<button id="btnInstalar" style="display:none;position:fixed;bottom:70px;right:20px;padding:10px 18px;
+  background-color:#3C564A;color:#fff;border:none;border-radius:8px;cursor:pointer;z-index:2000;">
+  Instalar
+</button>
+
+<script>
+  let deferredPrompt;
+  const btnInstalar = document.getElementById("btnInstalar");
+
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    btnInstalar.style.display = "block"; // mostra botão quando disponível
+  });
+
+  btnInstalar.addEventListener("click", async () => {
+    btnInstalar.style.display = "none";
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === "accepted") {
+        console.log("Usuário aceitou instalar o PWA");
+      } else {
+        console.log("Usuário recusou instalar o PWA");
+      }
+      deferredPrompt = null;
+    }
+  });
+</script>
 </body>
 </html>
