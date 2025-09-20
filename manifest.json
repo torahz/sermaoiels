@@ -1,8 +1,8 @@
 {
   "name": "Sermões - Igreja Esperança",
   "short_name": "Sermões",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "https://torahz.github.io/sermaoiels/",
+  "scope": "https://torahz.github.io/sermaoiels/",
   "display": "standalone",
   "background_color": "#3C564A",
   "theme_color": "#3C564A",
