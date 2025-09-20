@@ -1,294 +1,302 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
- <head>
+<head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>
-   SERM&Otilde;ES IGREJA ESPERAN&Ccedil;A - CAMPUS LAGOA SANTA
-  </title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>SERMÕES IGREJA ESPERANÇA - CAMPUS LAGOA SANTA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
-   :root{
-      --advento:#87CEFA; --natal:#DAA520; --epifania:#FFFFF0; --quaresma:#483D8B;
-      --pascoa:#DCDCDC; --pentecostes:#D2691E; --tempo-comum:#9ACD32; --criacao:#00CED1;
-      --text-light:#fff; --muted:#ccc;
+    :root {
+      --advento:#84A488; --natal:#D6AA4C; --epifania:#3E5062; --quaresma:#333B47;
+      --pascoa:#F0E7DC; --pentecostes:#BC6E2E; --tempo-comum:#3C564A; --criacao:#6B96A6;
+      --igreja:#3C564A; --text-light:#fff; --text-dark:#000; --muted:#cfcfcf;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:"Poppins",sans-serif; color:var(--text-light);
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html,body { height:100%; }
+    body {
+      font-family: "Poppins", sans-serif;
       background: url('background-2560x1440.png') no-repeat center center fixed;
       background-size: cover;
-      /* garantir espaço para header/ footer fixos */
-      padding-top:120px;
-      padding-bottom:90px;
+      color: var(--text-light);
+      padding-top:140px;   /* espaço para header fixo */
+      padding-bottom:120px;/* espaço para footer fixo */
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
+
+    /* HEADER */
     header{
-      position:fixed; top:0; left:0; right:0; background:rgba(0,0,0,0.78);
-      z-index:1000; padding:14px 12px; text-align:center;
-      display:flex; flex-direction:column; align-items:center; gap:10px;
+      position:fixed;
+      top:0; left:0; right:0;
+      background: rgba(0,0,0,0.55); /* ligeiramente mais transparente */
+      backdrop-filter: blur(4px);
+      z-index:1000;
+      padding:10px 16px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
     }
-    header h1{ margin:0; font-size:1.35rem; color:#fff; font-weight:700; letter-spacing:0.02em;}
-    .filters{ display:flex; gap:8px; justify-content:center; flex-wrap:wrap; width:100%; max-width:980px; }
-    .filters select{ padding:8px 10px; border-radius:8px; border:1px solid #ccc; background:#fff; color:#000; font-size:0.95rem; }
-    main{ max-width:980px; margin:0 auto; padding:8px 16px; }
-    section{ margin-bottom:22px; }
-    section h2{ margin:0 0 10px 0; text-align:center; color:#fff; font-size:1.05rem; font-weight:600; }
-    .grid{ display:grid; gap:12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-    .day{ padding:12px; border-radius:12px; color:#000; display:block; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
-    .advento .day{ background:var(--advento); }
-    .natal .day{ background:var(--natal); }
-    .epifania .day{ background:var(--epifania); }
-    .quaresma .day{ background:var(--quaresma); color:#fff; }
-    .pascoa .day{ background:var(--pascoa); }
-    .pentecostes .day{ background:var(--pentecostes); color:#fff; }
-    .tempo-comum .day{ background:var(--tempo-comum); }
-    .criacao .day{ background:var(--criacao); }
-    .info { font-size:0.85rem; margin-bottom:8px; color:#222; display:flex; flex-direction:column; gap:4px; }
-    .info .date { font-weight:600; font-size:0.9rem; color:#111; }
-    .info .label { font-size:0.82rem; color:#333; }
-    a.link{ font-weight:600; color:inherit; text-decoration:none; display:block; word-break:break-word; }
-    footer{ position:fixed; bottom:0; left:0; right:0; background:rgba(0,0,0,0.85); color:var(--muted); text-align:center; padding:10px; font-size:0.78rem; z-index:1000; }
-    @media (max-width:420px){
-      header h1{ font-size:1rem }
-      .filters select{ font-size:0.85rem; padding:7px 8px }
-      .grid{ gap:10px }
-      body{ padding-top:140px }
+    .logo-area {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .logo-area img { height:34px; width:auto; display:block; }
+    .logo-area h1 { font-size:1.05rem; color:#fff; font-weight:700; margin:0; }
+    .subtitle { font-size:0.78rem; color:#fff; font-weight:400; margin-top:-4px; }
+
+    .filters {
+      display:flex;
+      gap:8px;
+      justify-content:center;
+      flex-wrap:wrap;
+      width:100%;
+      max-width:980px;
+      margin-top:6px;
+    }
+    .filters select {
+      padding:8px 10px;
+      border-radius:8px;
+      border:none;
+      background:var(--igreja);
+      color:#fff;
+      font-size:0.92rem;
+      min-width:150px;
+    }
+    .actions {
+      margin-top:6px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn {
+      background:var(--igreja);
+      color:#fff;
+      border:none;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:0.9rem;
+      font-weight:600;
+    }
+    .btn[hidden]{ display:none !important; }
+
+    /* LAYOUT */
+    main { max-width:980px; margin:0 auto; padding:8px 16px; }
+    section { margin-bottom:26px; }
+    section h2 { margin:0 0 10px 0; text-align:center; color:#fff; font-size:1rem; font-weight:600; }
+
+    .grid { display:grid; gap:12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+
+    .day {
+      padding:12px;
+      border-radius:12px;
+      display:block;
+      box-shadow:0 2px 6px rgba(0,0,0,0.12);
+      transition: transform .12s ease;
+    }
+    .day:hover { transform: translateY(-3px); }
+
+    .info { font-size:0.85rem; margin-bottom:6px; }
+    .info .date { font-weight:700; font-size:0.92rem; }
+    .info .label { font-size:0.82rem; opacity:0.95; margin-top:6px; }
+
+    a.link { font-weight:600; text-decoration:none; display:block; word-break:break-word; margin-top:8px; }
+
+    /* cores por estação - apenas background; cor do texto será ajustada por JS
+       para escolher automaticamente entre preto/branco conforme contraste */
+    .advento .day { background: var(--advento); }
+    .natal .day { background: var(--natal); }
+    .epifania .day { background: var(--epifania); }
+    .quaresma .day { background: var(--quaresma); }
+    .pascoa .day { background: var(--pascoa); }
+    .pentecostes .day { background: var(--pentecostes); }
+    .tempo-comum .day { background: var(--tempo-comum); }
+    .criacao .day { background: var(--criacao); }
+
+    /* FOOTER */
+    footer {
+      position:fixed;
+      bottom:0; left:0; right:0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      color:var(--muted);
+      text-align:center;
+      padding:10px;
+      font-size:0.78rem;
+      z-index:1000;
+    }
+
+    /* BOTÃO VISITE-NOS FLOUTANTE */
+    .float-btn{
+      position:fixed;
+      bottom:86px; /* acima do footer */
+      right:18px;
+      background:#3C564A; /* cor pedida */
+      color:#fff;
+      border:none;
+      padding:10px 14px;
+      border-radius:28px;
+      font-weight:600;
+      box-shadow:0 4px 10px rgba(0,0,0,0.25);
+      cursor:pointer;
+      z-index:1500;
+    }
+    .float-btn:active{ transform:translateY(1px); }
+
+    /* RESPONSIVO */
+    @media (max-width:480px) {
+      body { padding-top:170px; padding-bottom:160px; }
+      .filters select { min-width:120px; font-size:0.85rem; padding:7px 8px; }
+      .logo-area img { height:30px; }
+      .logo-area h1 { font-size:0.95rem; }
+      section h2 { font-size:0.95rem; }
+      .grid { gap:10px; grid-template-columns: repeat(auto-fill,minmax(160px,1fr)); }
+      .float-btn{ bottom:92px; right:12px; padding:9px 12px; font-size:0.9rem; }
     }
   </style>
- </head>
- <body>
+</head>
+<body>
   <header>
-   <h1>
-    SERM&Otilde;ES IGREJA ESPERAN&Ccedil;A - CAMPUS LAGOA SANTA
-   </h1>
-   <div aria-hidden="false" class="filters">
-    <select aria-label="Filtrar por Preletor" id="filterPreletor">
-     <option value="">
-      Filtrar por Preletor
-     </option>
-     <option value="Felipe dos Anjos">
-      Felipe dos Anjos
-     </option>
-    </select>
-    <select aria-label="Filtrar por M&ecirc;s" id="filterMes">
-     <option value="">
-      Filtrar por M&ecirc;s
-     </option>
-     <option value="1">
-      Janeiro
-     </option>
-     <option value="2">
-      Fevereiro
-     </option>
-     <option value="3">
-      Mar&ccedil;o
-     </option>
-     <option value="4">
-      Abril
-     </option>
-     <option value="5">
-      Maio
-     </option>
-     <option value="6">
-      Junho
-     </option>
-     <option value="7">
-      Julho
-     </option>
-     <option value="8">
-      Agosto
-     </option>
-     <option value="9">
-      Setembro
-     </option>
-     <option value="10">
-      Outubro
-     </option>
-     <option value="11">
-      Novembro
-     </option>
-     <option value="12">
-      Dezembro
-     </option>
-    </select>
-    <select aria-label="Filtrar por Esta&ccedil;&atilde;o" id="filterEstacao">
-     <option value="">
-      Filtrar por Esta&ccedil;&atilde;o
-     </option>
-     <option value="advento">
-      Advento
-     </option>
-     <option value="natal">
-      Natal
-     </option>
-     <option value="epifania">
-      Epifania
-     </option>
-     <option value="quaresma">
-      Quaresma
-     </option>
-     <option value="pascoa">
-      P&aacute;scoa
-     </option>
-     <option value="pentecostes">
-      Pentecostes
-     </option>
-     <option value="tempo-comum">
-      Tempo Comum
-     </option>
-     <option value="criacao">
-      Cria&ccedil;&atilde;o
-     </option>
-    </select>
-   </div>
+    <div class="logo-area">
+      <img src="logoesperanca.png" alt="Logo Esperança" />
+      <h1>Igreja Esperança</h1>
+    </div>
+    <div class="subtitle">SERMÕES CAMPUS LAGOA SANTA</div>
+
+    <div class="filters" role="toolbar" aria-label="Filtros">
+      <select id="filterPreletor" aria-label="Filtrar por preletor"><option value="">PRELETOR</option></select>
+      <select id="filterMes" aria-label="Filtrar por mês">
+        <option value="">MÊS</option>
+        <option value="1">Janeiro</option><option value="2">Fevereiro</option><option value="3">Março</option>
+        <option value="4">Abril</option><option value="5">Maio</option><option value="6">Junho</option>
+        <option value="7">Julho</option><option value="8">Agosto</option><option value="9">Setembro</option>
+        <option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
+      </select>
+      <select id="filterEstacao" aria-label="Filtrar por estação">
+        <option value="">ESTAÇÃO</option>
+        <option value="advento">Advento</option><option value="natal">Natal</option>
+        <option value="epifania">Epifania</option><option value="quaresma">Quaresma</option>
+        <option value="pascoa">Páscoa</option><option value="pentecostes">Pentecostes</option>
+        <option value="tempo-comum">Tempo Comum</option><option value="criacao">Criação</option>
+      </select>
+    </div>
+
+    <div class="actions">
+        <button id="installBtn" class="btn" hidden>Instalar</button>
+    </div>
   </header>
-  <!-- Substitua todo o <main> pelo conteúdo abaixo (mantive seus cards / links / textos) -->
+
   <main>
    <!-- TEMPO COMUM (ordem por data será controlada pelo script) -->
    <section aria-labelledby="tempo-comum-title" class="season tempo-comum">
-    <h2 id="tempo-comum-title">
-     Tempo Comum
-    </h2>
+    <h2 id="tempo-comum-title">Tempo Comum</h2>
     <div class="grid">
      <div class="day" data-date="2025-08-31">
       <div class="info">
-       <div class="date">
-        31/08/2025
-       </div>
-       <div class="label">
-        14&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">31/08/2025</div>
+       <div class="label">14&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "Carta &agrave;s Sete Igrejas - Carta &agrave; Igreja em P&eacute;rgamo" - Felipe dos Anjos
       </a>
      </div>
+
      <div class="day" data-date="2025-08-24">
       <div class="info">
-       <div class="date">
-        24/08/2025
-       </div>
-       <div class="label">
-        13&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">24/08/2025</div>
+       <div class="label">13&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/11BnIY6pCsY66qFLFYR4DN8pCzWppRyBQ/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "Carta &agrave;s Sete Igrejas - Carta &agrave; Igreja em Esmirna" - Filipe Breder
       </a>
      </div>
+
      <div class="day" data-date="2025-08-17">
       <div class="info">
-       <div class="date">
-        17/08/2025
-       </div>
-       <div class="label">
-        12&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">17/08/2025</div>
+       <div class="label">12&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing" rel="noopener" target="_blank">
        Serm&atilde;o Especial "A Autoridade da Palavra de Deus" - Rosifran Macedo
       </a>
      </div>
+
      <div class="day" data-date="2025-08-10">
       <div class="info">
-       <div class="date">
-        10/08/2025
-       </div>
-       <div class="label">
-        11&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">10/08/2025</div>
+       <div class="label">11&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link" rel="noopener" target="_blank">
        S&eacute;rie "Carta &agrave;s Sete Igrejas - Carta &agrave; Igreja em &Eacute;feso" - Filipe Breder
       </a>
      </div>
+
      <div class="day" data-date="2025-08-03">
       <div class="info">
-       <div class="date">
-        03/08/2025
-       </div>
-       <div class="label">
-        10&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">03/08/2025</div>
+       <div class="label">10&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "Carta &agrave;s Sete Igrejas - A Vis&atilde;o do Cristo Exaltado" - Guilherme de Carvalho
       </a>
      </div>
+
      <div class="day" data-date="2025-07-20">
       <div class="info">
-       <div class="date">
-        20/07/2025
-       </div>
-       <div class="label">
-        9&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">20/07/2025</div>
+       <div class="label">9&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "Carta &agrave;s Sete Igrejas - Apocalipse Para Bem-Aventurados" - Rodolfo Amorim
       </a>
      </div>
+
      <div class="day" data-date="2025-07-13">
       <div class="info">
-       <div class="date">
-        13/07/2025
-       </div>
-       <div class="label">
-        8&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">13/07/2025</div>
+       <div class="label">8&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Rosifran Macedo
       </a>
      </div>
+
      <div class="day" data-date="2025-07-06">
       <div class="info">
-       <div class="date">
-        06/07/2025
-       </div>
-       <div class="label">
-        7&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">06/07/2025</div>
+       <div class="label">7&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=drive_link" rel="noopener" target="_blank">
        Serm&atilde;o Especial - Igor Miguel
       </a>
      </div>
+
      <div class="day" data-date="2025-06-29">
       <div class="info">
-       <div class="date">
-        29/06/2025
-       </div>
-       <div class="label">
-        3&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">29/06/2025</div>
+       <div class="label">3&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Douglas Rafael
       </a>
      </div>
+
      <div class="day" data-date="2025-06-22">
       <div class="info">
-       <div class="date">
-        22/06/2025
-       </div>
-       <div class="label">
-        2&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">22/06/2025</div>
+       <div class="label">2&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Felipe dos Anjos
       </a>
      </div>
+
      <div class="day" data-date="2025-06-01">
       <div class="info">
-       <div class="date">
-        01/06/2025
-       </div>
-       <div class="label">
-        1&ordm; Domingo ap&oacute;s Pentecostes
-       </div>
+       <div class="date">01/06/2025</div>
+       <div class="label">1&ordm; Domingo ap&oacute;s Pentecostes</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Vanessa Belmonte
@@ -296,46 +304,35 @@
      </div>
     </div>
    </section>
+
    <!-- PÁSCOA -->
    <section aria-labelledby="pascoa-title" class="season pascoa">
-    <h2 id="pascoa-title">
-     P&aacute;scoa
-    </h2>
+    <h2 id="pascoa-title">P&aacute;scoa</h2>
     <div class="grid">
      <div class="day" data-date="2025-05-25">
       <div class="info">
-       <div class="date">
-        25/05/2025
-       </div>
-       <div class="label">
-        7&ordm; Domingo da P&aacute;scoa
-       </div>
+       <div class="date">25/05/2025</div>
+       <div class="label">7&ordm; Domingo da P&aacute;scoa</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Felipe dos Anjos
       </a>
      </div>
+
      <div class="day" data-date="2025-05-11">
       <div class="info">
-       <div class="date">
-        11/05/2025
-       </div>
-       <div class="label">
-        6&ordm; Domingo da P&aacute;scoa
-       </div>
+       <div class="date">11/05/2025</div>
+       <div class="label">6&ordm; Domingo da P&aacute;scoa</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Sabrina Uch&ocirc;a
       </a>
      </div>
+
      <div class="day" data-date="2025-05-04">
       <div class="info">
-       <div class="date">
-        04/05/2025
-       </div>
-       <div class="label">
-        5&ordm; Domingo da P&aacute;scoa
-       </div>
+       <div class="date">04/05/2025</div>
+       <div class="label">5&ordm; Domingo da P&aacute;scoa</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Leonardo Amaral
@@ -343,59 +340,45 @@
      </div>
     </div>
    </section>
+
    <!-- QUARESMA -->
    <section aria-labelledby="quaresma-title" class="season quaresma">
-    <h2 id="quaresma-title">
-     Quaresma
-    </h2>
+    <h2 id="quaresma-title">Quaresma</h2>
     <div class="grid">
      <div class="day" data-date="2025-04-06">
       <div class="info">
-       <div class="date">
-        06/04/2025
-       </div>
-       <div class="label">
-        5&ordm; Domingo da Quaresma
-       </div>
+       <div class="date">06/04/2025</div>
+       <div class="label">5&ordm; Domingo da Quaresma</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Felipe dos Anjos
       </a>
      </div>
+
      <div class="day" data-date="2025-03-23">
       <div class="info">
-       <div class="date">
-        23/03/2025
-       </div>
-       <div class="label">
-        3&ordm; Domingo da Quaresma
-       </div>
+       <div class="date">23/03/2025</div>
+       <div class="label">3&ordm; Domingo da Quaresma</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - Leonardo Amaral
       </a>
      </div>
+
      <div class="day" data-date="2025-03-09">
       <div class="info">
-       <div class="date">
-        09/03/2025
-       </div>
-       <div class="label">
-        3&ordm; Domingo da Quaresma
-       </div>
+       <div class="date">09/03/2025</div>
+       <div class="label">3&ordm; Domingo da Quaresma</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1p86iu0WW47bYWTCoseTRnOXhZ3pHZ5QX/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja Importa" - A Gl&oacute;ria do Minist&eacute;rio - Felipe dos Anjos
       </a>
      </div>
+
      <div class="day" data-date="2025-04-13">
       <div class="info">
-       <div class="date">
-        13/04/2025
-       </div>
-       <div class="label">
-        Domingo de Ramos
-       </div>
+       <div class="date">13/04/2025</div>
+       <div class="label">Domingo de Ramos</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1Oo_Pj1cNKaWuCpS-k8dnyeJR_Bn-GyQ1/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja do Futuro" - O Pr&oacute;prio Senhor Descer&aacute; Dos C&eacute;us - Felipe dos Anjos
@@ -403,59 +386,45 @@
      </div>
     </div>
    </section>
+
    <!-- EPIFANIA -->
    <section aria-labelledby="epifania-title" class="season epifania">
-    <h2 id="epifania-title">
-     Epifania
-    </h2>
+    <h2 id="epifania-title">Epifania</h2>
     <div class="grid">
      <div class="day" data-date="2025-02-09">
       <div class="info">
-       <div class="date">
-        09/02/2025
-       </div>
-       <div class="label">
-        6&ordm; Domingo da Epifania
-       </div>
+       <div class="date">09/02/2025</div>
+       <div class="label">6&ordm; Domingo da Epifania</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja Importa" - Igor Miguel
       </a>
      </div>
+
      <div class="day" data-date="2025-02-02">
       <div class="info">
-       <div class="date">
-        02/02/2025
-       </div>
-       <div class="label">
-        5&ordm; Domingo da Epifania
-       </div>
+       <div class="date">02/02/2025</div>
+       <div class="label">5&ordm; Domingo da Epifania</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja Importa" - Felipe dos Anjos
       </a>
      </div>
+
      <div class="day" data-date="2025-01-19">
       <div class="info">
-       <div class="date">
-        19/01/2025
-       </div>
-       <div class="label">
-        3&ordm; Domingo da Epifania
-       </div>
+       <div class="date">19/01/2025</div>
+       <div class="label">3&ordm; Domingo da Epifania</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja Importa" - Guilherme de Carvalho
       </a>
      </div>
+
      <div class="day" data-date="2025-01-12">
       <div class="info">
-       <div class="date">
-        12/01/2025
-       </div>
-       <div class="label">
-        2&ordm; Domingo da Epifania
-       </div>
+       <div class="date">12/01/2025</div>
+       <div class="label">2&ordm; Domingo da Epifania</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link" rel="noopener" target="_blank">
        S&eacute;rie "A Igreja Importa" - Beto Mello
@@ -463,33 +432,25 @@
      </div>
     </div>
    </section>
+
    <!-- CRIAÇÃO -->
    <section aria-labelledby="criacao-title" class="season criacao">
-    <h2 id="criacao-title">
-     Cria&ccedil;&atilde;o
-    </h2>
+    <h2 id="criacao-title">Cria&ccedil;&atilde;o</h2>
     <div class="grid">
      <div class="day" data-date="2025-09-14">
       <div class="info">
-       <div class="date">
-        14/09/2025
-       </div>
-       <div class="label">
-        2&ordm; Domingo da Cria&ccedil;&atilde;o
-       </div>
+       <div class="date">14/09/2025</div>
+       <div class="label">2&ordm; Domingo da Cria&ccedil;&atilde;o</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1g0O8nqWZv7JzzxheOsftB45fRRr-rUIL/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "Serm&atilde;o Especial" - Anivers&aacute;rio Esperan&ccedil;a Campus LS - Felipe dos Anjos
       </a>
      </div>
+
      <div class="day" data-date="2025-09-07">
       <div class="info">
-       <div class="date">
-        07/09/2025
-       </div>
-       <div class="label">
-        1&ordm; Domingo da Cria&ccedil;&atilde;o
-       </div>
+       <div class="date">07/09/2025</div>
+       <div class="label">1&ordm; Domingo da Cria&ccedil;&atilde;o</div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1MISxTHbWeuqsPM_z4IvCSN2wtvMpgD9H/view?usp=sharing" rel="noopener" target="_blank">
        S&eacute;rie "Carta &agrave;s Sete Igrejas" - Carta a Igreja em Tiatira - Igor Miguel
@@ -497,37 +458,45 @@
      </div>
     </div>
    </section>
+
   </main>
-  <footer>
-   &copy; IGREJA ESPERAN&Ccedil;A &reg; 2025. TODOS OS DIREITOS RESERVADOS.
-  </footer>
+
+  <footer>&copy; IGREJA ESPERANÇA ® 2025. TODOS OS DIREITOS RESERVADOS.</footer>
+
+  <!-- BOTÃO FLUTUANTE VISITE-NOS -->
+  <button class="float-btn" id="visitBtn" title="Visite-nos" aria-label="Visite-nos">
+    Visite-nos
+  </button>
+
   <script>
-   // --- utilidades de data/parsing ---
+    /* -------------------------
+       Funções de data / parsing
+       ------------------------- */
     function parseDateFromCard(card) {
-      // tenta data em data-date (ISO ou dd/mm/yyyy)
       const attr = card.getAttribute('data-date') || card.dataset.date || '';
-      if(attr) {
+      if (attr) {
         const iso = attr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-        if(iso) return new Date(`${iso[1]}-${iso[2]}-${iso[3]}T00:00:00`);
+        if (iso) return new Date(`${iso[1]}-${iso[2]}-${iso[3]}T00:00:00`);
         const dmy = attr.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-        if(dmy) return new Date(`${dmy[3]}-${dmy[2]}-${dmy[1]}T00:00:00`);
+        if (dmy) return new Date(`${dmy[3]}-${dmy[2]}-${dmy[1]}T00:00:00`);
       }
-      // tenta dentro de .info .date
       const dateEl = card.querySelector('.info .date');
-      if(dateEl) {
+      if (dateEl) {
         const m = dateEl.textContent.match(/(\d{2})\/(\d{2})\/(\d{4})/);
-        if(m) return new Date(`${m[3]}-${m[2]}-${m[1]}T00:00:00`);
+        if (m) return new Date(`${m[3]}-${m[2]}-${m[1]}T00:00:00`);
       }
       return new Date(0);
     }
 
     function monthNumberFromCard(card) {
       const dt = parseDateFromCard(card);
-      if (!isNaN(dt)) return dt.getMonth() + 1; // 1..12
+      if (!isNaN(dt)) return dt.getMonth() + 1;
       return null;
     }
 
-    // --- ordenação ---
+    /* -------------
+       Ordenação DOM
+       ------------- */
     function sortGrid(grid) {
       const cards = Array.from(grid.querySelectorAll('.day'));
       cards.sort((a,b) => parseDateFromCard(b) - parseDateFromCard(a));
@@ -550,24 +519,24 @@
       sections.forEach(s => mainEl.appendChild(s));
     }
 
-    // --- popula preletor dropdown a partir dos cards ---
+    /* -----------------------
+       Popula dropdown preletor
+       ----------------------- */
     function populatePreletorDropdown() {
       const sel = document.getElementById('filterPreletor');
-      if(!sel) return;
+      if (!sel) return;
       const names = new Set();
       document.querySelectorAll('.day a.link').forEach(a => {
         const txt = (a.textContent || "").trim();
-        // tentativa: preletor é o último trecho após ' - '
         const parts = txt.split(' - ').map(p => p.trim()).filter(Boolean);
         const last = parts[parts.length - 1] || txt;
-        if(last) names.add(last);
+        if (last) names.add(last);
       });
-      // limpar opções existentes (exceto placeholder)
       const placeholder = sel.querySelector('option');
       sel.innerHTML = '';
       sel.appendChild(placeholder);
       placeholder.value = '';
-      placeholder.textContent = 'Filtrar por Preletor';
+      placeholder.textContent = 'PRELETOR';
       Array.from(names).sort((a,b)=>a.localeCompare(b,'pt-BR')).forEach(n => {
         const opt = document.createElement('option');
         opt.value = n;
@@ -576,35 +545,32 @@
       });
     }
 
-    // --- filtro robusto (usa data para mês) ---
+    /* ------------------------
+       Filtro por preletor/mes/est.
+       ------------------------ */
     function aplicarFiltro() {
       const preletorRaw = (document.getElementById('filterPreletor').value || '').trim().toLowerCase();
       const mesRaw = (document.getElementById('filterMes').value || '').trim();
       const estacao = document.getElementById('filterEstacao').value || '';
-
-      // mesRaw já é numérico (value set nos option: 1..12) ou empty
       const mesNum = mesRaw ? parseInt(mesRaw, 10) : null;
 
       document.querySelectorAll('.day').forEach(day => {
         const texto = (day.innerText || '').toLowerCase();
         const estacaoClasse = !estacao || day.closest('section').classList.contains(estacao);
 
-        // preletor: checar value exato (dropdown) ou substring
         let matchPreletor = true;
-        if(preletorRaw) {
-          // tenta extrair preletor pelo padrão " - Nome" (última parte)
+        if (preletorRaw) {
           const a = day.querySelector('a.link');
           let preletorFromCard = '';
-          if(a) {
+          if (a) {
             const parts = (a.textContent || '').split(' - ').map(p=>p.trim()).filter(Boolean);
             preletorFromCard = parts[parts.length-1] || '';
           }
           matchPreletor = !preletorRaw || preletorFromCard.toLowerCase().includes(preletorRaw) || texto.includes(preletorRaw);
         }
 
-        // mês: comparar com o mês extraído da data (se fornecido)
         let matchMes = true;
-        if(mesNum) {
+        if (mesNum) {
           const cardMonth = monthNumberFromCard(day);
           matchMes = (cardMonth === mesNum);
         }
@@ -614,33 +580,99 @@
       });
     }
 
+    /* -------------------------------------
+       Ajusta cor do texto (preto/ branco)
+       ------------------------------------- */
+    function rgbToHex(r,g,b){
+      return "#" + [r,g,b].map(x => {
+        const h = x.toString(16);
+        return h.length === 1 ? '0'+h : h;
+      }).join('');
+    }
+    function luminanceFromRGB(r,g,b){
+      // r,g,b in 0..255
+      const srgb = [r,g,b].map(v => v/255);
+      const a = srgb.map(v => v <= 0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055,2.4));
+      return 0.2126*a[0] + 0.7152*a[1] + 0.0722*a[2];
+    }
+    function adjustCardText(){
+      document.querySelectorAll('.day').forEach(card => {
+        let bg = window.getComputedStyle(card).backgroundColor;
+        // bg format: 'rgb(r, g, b)' or 'rgba(...)'
+        const nums = bg.match(/\d+/g);
+        if(!nums || nums.length < 3){
+          // fallback: try to compute from CSS variable fallback
+          // default to dark text
+          card.style.color = '#000';
+          card.querySelectorAll('a,.info').forEach(el => el.style.color = '#000');
+          return;
+        }
+        const r = Number(nums[0]), g = Number(nums[1]), b = Number(nums[2]);
+        const lum = luminanceFromRGB(r,g,b);
+        const color = lum > 0.5 ? '#000' : '#fff';
+        card.style.color = color;
+        card.querySelectorAll('a,.info').forEach(el => el.style.color = color);
+      });
+    }
+
+    /* -------------------------
+       Inicialização e observer
+       ------------------------- */
     document.addEventListener('DOMContentLoaded', () => {
-      // 1) ordenar grids internos e seções por data (mais recente primeiro)
+      // 1) ordenar cada grid e seções
       document.querySelectorAll('section.season .grid').forEach(g => sortGrid(g));
       sortSectionsByLatest(document.querySelector('main'));
 
-      // 2) popular dropdown de preletores
+      // 2) ajustar cores do texto
+      adjustCardText();
+
+      // 3) popular dropdown preletor
       populatePreletorDropdown();
 
-      // 3) ligar eventos de filtro
+      // 4) ligar eventos de filtro
       document.getElementById('filterPreletor').addEventListener('change', aplicarFiltro);
       document.getElementById('filterMes').addEventListener('change', aplicarFiltro);
       document.getElementById('filterEstacao').addEventListener('change', aplicarFiltro);
 
-      // 4) observar alterações nas grids (se o integrador injetar cards, reordena + atualiza dropdown)
+      // 5) observar alterações (integrador pode injetar cards)
       const grids = document.querySelectorAll('section.season .grid');
       const observer = new MutationObserver((mutations) => {
-        // debounce rápido
         clearTimeout(window.__reorderTimeout);
         window.__reorderTimeout = setTimeout(() => {
           document.querySelectorAll('section.season .grid').forEach(g => sortGrid(g));
           sortSectionsByLatest(document.querySelector('main'));
           populatePreletorDropdown();
-          aplicarFiltro(); // reaplica filtro atual
-        }, 100);
+          aplicarFiltro();
+          adjustCardText();
+        }, 120);
       });
-      grids.forEach(g => observer.observe(g, { childList: true, subtree: false }));
+      grids.forEach(g => observer.observe(g, { childList:true }));
+
+      // 6) PWA install prompt handling (exibe botão instalar)
+      let deferredPrompt;
+      const installBtn = document.getElementById('installBtn');
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.hidden = false;
+      });
+      installBtn.addEventListener('click', async () => {
+        if(!deferredPrompt) return;
+        installBtn.hidden = true;
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        deferredPrompt = null;
+      });
+      // registrar service worker (tenta, falha silenciosamente em file://)
+      if('serviceWorker' in navigator){
+        navigator.serviceWorker && navigator.serviceWorker.register('sw.js').catch(()=>{/*sw failed*/});
+      }
+
+      // 7) Visit button
+      document.getElementById('visitBtn').addEventListener('click', ()=> {
+        window.open('https://share.google/DrEsHpR6p8odMP5uE', '_blank', 'noopener');
+      });
     });
   </script>
- </body>
+</body>
 </html>
