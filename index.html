@@ -4,205 +4,112 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <title>
-   SERM&Otilde;ES IGREJA ESPERAN&Ccedil;A - CAMPUS LAGOA SANTA
+   SERMÕES IGREJA ESPERANÇA - CAMPUS LAGOA SANTA
   </title>
-  <!-- PWA manifest & theme -->
   <link href="./manifest.json" rel="manifest"/>
   <meta content="#3C564A" name="theme-color"/>
   <link href="icon-512.png" rel="icon" type="image/png"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
   <style>
-   :root {
-      --advento:#84A488; --natal:#D6AA4C; --epifania:#3E5062; --quaresma:#333B47;
-      --pascoa:#F0E7DC; --pentecostes:#BC6E2E; --tempo-comum:#3C564A; --criacao:#6B96A6;
-      --igreja:#3C564A; --text-light:#fff; --text-dark:#000; --muted:#cfcfcf;
-    }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html,body { height:100%; }
-    body {
-      font-family: "Poppins", sans-serif;
-      background: url('background-2560x1440.png') no-repeat center center fixed;
-      background-size: cover;
-      color: var(--text-light);
-      padding-top:140px;   /* espaço para header fixo */
-      padding-bottom:120px;/* espaço para footer fixo */
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+   :root{
+--advento:#84A488;--natal:#D6AA4C;--epifania:#3E5062;--quaresma:#333B47;
+--pascoa:#F0E7DC;--pentecostes:#BC6E2E;--tempo-comum:#3C564A;--criacao:#6B96A6;
+--igreja:#3C564A;--text-light:#fff;--muted:#cfcfcf;
+}
 
-    /* HEADER */
-    header{
-      position:fixed;
-      top:0; left:0; right:0;
-      background: rgba(0,0,0,0.55); /* ligeiramente mais transparente */
-      backdrop-filter: blur(4px);
-      z-index:1000;
-      padding:10px 16px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:6px;
-    }
-    .logo-area {
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .logo-area img { height:34px; width:auto; display:block; }
-    .logo-area h1 { font-size:1.05rem; color:#fff; font-weight:700; margin:0; }
-    .subtitle { font-size:0.78rem; color:#fff; font-weight:400; margin-top:-4px; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+font-family:Poppins,sans-serif;
+background:url('background-2560x1440.png') no-repeat center center fixed;
+background-size:cover;
+color:#fff;
+padding-top:140px;
+padding-bottom:140px;
+}
 
-    .filters {
-      display:flex;
-      gap:8px;
-      justify-content:center;
-      flex-wrap:wrap;
-      width:100%;
-      max-width:980px;
-      margin-top:6px;
-    }
-    .filters select {
-      padding:8px 10px;
-      border-radius:8px;
-      border:none;
-      background:var(--igreja);
-      color:#fff;
-      font-size:0.92rem;
-      min-width:150px;
-    }
-    .actions {
-      margin-top:6px;
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .btn {
-      background:var(--igreja);
-      color:#fff;
-      border:none;
-      padding:8px 12px;
-      border-radius:8px;
-      cursor:pointer;
-      font-size:0.9rem;
-      font-weight:600;
-    }
-    .btn[hidden]{ display:none !important; }
+header,footer{
+position:fixed;left:0;right:0;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(4px);
+z-index:1000;text-align:center;
+}
+header{top:0;padding:10px}
+footer{bottom:0;padding:10px;font-size:.8rem;color:var(--muted)}
 
-    /* LAYOUT */
-    main { max-width:980px; margin:0 auto; padding:8px 16px; }
-    section { margin-bottom:26px; }
-    section h2 { margin:0 0 10px 0; text-align:center; color:#fff; font-size:1rem; font-weight:600; }
+main{max-width:980px;margin:auto;padding:16px}
 
-    .grid { display:grid; gap:12px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+select{padding:8px;border-radius:8px;border:none;background:var(--igreja);color:#fff}
 
-    .day {
-      padding:12px;
-      border-radius:12px;
-      display:block;
-      box-shadow:0 2px 6px rgba(0,0,0,0.12);
-      transition: transform .12s ease;
-    }
-    .day:hover { transform: translateY(-3px); }
+.year-title{
+text-align:center;
+font-size:1.1rem;
+font-weight:600;
+margin:32px 0 16px;
+opacity:.9;
+}
 
-    .info { font-size:0.85rem; margin-bottom:6px; }
-    .info .date { font-weight:700; font-size:0.92rem; }
-    .info .label { font-size:0.82rem; opacity:0.95; margin-top:6px; }
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.day{padding:12px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.day a{display:block;margin-top:8px;font-weight:600;text-decoration:none;color:inherit}
 
-    a.link { font-weight:600; text-decoration:none; display:block; word-break:break-word; margin-top:8px; }
+/* CORES POR ESTAÇÃO (RESTAURADO) */
+.tempo-comum .day{background:var(--tempo-comum)}
+.pascoa .day{background:var(--pascoa)}
+.quaresma .day{background:var(--quaresma)}
+.epifania .day{background:var(--epifania)}
+.criacao .day{background:var(--criacao)}
+.advento .day{background:var(--advento)}
+.natal .day{background:var(--natal)}
 
-    /* cores por estação - apenas background; cor do texto será ajustada por JS */
-    .advento .day { background: var(--advento); }
-    .natal .day { background: var(--natal); }
-    .epifania .day { background: var(--epifania); }
-    .quaresma .day { background: var(--quaresma); }
-    .pascoa .day { background: var(--pascoa); }
-    .pentecostes .day { background: var(--pentecostes); }
-    .tempo-comum .day { background: var(--tempo-comum); }
-    .criacao .day { background: var(--criacao); }
-
-    /* FOOTER */
-    footer {
-      position:fixed;
-      bottom:0; left:0; right:0;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(4px);
-      color:var(--muted);
-      text-align:center;
-      padding:10px;
-      font-size:0.78rem;
-      z-index:1000;
-    }
-
-    /* BOTÃO VISITE-NOS FLOUTANTE */
-    .float-btn{
-      position:fixed;
-      bottom:86px; /* acima do footer */
-      right:18px;
-      background:#3C564A; /* cor pedida */
-      color:#fff;
-      border:none;
-      padding:10px 14px;
-      border-radius:28px;
-      font-weight:600;
-      box-shadow:0 4px 10px rgba(0,0,0,0.25);
-      cursor:pointer;
-      z-index:1500;
-    }
-    .float-btn:active{ transform:translateY(1px); }
-
-    /* RESPONSIVO */
-    @media (max-width:480px) {
-      body { padding-top:170px; padding-bottom:160px; }
-      .filters select { min-width:120px; font-size:0.85rem; padding:7px 8px; }
-      .logo-area img { height:30px; }
-      .logo-area h1 { font-size:0.95rem; }
-      section h2 { font-size:0.95rem; }
-      .grid { gap:10px; grid-template-columns: repeat(auto-fill,minmax(160px,1fr)); }
-      .float-btn{ bottom:92px; right:12px; padding:9px 12px; font-size:0.9rem; }
-    }
+.float-btn{
+position:fixed;right:18px;
+background:#3C564A;color:#fff;
+border:none;cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,.3);
+z-index:1500
+}
+#shareBtn{
+bottom:140px;width:52px;height:52px;
+border-radius:50%;font-size:22px
+}
+#visitBtn{
+bottom:80px;border-radius:28px;
+padding:10px 16px;font-size:14px
+}
   </style>
  </head>
  <body>
   <header>
-   <div class="logo-area">
-    <img alt="Logo Esperan&ccedil;a" src="logoesperanca.png"/>
-    <h1>
-     Igreja Esperan&ccedil;a
-    </h1>
-   </div>
-   <div class="subtitle">
-    SERM&Otilde;ES CAMPUS LAGOA SANTA
-   </div>
-   <div aria-label="Filtros" class="filters" role="toolbar">
-    <select aria-label="Filtrar por preletor" id="filterPreletor">
+   <img height="34" src="logoesperanca.png"/>
+   <br/>
+   <strong>
+    Igreja Esperança
+   </strong>
+   <br/>
+   <span style="font-size:.8rem">
+    SERMÕES CAMPUS LAGOA SANTA
+   </span>
+   <div class="filters">
+    <select id="filterAno">
+     <option value="">
+      ANO
+     </option>
+     <option value="2026">
+      2026
+     </option>
+     <option value="2025">
+      2025
+     </option>
+    </select>
+    <select id="filterPreletor">
      <option value="">
       PRELETOR
      </option>
-     <option value="Felipe dos Anjos">
-      Felipe dos Anjos
-     </option>
-     <option value="Leonardo Amaral">
-      Leonardo Amaral
-     </option>
-     <option value="Igor Miguel">
-      Igor Miguel
-     </option>
-     <option value="Fred Almeida">
-      Fred Almeida
-     </option>
-     <option value="Maur&iacute;cio Avoletta">
-      Maur&iacute;cio Avoletta
-     </option>
-     <option value="Filipe Breder">
-      Filipe Breder
-     </option>
-     <option value="Beto Mello">
-      Beto Mello
-     </option>
     </select>
-    <select aria-label="Filtrar por m&ecirc;s" id="filterMes">
+    <select id="filterMes">
      <option value="">
-      M&Ecirc;S
+      MÊS
      </option>
      <option value="1">
       Janeiro
@@ -211,7 +118,7 @@
       Fevereiro
      </option>
      <option value="3">
-      Mar&ccedil;o
+      Março
      </option>
      <option value="4">
       Abril
@@ -241,9 +148,24 @@
       Dezembro
      </option>
     </select>
-    <select aria-label="Filtrar por esta&ccedil;&atilde;o" id="filterEstacao">
+    <select id="filterEstacao">
      <option value="">
-      ESTA&Ccedil;&Atilde;O
+      ESTAÇÃO
+     </option>
+     <option value="tempo-comum">
+      Tempo Comum
+     </option>
+     <option value="pascoa">
+      Páscoa
+     </option>
+     <option value="quaresma">
+      Quaresma
+     </option>
+     <option value="epifania">
+      Epifania
+     </option>
+     <option value="criacao">
+      Criação
      </option>
      <option value="advento">
       Advento
@@ -251,34 +173,10 @@
      <option value="natal">
       Natal
      </option>
-     <option value="epifania">
-      Epifania
-     </option>
-     <option value="quaresma">
-      Quaresma
-     </option>
-     <option value="pascoa">
-      P&aacute;scoa
-     </option>
-     <option value="pentecostes">
-      Pentecostes
-     </option>
-     <option value="tempo-comum">
-      Tempo Comum
-     </option>
-     <option value="criacao">
-      Cria&ccedil;&atilde;o
-     </option>
     </select>
    </div>
-   <div class="actions">
-    <!-- botão ficará oculto até beforeinstallprompt ser disparado -->
-    <button class="btn" hidden="" id="installBtn">
-     Instalar
-    </button>
-   </div>
   </header>
-  <main>
+  <main id="content">
    <!-- TEMPO COMUM (ordem por data será controlada pelo script) -->
    <section aria-labelledby="tempo-comum-title" class="season tempo-comum">
     <h2 id="tempo-comum-title">
@@ -291,11 +189,11 @@
         23/11/2025
        </div>
        <div class="label">
-        24&ordm; Domingo de Cristo Rei
+        24º Domingo de Cristo Rei
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1esYFAr4pRN_obsxZaO3jqy6VXeq64SGK/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - A Par&aacute;bola das Dez Virgens - Felipe dos Anjos
+       Série "O Sermão Escatológico de Jesus" - A Parábola das Dez Virgens - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-11-16">
@@ -304,11 +202,11 @@
         16/11/2025
        </div>
        <div class="label">
-        23&ordm; Domingo ap&oacute;s Pentecostes
+        23º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/18EiXbjVFGrfVmBtkWU3a2Ki3RLcSXf7F/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - A Par&aacute;bola dos Dois Servos - Filipe Breder
+       Série "O Sermão Escatológico de Jesus" - A Parábola dos Dois Servos - Filipe Breder
       </a>
      </div>
      <div class="day" data-date="2025-11-09">
@@ -317,11 +215,11 @@
         09/11/2025
        </div>
        <div class="label">
-        22&ordm; Domingo ap&oacute;s Pentecostes
+        22º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1NiWeHlvzw3ReJf-lsZ6VE0trHp3CtTQJ/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - A Par&aacute;bola da Figueira - Maur&iacute;cio Avoletta
+       Série "O Sermão Escatológico de Jesus" - A Parábola da Figueira - Maurício Avoletta
       </a>
      </div>
      <div class="day" data-date="2025-11-02">
@@ -330,11 +228,11 @@
         02/11/2025
        </div>
        <div class="label">
-        21&ordm; Domingo Tempo Comum
+        21º Domingo Tempo Comum
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1-mn_xz99LZmglDehUcQV_XNt29oTSGEm/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - A Parousia - Leonardo Amaral
+       Série "O Sermão Escatológico de Jesus" - A Parousia - Leonardo Amaral
       </a>
      </div>
      <div class="day" data-date="2025-10-26">
@@ -343,11 +241,11 @@
         26/10/2025
        </div>
        <div class="label">
-        20&ordm; Domingo da Reforma Protestante
+        20º Domingo da Reforma Protestante
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1QObGm5pcUCo3rfSopu1FnKp-q7nFoYKK/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - Os Falsos Cristos - Fred Almeida
+       Série "O Sermão Escatológico de Jesus" - Os Falsos Cristos - Fred Almeida
       </a>
      </div>
      <div class="day" data-date="2025-10-19">
@@ -356,11 +254,11 @@
         19/10/2025
        </div>
        <div class="label">
-        19&ordm; Domingo Tempo Comum
+        19º Domingo Tempo Comum
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/19crF19-GHl-soNYdgvZ2KQh4-TxVe5zi/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - A Grande Tribula&ccedil;&atilde;o - Igor Miguel
+       Série "O Sermão Escatológico de Jesus" - A Grande Tribulação - Igor Miguel
       </a>
      </div>
      <div class="day" data-date="2025-10-12">
@@ -369,11 +267,11 @@
         12/10/2025
        </div>
        <div class="label">
-        18&ordm; Domingo Tempo Comum
+        18º Domingo Tempo Comum
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1ORAKpyTk2WuwTZeQrvOUc7tnEKA9_SW5/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - As Dores de Parto - Felipe dos Anjos
+       Série "O Sermão Escatológico de Jesus" - As Dores de Parto - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-10-05">
@@ -382,11 +280,11 @@
         05/10/2025
        </div>
        <div class="label">
-        17&ordm; Domingo Tempo Comum
+        17º Domingo Tempo Comum
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1qnSaLkzHxIltgh_dIL9ZkZAfxSO1cSnd/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Carta &agrave;s Sete Igrejas" - Carta a Igreja de Laodiceia - Felipe dos Anjos
+       Série "Carta às Sete Igrejas" - Carta a Igreja de Laodiceia - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-08-31">
@@ -395,11 +293,11 @@
         31/08/2025
        </div>
        <div class="label">
-        14&ordm; Domingo ap&oacute;s Pentecostes
+        14º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Carta &agrave;s Sete Igrejas - Carta &agrave; Igreja em P&eacute;rgamo" - Felipe dos Anjos
+       Série "Carta às Sete Igrejas - Carta à Igreja em Pérgamo" - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-08-24">
@@ -408,11 +306,11 @@
         24/08/2025
        </div>
        <div class="label">
-        13&ordm; Domingo ap&oacute;s Pentecostes
+        13º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/11BnIY6pCsY66qFLFYR4DN8pCzWppRyBQ/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Carta &agrave;s Sete Igrejas - Carta &agrave; Igreja em Esmirna" - Filipe Breder
+       Série "Carta às Sete Igrejas - Carta à Igreja em Esmirna" - Filipe Breder
       </a>
      </div>
      <div class="day" data-date="2025-08-17">
@@ -421,11 +319,11 @@
         17/08/2025
        </div>
        <div class="label">
-        12&ordm; Domingo ap&oacute;s Pentecostes
+        12º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing" rel="noopener" target="_blank">
-       Serm&atilde;o Especial "A Autoridade da Palavra de Deus" - Rosifran Macedo
+       Sermão Especial "A Autoridade da Palavra de Deus" - Rosifran Macedo
       </a>
      </div>
      <div class="day" data-date="2025-08-10">
@@ -434,11 +332,11 @@
         10/08/2025
        </div>
        <div class="label">
-        11&ordm; Domingo ap&oacute;s Pentecostes
+        11º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "Carta &agrave;s Sete Igrejas - Carta &agrave; Igreja em &Eacute;feso" - Filipe Breder
+       Série "Carta às Sete Igrejas - Carta à Igreja em Éfeso" - Filipe Breder
       </a>
      </div>
      <div class="day" data-date="2025-08-03">
@@ -447,11 +345,11 @@
         03/08/2025
        </div>
        <div class="label">
-        10&ordm; Domingo ap&oacute;s Pentecostes
+        10º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Carta &agrave;s Sete Igrejas - A Vis&atilde;o do Cristo Exaltado" - Guilherme de Carvalho
+       Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Guilherme de Carvalho
       </a>
      </div>
      <div class="day" data-date="2025-07-20">
@@ -460,11 +358,11 @@
         20/07/2025
        </div>
        <div class="label">
-        9&ordm; Domingo ap&oacute;s Pentecostes
+        9º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Carta &agrave;s Sete Igrejas - Apocalipse Para Bem-Aventurados" - Rodolfo Amorim
+       Série "Carta às Sete Igrejas - Apocalipse Para Bem-Aventurados" - Rodolfo Amorim
       </a>
      </div>
      <div class="day" data-date="2025-07-13">
@@ -473,11 +371,11 @@
         13/07/2025
        </div>
        <div class="label">
-        8&ordm; Domingo ap&oacute;s Pentecostes
+        8º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Rosifran Macedo
+       Série "A Igreja do Futuro" - Rosifran Macedo
       </a>
      </div>
      <div class="day" data-date="2025-07-06">
@@ -486,11 +384,11 @@
         06/07/2025
        </div>
        <div class="label">
-        7&ordm; Domingo ap&oacute;s Pentecostes
+        7º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=drive_link" rel="noopener" target="_blank">
-       Serm&atilde;o Especial - Igor Miguel
+       Sermão Especial - Igor Miguel
       </a>
      </div>
      <div class="day" data-date="2025-06-29">
@@ -499,11 +397,11 @@
         29/06/2025
        </div>
        <div class="label">
-        3&ordm; Domingo ap&oacute;s Pentecostes
+        3º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Douglas Rafael
+       Série "A Igreja do Futuro" - Douglas Rafael
       </a>
      </div>
      <div class="day" data-date="2025-06-22">
@@ -512,11 +410,11 @@
         22/06/2025
        </div>
        <div class="label">
-        2&ordm; Domingo ap&oacute;s Pentecostes
+        2º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Felipe dos Anjos
+       Série "A Igreja do Futuro" - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-06-01">
@@ -525,11 +423,11 @@
         01/06/2025
        </div>
        <div class="label">
-        1&ordm; Domingo ap&oacute;s Pentecostes
+        1º Domingo após Pentecostes
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Vanessa Belmonte
+       Série "A Igreja do Futuro" - Vanessa Belmonte
       </a>
      </div>
     </div>
@@ -537,7 +435,7 @@
    <!-- PÁSCOA -->
    <section aria-labelledby="pascoa-title" class="season pascoa">
     <h2 id="pascoa-title">
-     P&aacute;scoa
+     Páscoa
     </h2>
     <div class="grid">
      <div class="day" data-date="2025-05-25">
@@ -546,11 +444,11 @@
         25/05/2025
        </div>
        <div class="label">
-        7&ordm; Domingo da P&aacute;scoa
+        7º Domingo da Páscoa
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Felipe dos Anjos
+       Série "A Igreja do Futuro" - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-05-11">
@@ -559,11 +457,11 @@
         11/05/2025
        </div>
        <div class="label">
-        6&ordm; Domingo da P&aacute;scoa
+        6º Domingo da Páscoa
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Sabrina Uch&ocirc;a
+       Série "A Igreja do Futuro" - Sabrina Uchôa
       </a>
      </div>
      <div class="day" data-date="2025-05-04">
@@ -572,11 +470,11 @@
         04/05/2025
        </div>
        <div class="label">
-        5&ordm; Domingo da P&aacute;scoa
+        5º Domingo da Páscoa
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Leonardo Amaral
+       Série "A Igreja do Futuro" - Leonardo Amaral
       </a>
      </div>
      <div class="day" data-date="2025-04-27">
@@ -585,11 +483,11 @@
         27/04/2025
        </div>
        <div class="label">
-        2&ordm; Domingo da P&aacute;scoa
+        2º Domingo da Páscoa
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1zfOY3lS_V7PleO-43PvS9kLpM_zpIlDs/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja Importa" - Muitas formas de Amar - Beto Mello
+       Série "A Igreja Importa" - Muitas formas de Amar - Beto Mello
       </a>
      </div>
     </div>
@@ -606,11 +504,11 @@
         06/04/2025
        </div>
        <div class="label">
-        5&ordm; Domingo da Quaresma
+        5º Domingo da Quaresma
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Felipe dos Anjos
+       Série "A Igreja do Futuro" - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-03-23">
@@ -619,11 +517,11 @@
         23/03/2025
        </div>
        <div class="label">
-        3&ordm; Domingo da Quaresma
+        3º Domingo da Quaresma
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - Leonardo Amaral
+       Série "A Igreja do Futuro" - Leonardo Amaral
       </a>
      </div>
      <div class="day" data-date="2025-03-09">
@@ -632,11 +530,11 @@
         09/03/2025
        </div>
        <div class="label">
-        3&ordm; Domingo da Quaresma
+        3º Domingo da Quaresma
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1p86iu0WW47bYWTCoseTRnOXhZ3pHZ5QX/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja Importa" - A Gl&oacute;ria do Minist&eacute;rio - Felipe dos Anjos
+       Série "A Igreja Importa" - A Glória do Ministério - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-04-13">
@@ -649,7 +547,7 @@
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1Oo_Pj1cNKaWuCpS-k8dnyeJR_Bn-GyQ1/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja do Futuro" - O Pr&oacute;prio Senhor Descer&aacute; Dos C&eacute;us - Felipe dos Anjos
+       Série "A Igreja do Futuro" - O Próprio Senhor Descerá Dos Céus - Felipe dos Anjos
       </a>
      </div>
     </div>
@@ -666,11 +564,11 @@
         09/02/2025
        </div>
        <div class="label">
-        6&ordm; Domingo da Epifania
+        6º Domingo da Epifania
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja Importa" - Igor Miguel
+       Série "A Igreja Importa" - Igor Miguel
       </a>
      </div>
      <div class="day" data-date="2025-02-02">
@@ -679,11 +577,11 @@
         02/02/2025
        </div>
        <div class="label">
-        5&ordm; Domingo da Epifania
+        5º Domingo da Epifania
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja Importa" - Felipe dos Anjos
+       Série "A Igreja Importa" - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-01-19">
@@ -692,11 +590,11 @@
         19/01/2025
        </div>
        <div class="label">
-        3&ordm; Domingo da Epifania
+        3º Domingo da Epifania
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja Importa" - Guilherme de Carvalho
+       Série "A Igreja Importa" - Guilherme de Carvalho
       </a>
      </div>
      <div class="day" data-date="2025-01-12">
@@ -705,11 +603,24 @@
         12/01/2025
        </div>
        <div class="label">
-        2&ordm; Domingo da Epifania
+        2º Domingo da Epifania
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link" rel="noopener" target="_blank">
-       S&eacute;rie "A Igreja Importa" - Beto Mello
+       Série "A Igreja Importa" - Beto Mello
+      </a>
+     </div>
+     <div class="day" data-date="2026-01-04">
+      <div class="info">
+       <div class="date">
+        04/01/2026
+       </div>
+       <div class="label">
+        2º Domingo Após natal
+       </div>
+      </div>
+      <a class="link" href="https://drive.google.com/file/d/1bK5j0Xqf0nCaTkvmoIywsULlCT7IWal1/view?usp=sharing" rel="noopener" target="_blank">
+       Série "Apocalipse 2° Temporada: O Livro, selos e trombetas" - A Visão do Trono de Deus - Guilherme de Carvalho
       </a>
      </div>
     </div>
@@ -717,7 +628,7 @@
    <!-- CRIAÇÃO -->
    <section aria-labelledby="criacao-title" class="season criacao">
     <h2 id="criacao-title">
-     Cria&ccedil;&atilde;o
+     Criação
     </h2>
     <div class="grid">
      <div class="day" data-date="2025-09-28">
@@ -726,11 +637,11 @@
         28/09/2025
        </div>
        <div class="label">
-        4&ordm; Domingo da Cria&ccedil;&atilde;o
+        4º Domingo da Criação
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1fNTCi1nj61wNyBb__HHXMi4taQoDkYGT/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Carta &agrave;s Sete Igrejas" - Carta &agrave; Igreja em Filad&eacute;lfia - Leonardo Amaral
+       Série "Carta às Sete Igrejas" - Carta à Igreja em Filadélfia - Leonardo Amaral
       </a>
      </div>
      <div class="day" data-date="2025-09-21">
@@ -739,11 +650,11 @@
         21/09/2025
        </div>
        <div class="label">
-        3&ordm; Domingo da Cria&ccedil;&atilde;o
+        3º Domingo da Criação
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/14DZQ9tsXGISVxpRYqwI5CwTkaW5Wp0JJ/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Serm&atilde;o Especial" - Lealdade Dividida Pt 3 - Felipe dos Anjos
+       Série "Sermão Especial" - Lealdade Dividida Pt 3 - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-09-14">
@@ -752,11 +663,11 @@
         14/09/2025
        </div>
        <div class="label">
-        2&ordm; Domingo da Cria&ccedil;&atilde;o
+        2º Domingo da Criação
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1g0O8nqWZv7JzzxheOsftB45fRRr-rUIL/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Serm&atilde;o Especial" - Anivers&aacute;rio Esperan&ccedil;a Campus LS - Felipe dos Anjos
+       Série "Sermão Especial" - Aniversário Esperança Campus LS - Felipe dos Anjos
       </a>
      </div>
      <div class="day" data-date="2025-09-07">
@@ -765,11 +676,11 @@
         07/09/2025
        </div>
        <div class="label">
-        1&ordm; Domingo da Cria&ccedil;&atilde;o
+        1º Domingo da Criação
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1MISxTHbWeuqsPM_z4IvCSN2wtvMpgD9H/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Carta &agrave;s Sete Igrejas" - Carta a Igreja em Tiatira - Igor Miguel
+       Série "Carta às Sete Igrejas" - Carta a Igreja em Tiatira - Igor Miguel
       </a>
      </div>
     </div>
@@ -785,11 +696,11 @@
         21/12/2025
        </div>
        <div class="label">
-        4&ordm; Domingo do Advento
+        4º Domingo do Advento
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1_JvKJkWcLrMQs6PFwar1xaZXq00NerxU/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Miniss&eacute;rie Canticos Natalinos" - Benedictus, o C&acirc;ntico de Zacarias - Maur&iacute;cio Avoletta
+       Série "Minissérie Canticos Natalinos" - Benedictus, o Cântico de Zacarias - Maurício Avoletta
       </a>
      </div>
      <div class="day" data-date="2025-12-14">
@@ -798,11 +709,11 @@
         14/12/2025
        </div>
        <div class="label">
-        3&ordm; Domingo do Advento
+        3º Domingo do Advento
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1DLpI5kfQEcaXBemCfVORRtWov17B_yU6/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Miniss&eacute;rie C&acirc;nticos Natalinos" - Magnificat, o C&acirc;ntico de Maria - Filipe Breder
+       Série "Minissérie Cânticos Natalinos" - Magnificat, o Cântico de Maria - Filipe Breder
       </a>
      </div>
      <div class="day" data-date="2025-12-07">
@@ -811,11 +722,11 @@
         07/12/2025
        </div>
        <div class="label">
-        2&ordm; Domingo do Advento
+        2º Domingo do Advento
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/1gtT61rWjsBJVEZCqMSn9hXvguFGC1_Oz/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - Ele Separar&aacute; Ovelhas de Bodes - Filipe Breder
+       Série "O Sermão Escatológico de Jesus" - Ele Separará Ovelhas de Bodes - Filipe Breder
       </a>
      </div>
      <div class="day" data-date="2025-11-30">
@@ -824,11 +735,11 @@
         30/11/2025
        </div>
        <div class="label">
-        1&ordm; Domingo do Advento
+        1º Domingo do Advento
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/10pUIzH-oUvqNr7MgnuH2j3c6sW1tMI7z/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "O Serm&atilde;o Escatol&oacute;gico de Jesus" - A Par&aacute;bola dos Talentos - Maur&iacute;cio Avoletta
+       Série "O Sermão Escatológico de Jesus" - A Parábola dos Talentos - Maurício Avoletta
       </a>
      </div>
     </div>
@@ -844,245 +755,107 @@
         28/12/2025
        </div>
        <div class="label">
-        1&ordm; Domingo ap&oacute;s o Natal
+        1º Domingo após o Natal
        </div>
       </div>
       <a class="link" href="https://drive.google.com/file/d/19U1twIcvpYlHXbYHdeNDnG61T_tGrjv0/view?usp=sharing" rel="noopener" target="_blank">
-       S&eacute;rie "Miniss&eacute;rie C&acirc;nticos Natalinos" - Nunc Dimittis, o c&acirc;ntico de Sime&atilde;o - Igor Miguel
+       Série "Minissérie Cânticos Natalinos" - Nunc Dimittis, o cântico de Simeão - Igor Miguel
       </a>
      </div>
     </div>
    </section>
   </main>
   <footer>
-   &copy; IGREJA ESPERAN&Ccedil;A &reg; 2025. TODOS OS DIREITOS RESERVADOS.
+   © IGREJA ESPERANÇA ® 2025. TODOS OS DIREITOS RESERVADOS.
   </footer>
-  <!-- BOTÃO FLUTUANTE VISITE-NOS -->
-  <button aria-label="Visite-nos" class="float-btn" id="visitBtn" title="Visite-nos">
+  <button class="float-btn" id="shareBtn" title="Compartilhar">
+   🔗
+  </button>
+  <button class="float-btn" id="visitBtn">
    Visite-nos
   </button>
   <script>
-   /* -------------------------
-       Funções de data / parsing
-       ------------------------- */
-    function parseDateFromCard(card) {
-      const attr = card.getAttribute('data-date') || card.dataset.date || '';
-      if (attr) {
-        const iso = attr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-        if (iso) return new Date(`${iso[1]}-${iso[2]}-${iso[3]}T00:00:00`);
-        const dmy = attr.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-        if (dmy) return new Date(`${dmy[3]}-${dmy[2]}-${dmy[1]}T00:00:00`);
-      }
-      const dateEl = card.querySelector('.info .date');
-      if (dateEl) {
-        const m = dateEl.textContent.match(/(\d{2})\/(\d{2})\/(\d{4})/);
-        if (m) return new Date(`${m[3]}-${m[2]}-${m[1]}T00:00:00`);
-      }
-      return new Date(0);
-    }
+   const originalSections=[...document.querySelectorAll('section.season')];
+const main=document.getElementById('content');
 
-    function monthNumberFromCard(card) {
-      const dt = parseDateFromCard(card);
-      if (!isNaN(dt)) return dt.getMonth() + 1;
-      return null;
-    }
+/* ===== AGRUPAMENTO POR ANO ===== */
+function rebuildByYear(){
+main.innerHTML='';
+const years={};
 
-    /* -------------
-       Ordenação DOM
-       ------------- */
-    function sortGrid(grid) {
-      const cards = Array.from(grid.querySelectorAll('.day'));
-      cards.sort((a,b) => parseDateFromCard(b) - parseDateFromCard(a));
-      cards.forEach(c => grid.appendChild(c));
-    }
+originalSections.forEach(sec=>{
+const seasonClass=[...sec.classList].find(c=>c!=='season');
+sec.querySelectorAll('.day').forEach(card=>{
+const year=card.dataset.date.substring(0,4);
+if(!years[year])years[year]={};
+if(!years[year][seasonClass]){
+const clone=sec.cloneNode(false);
+clone.innerHTML='<h2>'+sec.querySelector('h2').innerHTML+'</h2><div class="grid"></div>';
+clone.className=sec.className;
+years[year][seasonClass]=clone;
+}
+years[year][seasonClass].querySelector('.grid').appendChild(card.cloneNode(true));
+});
+});
 
-    function latestDateInSection(section) {
-      const days = Array.from(section.querySelectorAll('.day'));
-      let latest = new Date(0);
-      days.forEach(d => {
-        const dt = parseDateFromCard(d);
-        if (dt > latest) latest = dt;
-      });
-      return latest;
-    }
+['2026','2025'].forEach(y=>{
+if(years[y]){
+const t=document.createElement('div');
+t.className='year-title';t.textContent=y;
+main.appendChild(t);
+Object.values(years[y]).forEach(s=>main.appendChild(s));
+}
+});
+}
 
-    function sortSectionsByLatest(mainEl) {
-      const sections = Array.from(mainEl.querySelectorAll('section.season'));
-      sections.sort((a,b) => latestDateInSection(b) - latestDateInSection(a));
-      sections.forEach(s => mainEl.appendChild(s));
-    }
+/* ===== PRELETOR ===== */
+function populatePreletor(){
+const sel=document.getElementById('filterPreletor');
+const names=new Set();
+document.querySelectorAll('.day a').forEach(a=>{
+const parts=a.textContent.split(' - ');
+names.add(parts[parts.length-1].trim());
+});
+names.forEach(n=>{
+const o=document.createElement('option');
+o.value=o.textContent=n;sel.appendChild(o);
+});
+}
 
-    /* -----------------------
-       Popula dropdown preletor
-       ----------------------- */
-    function populatePreletorDropdown() {
-      const sel = document.getElementById('filterPreletor');
-      if (!sel) return;
-      const names = new Set();
-      document.querySelectorAll('.day a.link').forEach(a => {
-        const txt = (a.textContent || "").trim();
-        const parts = txt.split(' - ').map(p => p.trim()).filter(Boolean);
-        const last = parts[parts.length - 1] || txt;
-        if (last) names.add(last);
-      });
-      const placeholder = sel.querySelector('option');
-      sel.innerHTML = '';
-      sel.appendChild(placeholder);
-      placeholder.value = '';
-      placeholder.textContent = 'PRELETOR';
-      Array.from(names).sort((a,b)=>a.localeCompare(b,'pt-BR')).forEach(n => {
-        const opt = document.createElement('option');
-        opt.value = n;
-        opt.textContent = n;
-        sel.appendChild(opt);
-      });
-    }
+/* ===== FILTROS ===== */
+function applyFilters(){
+const ano=filterAno.value;
+const mes=filterMes.value;
+const est=filterEstacao.value;
+const pre=filterPreletor.value.toLowerCase();
 
-    /* ------------------------
-       Filtro por preletor/mes/est.
-       ------------------------ */
-    function aplicarFiltro() {
-      const preletorRaw = (document.getElementById('filterPreletor').value || '').trim().toLowerCase();
-      const mesRaw = (document.getElementById('filterMes').value || '').trim();
-      const estacao = document.getElementById('filterEstacao').value || '';
-      const mesNum = mesRaw ? parseInt(mesRaw, 10) : null;
+document.querySelectorAll('.year-title').forEach(t=>{
+t.style.display=!ano||t.textContent===ano?'':'none';
+});
 
-      document.querySelectorAll('.day').forEach(day => {
-        const texto = (day.innerText || '').toLowerCase();
-        const estacaoClasse = !estacao || day.closest('section').classList.contains(estacao);
+document.querySelectorAll('.day').forEach(d=>{
+const date=d.dataset.date;
+const okMes=!mes||(+date.substring(5,7)===+mes);
+const okPre=!pre||d.textContent.toLowerCase().includes(pre);
+const okEst=!est||d.closest('section').classList.contains(est);
+d.style.display=okMes&&okPre&&okEst?'':'none';
+});
+}
 
-        let matchPreletor = true;
-        if (preletorRaw) {
-          const a = day.querySelector('a.link');
-          let preletorFromCard = '';
-          if (a) {
-            const parts = (a.textContent || '').split(' - ').map(p=>p.trim()).filter(Boolean);
-            preletorFromCard = parts[parts.length-1] || '';
-          }
-          matchPreletor = !preletorRaw || preletorFromCard.toLowerCase().includes(preletorRaw) || texto.includes(preletorRaw);
-        }
+['filterAno','filterMes','filterEstacao','filterPreletor']
+.forEach(id=>document.getElementById(id).addEventListener('change',applyFilters));
 
-        let matchMes = true;
-        if (mesNum) {
-          const cardMonth = monthNumberFromCard(day);
-          matchMes = (cardMonth === mesNum);
-        }
+document.getElementById('shareBtn').onclick=()=>{
+navigator.share?
+navigator.share({title:document.title,url:location.href}):
+alert('Copie o link da barra do navegador');
+};
+document.getElementById('visitBtn').onclick=()=>{
+window.open('https://maps.app.goo.gl/fHui3ZgWdFU8hWVcA','_blank');
+};
 
-        const matchEstacao = estacaoClasse;
-        day.style.display = (matchPreletor && matchMes && matchEstacao) ? '' : 'none';
-      });
-    }
-
-    /* -------------------------------------
-       Ajusta cor do texto (preto/ branco)
-       ------------------------------------- */
-    function rgbToHex(r,g,b){
-      return "#" + [r,g,b].map(x => {
-        const h = x.toString(16);
-        return h.length === 1 ? '0'+h : h;
-      }).join('');
-    }
-    function luminanceFromRGB(r,g,b){
-      // r,g,b in 0..255
-      const srgb = [r,g,b].map(v => v/255);
-      const a = srgb.map(v => v <= 0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055,2.4));
-      return 0.2126*a[0] + 0.7152*a[1] + 0.0722*a[2];
-    }
-    function adjustCardText(){
-      document.querySelectorAll('.day').forEach(card => {
-        let bg = window.getComputedStyle(card).backgroundColor;
-        const nums = bg.match(/\d+/g);
-        if(!nums || nums.length < 3){
-          card.style.color = '#000';
-          card.querySelectorAll('a,.info').forEach(el => el.style.color = '#000');
-          return;
-        }
-        const r = Number(nums[0]), g = Number(nums[1]), b = Number(nums[2]);
-        const lum = luminanceFromRGB(r,g,b);
-        const color = lum > 0.5 ? '#000' : '#fff';
-        card.style.color = color;
-        card.querySelectorAll('a,.info').forEach(el => el.style.color = color);
-      });
-    }
-
-    /* -------------------------
-       Inicialização e observer
-       ------------------------- */
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1) ordenar cada grid e seções
-      document.querySelectorAll('section.season .grid').forEach(g => sortGrid(g));
-      sortSectionsByLatest(document.querySelector('main'));
-
-      // 2) ajustar cores do texto
-      adjustCardText();
-
-      // 3) popular dropdown preletor
-      populatePreletorDropdown();
-
-      // 4) ligar eventos de filtro
-      document.getElementById('filterPreletor').addEventListener('change', aplicarFiltro);
-      document.getElementById('filterMes').addEventListener('change', aplicarFiltro);
-      document.getElementById('filterEstacao').addEventListener('change', aplicarFiltro);
-
-      // 5) observar alterações (integrador pode injetar cards)
-      const grids = document.querySelectorAll('section.season .grid');
-      const observer = new MutationObserver((mutations) => {
-        clearTimeout(window.__reorderTimeout);
-        window.__reorderTimeout = setTimeout(() => {
-          document.querySelectorAll('section.season .grid').forEach(g => sortGrid(g));
-          sortSectionsByLatest(document.querySelector('main'));
-          populatePreletorDropdown();
-          aplicarFiltro();
-          adjustCardText();
-        }, 120);
-      });
-      grids.forEach(g => observer.observe(g, { childList:true }));
-
-      // 7) Visit button
-      const visitBtn = document.getElementById('visitBtn');
-      if (visitBtn) {
-        visitBtn.addEventListener('click', ()=> {
-          window.open('https://maps.app.goo.gl/fHui3ZgWdFU8hWVcA', '_blank', 'noopener');
-        });
-      }
-    });
-
-    /* -------------------------
-       BEFOREINSTALLPROMPT & SW
-       (fora do DOMContentLoaded para garantir captura)
-       ------------------------- */
-    let deferredPrompt = null;
-    const installBtn = document.getElementById('installBtn');
-
-    // capture event as early as possible
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      if (installBtn) installBtn.hidden = false;
-    });
-
-    // install button click
-    if (installBtn) {
-      installBtn.addEventListener('click', async () => {
-        if (!deferredPrompt) return;
-        installBtn.hidden = true;
-        deferredPrompt.prompt();
-        try {
-          const choice = await deferredPrompt.userChoice;
-          // choice.outcome is 'accepted' or 'dismissed'
-          deferredPrompt = null;
-        } catch (err) {
-          deferredPrompt = null;
-        }
-      });
-    }
-
-    // register service worker on load
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {/* silent */});
-      });
-    }
+rebuildByYear();
+populatePreletor();
   </script>
  </body>
 </html>
