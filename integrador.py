@@ -19,7 +19,7 @@ def slugify(text: str) -> str:
 calendarios = {
 
     # =========================
-    # 2025 (já validado)
+    # 2025 (inalterado)
     # =========================
     2025: {
         "05/01/2025": "Epifania - 1º Domingo da Epifania",
@@ -79,14 +79,18 @@ calendarios = {
     },
 
     # =========================
-    # 2026 (NOVO – CORRETO)
+    # 2026 (AGORA CORRETO)
     # =========================
     2026: {
-        "04/01/2026": "Epifania - 2º Domingo da Epifania",
-        "11/01/2026": "Epifania - 3º Domingo da Epifania",
-        "18/01/2026": "Epifania - 4º Domingo da Epifania",
-        "25/01/2026": "Epifania - 5º Domingo da Epifania",
 
+        # EPIFANIA
+        "04/01/2026": "Epifania - 1º Domingo da Epifania",
+        "11/01/2026": "Epifania - 2º Domingo da Epifania",
+        "18/01/2026": "Epifania - 3º Domingo da Epifania",
+        "25/01/2026": "Epifania - 4º Domingo da Epifania",
+        "01/02/2026": "Epifania - 5º Domingo da Epifania",
+
+        # QUARESMA
         "22/02/2026": "Quaresma - 1º Domingo da Quaresma",
         "01/03/2026": "Quaresma - 2º Domingo da Quaresma",
         "08/03/2026": "Quaresma - 3º Domingo da Quaresma",
@@ -94,6 +98,7 @@ calendarios = {
         "22/03/2026": "Quaresma - 5º Domingo da Quaresma",
         "29/03/2026": "Quaresma - Domingo de Ramos",
 
+        # PÁSCOA
         "05/04/2026": "Páscoa - Domingo da Ressurreição",
         "12/04/2026": "Páscoa - 2º Domingo da Páscoa",
         "19/04/2026": "Páscoa - 3º Domingo da Páscoa",
@@ -102,25 +107,29 @@ calendarios = {
         "10/05/2026": "Páscoa - 6º Domingo da Páscoa",
         "17/05/2026": "Páscoa - 7º Domingo da Páscoa",
 
+        # PENTECOSTES
         "24/05/2026": "Pentecostes",
 
+        # TEMPO COMUM
         "31/05/2026": "Tempo Comum - 1º Domingo após Pentecostes",
         "07/06/2026": "Tempo Comum - 2º Domingo após Pentecostes",
         "14/06/2026": "Tempo Comum - 3º Domingo após Pentecostes",
         "21/06/2026": "Tempo Comum - 4º Domingo após Pentecostes",
         "28/06/2026": "Tempo Comum - 5º Domingo após Pentecostes",
 
+        # ADVENTO
         "29/11/2026": "Advento - 1º Domingo do Advento",
         "06/12/2026": "Advento - 2º Domingo do Advento",
         "13/12/2026": "Advento - 3º Domingo do Advento",
         "20/12/2026": "Advento - 4º Domingo do Advento",
 
+        # NATAL
         "27/12/2026": "Natal - 1º Domingo após o Natal",
     }
 }
 
 # -----------------------------
-# Core
+# Core (inalterado)
 # -----------------------------
 def adicionar_sermao():
     preletor = input("Nome do Preletor: ").strip()
