@@ -89,6 +89,8 @@ calendarios = {
         "18/01/2026": "Epifania - 3º Domingo da Epifania",
         "25/01/2026": "Epifania - 4º Domingo da Epifania",
         "01/02/2026": "Epifania - 5º Domingo da Epifania",
+        "08/02/2026": "Epifania - 6º Domingo da Epifania",
+        "15/02/2026": "Epifania - 7º Domingo da Epifania",
 
         # QUARESMA
         "22/02/2026": "Quaresma - 1º Domingo da Quaresma",
