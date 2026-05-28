@@ -110,7 +110,7 @@ calendarios = {
         "17/05/2026": "Páscoa - 7º Domingo da Páscoa",
 
         # PENTECOSTES
-        "24/05/2026": "Pentecostes",
+        "24/05/2026": "Pentecostes - Domingo de Pentecostes",
 
         # TEMPO COMUM
         "31/05/2026": "Tempo Comum - 1º Domingo após Pentecostes",
