@@ -1,0 +1,262 @@
+[
+  {
+    "date": "2026-01-04",
+    "season": "Natal",
+    "celebration": "2º Dom. depois do Natal"
+  },
+  {
+    "date": "2026-01-11",
+    "season": "Epifania",
+    "celebration": "1º Dom. após a Epifania (Batismo do Senhor)"
+  },
+  {
+    "date": "2026-01-18",
+    "season": "Epifania",
+    "celebration": "2º Dom. após a Epifania"
+  },
+  {
+    "date": "2026-01-25",
+    "season": "Epifania",
+    "celebration": "3º Dom. após a Epifania"
+  },
+  {
+    "date": "2026-02-01",
+    "season": "Epifania",
+    "celebration": "4º Dom. após a Epifania"
+  },
+  {
+    "date": "2026-02-08",
+    "season": "Epifania",
+    "celebration": "5º Dom. após a Epifania"
+  },
+  {
+    "date": "2026-02-15",
+    "season": "Epifania",
+    "celebration": "Último Dom. da Epifania (Transfiguração)"
+  },
+  {
+    "date": "2026-02-22",
+    "season": "Quaresma",
+    "celebration": "1º Domingo da Quaresma"
+  },
+  {
+    "date": "2026-03-01",
+    "season": "Quaresma",
+    "celebration": "2º Domingo da Quaresma"
+  },
+  {
+    "date": "2026-03-08",
+    "season": "Quaresma",
+    "celebration": "3º Domingo da Quaresma"
+  },
+  {
+    "date": "2026-03-15",
+    "season": "Quaresma",
+    "celebration": "4º Domingo da Quaresma"
+  },
+  {
+    "date": "2026-03-22",
+    "season": "Quaresma",
+    "celebration": "5º Domingo da Quaresma"
+  },
+  {
+    "date": "2026-03-29",
+    "season": "Quaresma",
+    "celebration": "Domingo de Ramos (6º da Quaresma)"
+  },
+  {
+    "date": "2026-04-05",
+    "season": "Páscoa",
+    "celebration": "Domingo de Páscoa"
+  },
+  {
+    "date": "2026-04-12",
+    "season": "Páscoa",
+    "celebration": "2º Domingo de Páscoa"
+  },
+  {
+    "date": "2026-04-19",
+    "season": "Páscoa",
+    "celebration": "3º Domingo de Páscoa"
+  },
+  {
+    "date": "2026-04-26",
+    "season": "Páscoa",
+    "celebration": "4º Domingo de Páscoa"
+  },
+  {
+    "date": "2026-05-03",
+    "season": "Páscoa",
+    "celebration": "5º Domingo de Páscoa"
+  },
+  {
+    "date": "2026-05-10",
+    "season": "Páscoa",
+    "celebration": "6º Domingo de Páscoa"
+  },
+  {
+    "date": "2026-05-17",
+    "season": "Páscoa",
+    "celebration": "7º Domingo de Páscoa (Ascensão)"
+  },
+  {
+    "date": "2026-05-24",
+    "season": "Pentecostes",
+    "celebration": "Domingo de Pentecostes"
+  },
+  {
+    "date": "2026-05-31",
+    "season": "Trindade",
+    "celebration": "Domingo da Trindade (1º após Pentecostes)"
+  },
+  {
+    "date": "2026-06-07",
+    "season": "Após Pentecostes",
+    "celebration": "2º Dom. após Pentecostes"
+  },
+  {
+    "date": "2026-06-14",
+    "season": "Após Pentecostes",
+    "celebration": "3º Dom. após Pentecostes"
+  },
+  {
+    "date": "2026-06-21",
+    "season": "Após Pentecostes",
+    "celebration": "4º Dom. após Pentecostes"
+  },
+  {
+    "date": "2026-06-28",
+    "season": "Após Pentecostes",
+    "celebration": "5º Dom. após Pentecostes"
+  },
+  {
+    "date": "2026-07-05",
+    "season": "Tempo Comum",
+    "celebration": "6º Dom. do Tempo Comum"
+  },
+  {
+    "date": "2026-07-12",
+    "season": "Tempo Comum",
+    "celebration": "7º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-07-19",
+    "season": "Tempo Comum",
+    "celebration": "8º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-07-26",
+    "season": "Tempo Comum",
+    "celebration": "9º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-08-02",
+    "season": "Tempo Comum",
+    "celebration": "10º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-08-09",
+    "season": "Tempo Comum",
+    "celebration": "11º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-08-16",
+    "season": "Tempo Comum",
+    "celebration": "12º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-08-23",
+    "season": "Tempo Comum",
+    "celebration": "13º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-08-30",
+    "season": "Tempo Comum",
+    "celebration": "14º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-09-06",
+    "season": "Estação da Criação",
+    "celebration": "1º Dom. da Estação da Criação"
+  },
+  {
+    "date": "2026-09-13",
+    "season": "Estação da Criação",
+    "celebration": "2º Dom. Estação da Criação (Aniv. da Igreja)"
+  },
+  {
+    "date": "2026-09-20",
+    "season": "Estação da Criação",
+    "celebration": "3º Dom. Estação da Criação"
+  },
+  {
+    "date": "2026-09-27",
+    "season": "Estação da Criação",
+    "celebration": "4º Dom. Estação da Criação"
+  },
+  {
+    "date": "2026-10-04",
+    "season": "Tempo Comum",
+    "celebration": "19º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-10-11",
+    "season": "Tempo Comum",
+    "celebration": "20º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-10-18",
+    "season": "Tempo Comum",
+    "celebration": "21º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-10-25",
+    "season": "Tempo Comum",
+    "celebration": "22º Dom. Tempo Comum (Reforma Protestante)"
+  },
+  {
+    "date": "2026-11-01",
+    "season": "Tempo Comum",
+    "celebration": "23º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-11-08",
+    "season": "Tempo Comum",
+    "celebration": "24º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-11-15",
+    "season": "Tempo Comum",
+    "celebration": "25º Dom. Tempo Comum"
+  },
+  {
+    "date": "2026-11-22",
+    "season": "Cristo Rei",
+    "celebration": "Domingo de Cristo Rei"
+  },
+  {
+    "date": "2026-11-29",
+    "season": "Advento",
+    "celebration": "1º Domingo de Advento"
+  },
+  {
+    "date": "2026-12-06",
+    "season": "Advento",
+    "celebration": "2º Domingo de Advento"
+  },
+  {
+    "date": "2026-12-13",
+    "season": "Advento",
+    "celebration": "3º Domingo de Advento"
+  },
+  {
+    "date": "2026-12-20",
+    "season": "Advento",
+    "celebration": "4º Domingo de Advento"
+  },
+  {
+    "date": "2026-12-27",
+    "season": "Natal",
+    "celebration": "1º Dom. depois do Natal"
+  }
+]

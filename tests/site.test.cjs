@@ -1,0 +1,25 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const { query } = require('../core.js');
+const html = fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const allRecords = JSON.parse(html.match(/<script id="sermoes-data" type="application\/json">([\s\S]*?)<\/script>/)[1]).sermons;
+// As expectativas de datas usam o histórico original; novos cadastros são permitidos.
+const originalIds = new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'acervo-original.json'),'utf8')).sermons.map(r=>r.id));
+const records = allRecords.filter(r=>originalIds.has(r.id));
+assert.equal(records.length >= 78,true);
+assert.equal(query(records)[0].date,'2026-09-20');
+assert.equal(query(records,{ano:'2026',mes:'12'}).length,0);
+assert.equal(query(records,{ano:'2025',mes:'12'}).length,4);
+assert.ok(query(records,{ano:'2025'}).every(r=>r.date.startsWith('2025')));
+assert.ok(query(records,{ano:'2026',preletor:'Igor Miguel',estacao:'Tempo Comum'}).every(r=>r.date.startsWith('2026')&&r.preacher==='Igor Miguel'&&r.season==='Tempo Comum'));
+assert.ok(query(records,{q:'economia graca'}).some(r=>r.title==='A Economia da Graça'));
+assert.equal(query(records,{q:'termo-sem-correspondencia-xyz'}).length,0);
+assert.equal(query(records,{ordem:'oldest'})[0].date,'2025-01-12');
+const future={...records[0],id:'future',date:'2027-01-03',publishedAt:'2027-01-04T00:00:00Z'};
+const delayed={...records[0],id:'delayed',date:'2025-01-19',publishedAt:'2027-01-05T00:00:00Z'};
+assert.equal(query([...records,future],{ano:'2027'})[0].id,'future');
+assert.equal(query([...records,future,delayed],{ordem:'published'})[0].id,'delayed');
+assert.equal(query([...records,future,delayed])[0].id,'future');
+const before=JSON.stringify(records);query(records,{ordem:'oldest'});assert.equal(JSON.stringify(records),before);
+console.log('Site: filtros combinados, busca, anos futuros, ordenação e preservação OK.');

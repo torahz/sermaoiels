@@ -1,1353 +1,1549 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>
-   SERMÕES IGREJA ESPERANÇA - CAMPUS LAGOA SANTA
-  </title>
-  <link href="./manifest.json" rel="manifest"/>
-  <meta content="#3C564A" name="theme-color"/>
-  <link href="icon-512.png" rel="icon" type="image/png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-  <style>
-   :root{
---advento:#84A488;--natal:#D6AA4C;--epifania:#3E5062;--quaresma:#333B47;
---pascoa:#ad0720;--pentecostes:#BC6E2E;--tempo-comum:#3C564A;--criacao:#6B96A6;
---igreja:#3C564A;--text-light:#fff;--muted:#cfcfcf;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-font-family:Poppins,sans-serif;
-background:url('background-2560x1440.png') no-repeat center center fixed;
-background-size:cover;
-color:#fff;
-padding-top:140px;
-padding-bottom:140px;
-}
-
-header,footer{
-position:fixed;left:0;right:0;
-background:rgba(0,0,0,.55);
-backdrop-filter:blur(4px);
-z-index:1000;text-align:center;
-}
-header{top:0;padding:10px}
-footer{bottom:0;padding:10px;font-size:.8rem;color:var(--muted)}
-
-main{max-width:980px;margin:auto;padding:16px}
-
-.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-select{padding:8px;border-radius:8px;border:none;background:var(--igreja);color:#fff}
-
-.year-title{
-text-align:center;
-font-size:1.1rem;
-font-weight:600;
-margin:32px 0 16px;
-opacity:.9;
-}
-
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
-.day{padding:12px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
-.day a{display:block;margin-top:8px;font-weight:600;text-decoration:none;color:inherit}
-
-/* CORES POR ESTAÇÃO (RESTAURADO) */
-.tempo-comum .day{background:var(--tempo-comum)}
-.pascoa .day{background:var(--pascoa)}
-.quaresma .day{background:var(--quaresma)}
-.epifania .day{background:var(--epifania)}
-.criacao .day{background:var(--criacao)}
-.advento .day{background:var(--advento)}
-.natal .day{background:var(--natal)}
-.pentecostes .day{background:var(--pentecostes)} 
-
-.float-btn{
-position:fixed;right:18px;
-background:#3C564A;color:#fff;
-border:none;cursor:pointer;
-box-shadow:0 4px 10px rgba(0,0,0,.3);
-z-index:1500
-}
-#shareBtn{
-bottom:140px;width:52px;height:52px;
-border-radius:50%;font-size:22px
-}
-#visitBtn{
-bottom:80px;border-radius:28px;
-padding:10px 16px;font-size:14px
-}
-  </style>
- </head>
- <body>
-  <header>
-   <img height="34" src="logoesperanca.png"/>
-   <br/>
-   <strong>
-    Igreja Esperança
-   </strong>
-   <br/>
-   <span style="font-size:.8rem">
-    SERMÕES CAMPUS LAGOA SANTA
-   </span>
-   <div class="filters">
-    <select id="filterAno">
-     <option value="">
-      ANO
-     </option>
-     <option value="2026">
-      2026
-     </option>
-     <option value="2025">
-      2025
-     </option>
-    </select>
-    <select id="filterPreletor">
-     <option value="">
-      PRELETOR
-     </option>
-    </select>
-    <select id="filterMes">
-     <option value="">
-      MÊS
-     </option>
-     <option value="1">
-      Janeiro
-     </option>
-     <option value="2">
-      Fevereiro
-     </option>
-     <option value="3">
-      Março
-     </option>
-     <option value="4">
-      Abril
-     </option>
-     <option value="5">
-      Maio
-     </option>
-     <option value="6">
-      Junho
-     </option>
-     <option value="7">
-      Julho
-     </option>
-     <option value="8">
-      Agosto
-     </option>
-     <option value="9">
-      Setembro
-     </option>
-     <option value="10">
-      Outubro
-     </option>
-     <option value="11">
-      Novembro
-     </option>
-     <option value="12">
-      Dezembro
-     </option>
-    </select>
-    <select id="filterEstacao">
-     <option value="">
-      ESTAÇÃO
-     </option>
-     <option value="tempo-comum">
-      Tempo Comum
-     </option>
-     <option value="pascoa">
-      Páscoa
-     </option>
-     <option value="pentecostes">
-      Pentecostes
-     </option>
-     <option value="quaresma">
-      Quaresma
-     </option>
-     <option value="epifania">
-      Epifania
-     </option>
-     <option value="criacao">
-      Criação
-     </option>
-     <option value="advento">
-      Advento
-     </option>
-     <option value="natal">
-      Natal
-     </option>
-    </select>
-   </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#304d40">
+  <meta name="description" content="Ouça os sermões da Igreja Esperança, Campus Lagoa Santa. Explore mensagens por ano, série, preletor e estação litúrgica.">
+  <meta property="og:title" content="Sermões · Igreja Esperança">
+  <meta property="og:description" content="Mensagens para ouvir, revisitar e compartilhar. Campus Lagoa Santa.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://torahz.github.io/sermaoiels/icon-512.png">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Sermões · Igreja Esperança — Lagoa Santa</title>
+</head>
+<body>
+  <a class="skip-link" href="#acervo">Pular para os sermões</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Igreja Esperança — início"><img src="./logoesperanca.png" width="33" height="46" alt=""><span>Igreja Esperança<small>CAMPUS LAGOA SANTA</small></span></a>
+    <nav aria-label="Navegação principal"><a href="#acervo">Acervo</a><button id="installBtn" type="button">Instalar aplicativo</button><a href="https://maps.app.goo.gl/fHui3ZgWdFU8hWVcA" target="_blank" rel="noopener">Visite-nos ↗</a></nav>
   </header>
-  <main id="content">
-   <!-- TEMPO COMUM (ordem por data será controlada pelo script) -->
-   <section aria-labelledby="tempo-comum-title" class="season tempo-comum">
-    <h2 id="tempo-comum-title">
-     Tempo Comum
-    </h2>
-    <div class="grid">
-     <div class="day" data-date="2025-11-23">
-      <div class="info">
-       <div class="date">
-        23/11/2025
-       </div>
-       <div class="label">
-        24º Domingo de Cristo Rei
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1esYFAr4pRN_obsxZaO3jqy6VXeq64SGK/view?usp=sharing" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - A Parábola das Dez Virgens - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-11-16">
-      <div class="info">
-       <div class="date">
-        16/11/2025
-       </div>
-       <div class="label">
-        23º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/18EiXbjVFGrfVmBtkWU3a2Ki3RLcSXf7F/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - A Parábola dos Dois Servos - Filipe Breder
-      </a>
-     </div>
-     <div class="day" data-date="2025-11-09">
-      <div class="info">
-       <div class="date">
-        09/11/2025
-       </div>
-       <div class="label">
-        22º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1NiWeHlvzw3ReJf-lsZ6VE0trHp3CtTQJ/view?usp=sharing" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - A Parábola da Figueira - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2025-11-02">
-      <div class="info">
-       <div class="date">
-        02/11/2025
-       </div>
-       <div class="label">
-        21º Domingo Tempo Comum
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1-mn_xz99LZmglDehUcQV_XNt29oTSGEm/view?usp=sharing" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - A Parousia - Leonardo Amaral
-      </a>
-     </div>
-     <div class="day" data-date="2025-10-26">
-      <div class="info">
-       <div class="date">
-        26/10/2025
-       </div>
-       <div class="label">
-        20º Domingo da Reforma Protestante
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1QObGm5pcUCo3rfSopu1FnKp-q7nFoYKK/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - Os Falsos Cristos - Fred Almeida
-      </a>
-     </div>
-     <div class="day" data-date="2025-10-19">
-      <div class="info">
-       <div class="date">
-        19/10/2025
-       </div>
-       <div class="label">
-        19º Domingo Tempo Comum
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/19crF19-GHl-soNYdgvZ2KQh4-TxVe5zi/view?usp=sharing" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - A Grande Tribulação - Igor Miguel
-      </a>
-     </div>
-     <div class="day" data-date="2025-10-12">
-      <div class="info">
-       <div class="date">
-        12/10/2025
-       </div>
-       <div class="label">
-        18º Domingo Tempo Comum
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1ORAKpyTk2WuwTZeQrvOUc7tnEKA9_SW5/view?usp=sharing" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - As Dores de Parto - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-10-05">
-      <div class="info">
-       <div class="date">
-        05/10/2025
-       </div>
-       <div class="label">
-        17º Domingo Tempo Comum
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1qnSaLkzHxIltgh_dIL9ZkZAfxSO1cSnd/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Carta às Sete Igrejas" - Carta a Igreja de Laodiceia - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-08-31">
-      <div class="info">
-       <div class="date">
-        31/08/2025
-       </div>
-       <div class="label">
-        14º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Carta às Sete Igrejas - Carta à Igreja em Pérgamo" - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-08-24">
-      <div class="info">
-       <div class="date">
-        24/08/2025
-       </div>
-       <div class="label">
-        13º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/11BnIY6pCsY66qFLFYR4DN8pCzWppRyBQ/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Carta às Sete Igrejas - Carta à Igreja em Esmirna" - Filipe Breder
-      </a>
-     </div>
-     <div class="day" data-date="2025-08-17">
-      <div class="info">
-       <div class="date">
-        17/08/2025
-       </div>
-       <div class="label">
-        12º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing" rel="noopener" target="_blank">
-       Sermão Especial "A Autoridade da Palavra de Deus" - Rosifran Macedo
-      </a>
-     </div>
-     <div class="day" data-date="2025-08-10">
-      <div class="info">
-       <div class="date">
-        10/08/2025
-       </div>
-       <div class="label">
-        11º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "Carta às Sete Igrejas - Carta à Igreja em Éfeso" - Filipe Breder
-      </a>
-     </div>
-     <div class="day" data-date="2025-08-03">
-      <div class="info">
-       <div class="date">
-        03/08/2025
-       </div>
-       <div class="label">
-        10º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Carta às Sete Igrejas - A Visão do Cristo Exaltado" - Guilherme de Carvalho
-      </a>
-     </div>
-     <div class="day" data-date="2025-07-20">
-      <div class="info">
-       <div class="date">
-        20/07/2025
-       </div>
-       <div class="label">
-        9º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Carta às Sete Igrejas - Apocalipse Para Bem-Aventurados" - Rodolfo Amorim
-      </a>
-     </div>
-     <div class="day" data-date="2025-07-13">
-      <div class="info">
-       <div class="date">
-        13/07/2025
-       </div>
-       <div class="label">
-        8º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Rosifran Macedo
-      </a>
-     </div>
-     <div class="day" data-date="2025-07-06">
-      <div class="info">
-       <div class="date">
-        06/07/2025
-       </div>
-       <div class="label">
-        7º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=drive_link" rel="noopener" target="_blank">
-       Sermão Especial - Igor Miguel
-      </a>
-     </div>
-     <div class="day" data-date="2025-06-29">
-      <div class="info">
-       <div class="date">
-        29/06/2025
-       </div>
-       <div class="label">
-        3º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Douglas Rafael
-      </a>
-     </div>
-     <div class="day" data-date="2025-06-22">
-      <div class="info">
-       <div class="date">
-        22/06/2025
-       </div>
-       <div class="label">
-        2º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-06-01">
-      <div class="info">
-       <div class="date">
-        01/06/2025
-       </div>
-       <div class="label">
-        1º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Vanessa Belmonte
-      </a>
-     </div>
-     <div class="day" data-date="2026-05-31">
-      <div class="info">
-       <div class="date">
-        31/05/2026
-       </div>
-       <div class="label">
-        1º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1q4dr01xcKOOfvlIZJodO7ZT81eEOv1ql/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Cada um cuida da sua própria vida - Leonardo Amaral
-      </a>
-     </div>
-     <div class="day" data-date="2026-06-07">
-      <div class="info">
-       <div class="date">
-        07/06/2026
-       </div>
-       <div class="label">
-        2º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1ppfSkActo75-y_-2U8fkQrBXP_nq4m-2/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Faça tua parte que Deus te ajudará! - Igor Miguel
-      </a>
-     </div>
-     <div class="day" data-date="2026-06-14">
-      <div class="info">
-       <div class="date">
-        14/06/2026
-       </div>
-       <div class="label">
-        3º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/16FsvH_85K70K2eYDYWetK6XIMRmTsuaW/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Parabens. Você merece! - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-06-21">
-      <div class="info">
-       <div class="date">
-        21/06/2026
-       </div>
-       <div class="label">
-        4º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/14fpMu6FJ_4VqnUIp0zclAxyH_sW-xq3i/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Você precisa se amar mais! - Igor Miguel
-      </a>
-     </div>
-     <div class="day" data-date="2026-06-28">
-      <div class="info">
-       <div class="date">
-        28/06/2026
-       </div>
-       <div class="label">
-        5º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1Jprljzbn2bkr_hV3DhYWw2Nfp0nD3iyf/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Seu Futuro Depende de Você - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-07-05">
-      <div class="info">
-       <div class="date">
-        05/07/2026
-       </div>
-       <div class="label">
-        6º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1ncYZZ-KMw9q6L1jt3udJcWYtiYpby0Uj/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - Estreia - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-07-12">
-      <div class="info">
-       <div class="date">
-        12/07/2026
-       </div>
-       <div class="label">
-        7º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1eAsSszF4tJ9zqzW7eEg87rAT1DFcNb-d/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - A Economia da Graça - Daniel Nunes
-      </a>
-     </div>
-     <div class="day" data-date="2026-07-19">
-      <div class="info">
-       <div class="date">
-        19/07/2026
-       </div>
-       <div class="label">
-        8º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/19d6YFc9z6TC7CIkrRaeKy2GIiT3tFO8D/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - Graça recebida, graça repartida - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2026-07-26">
-      <div class="info">
-       <div class="date">
-        26/07/2026
-       </div>
-       <div class="label">
-        9º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1ir4R0ZVWCuhnKjFTqkwrGlmUKDOZIW2J/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - A Pobreza do Rico - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-08-02">
-      <div class="info">
-       <div class="date">
-        02/08/2026
-       </div>
-       <div class="label">
-        10º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1VNeJWkJEGN_9azU_0bUHyVlUQYMCQaw1/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - Contentamento: A Arte de Viver Satisfeito - Paula Breder
-      </a>
-     </div>
-     <div class="day" data-date="2026-08-09">
-      <div class="info">
-       <div class="date">
-        09/08/2026
-       </div>
-       <div class="label">
-        11º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1BvKkSyn0T8kz5_Xh1y68181qXnjjOTBi/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - A Mordomia do que não é nosso, - Fred Almeida
-      </a>
-     </div>
-     <div class="day" data-date="2026-08-16">
-      <div class="info">
-       <div class="date">
-        16/08/2026
-       </div>
-       <div class="label">
-        12º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1MhzKVd5aWJHnoA8cS0Yr2X9ns-3OPnCH/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - Trabalho: Maldição ou Chamado? - Igor Miguel
-      </a>
-     </div>
-     <div class="day" data-date="2026-08-23">
-      <div class="info">
-       <div class="date">
-        23/08/2026
-       </div>
-       <div class="label">
-        13º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1_6aohMpepAPQRJfhhUUIrRQOJQEITzFF/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - Ajuntem Tesouros no Céu - Davi Lin
-      </a>
-     </div>
-     <div class="day" data-date="2026-08-30">
-      <div class="info">
-       <div class="date">
-        30/08/2026
-       </div>
-       <div class="label">
-        14º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1uCCuPOXXsO2fqFR91CKgj1ipMb5v5pCp/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - A Idolaria do Consumo - Guilherme de Carvalho
-      </a>
-     </div>
-     <div class="day" data-date="2026-09-06">
-      <div class="info">
-       <div class="date">
-        06/09/2026
-       </div>
-       <div class="label">
-        15º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/14xlgvdTmUzgW2CpZGiWDE8lJyogsxy29/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - Dons e Serviços na Igreja Local - Júlio Souza
-      </a>
-     </div>
-     <div class="day" data-date="2026-09-13">
-      <div class="info">
-       <div class="date">
-        13/09/2026
-       </div>
-       <div class="label">
-        16º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1xHTjo_AZLaGLfO-VBg9E6OJqg5Y3dXmM/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Sermão Especial" - Aniversário Igreja Esperança - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-09-20">
-      <div class="info">
-       <div class="date">
-        20/09/2026
-       </div>
-       <div class="label">
-        17º Domingo após Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1x5yb5vnJK1kxSADx0SnKZ77fdH9K61GO/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Riquezas e Pobrezas" - Dinheiro Fácil, Pobreza da Alma - Leonardo Amaral
-      </a>
-     </div>
-    </div>
-   </section>
-   <!-- PÁSCOA -->
-   <section aria-labelledby="pascoa-title" class="season pascoa">
-    <h2 id="pascoa-title">
-     Páscoa
-    </h2>
-    <div class="grid">
-     <div class="day" data-date="2025-05-25">
-      <div class="info">
-       <div class="date">
-        25/05/2025
-       </div>
-       <div class="label">
-        7º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-05-11">
-      <div class="info">
-       <div class="date">
-        11/05/2025
-       </div>
-       <div class="label">
-        6º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Sabrina Uchôa
-      </a>
-     </div>
-     <div class="day" data-date="2025-05-04">
-      <div class="info">
-       <div class="date">
-        04/05/2025
-       </div>
-       <div class="label">
-        5º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Leonardo Amaral
-      </a>
-     </div>
-     <div class="day" data-date="2025-04-27">
-      <div class="info">
-       <div class="date">
-        27/04/2025
-       </div>
-       <div class="label">
-        2º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1zfOY3lS_V7PleO-43PvS9kLpM_zpIlDs/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Igreja Importa" - Muitas formas de Amar - Beto Mello
-      </a>
-     </div>
-     <div class="day" data-date="2026-04-05">
-      <div class="info">
-       <div class="date">
-        05/04/2026
-       </div>
-       <div class="label">
-        Domingo da Ressurreição
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/16KjCvSjuc5xt5YneIqbkjtT4zacNv6m-/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Sermão Especial" - Culto da Ressurreição - Leonardo Amaral
-      </a>
-     </div>
-     <div class="day" data-date="2026-04-12">
-      <div class="info">
-       <div class="date">
-        12/04/2026
-       </div>
-       <div class="label">
-        2º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1jlj0sUlMeBxVdj59FmQQPAFyE1WspKDV/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - O que importa é ser feliz - Filipe Breder
-      </a>
-     </div>
-     <div class="day" data-date="2026-04-19">
-      <div class="info">
-       <div class="date">
-        19/04/2026
-       </div>
-       <div class="label">
-        3º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1wlVJQOas8UkXTDEnSW99H1vdSxxmcAdT/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Seja Você Mesmo - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-04-26">
-      <div class="info">
-       <div class="date">
-        26/04/2026
-       </div>
-       <div class="label">
-        4º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1mVGZiZBf--0X7nawpoHTuu_5PyyxDqH6/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Que cada um viva sua verdade - Fred Almeida
-      </a>
-     </div>
-     <div class="day" data-date="2026-05-03">
-      <div class="info">
-       <div class="date">
-        03/05/2026
-       </div>
-       <div class="label">
-        5º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1gnUJ9t_xvzdy5soFN7P2r0XyJ0lBWzkw/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Aproveite! Você só tem essa vida - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-05-10">
-      <div class="info">
-       <div class="date">
-        10/05/2026
-       </div>
-       <div class="label">
-        6º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1TusaY0B19Vcy1a495DKSeCbGAJuVtIeq/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Confie em Seus Sentimentos - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2026-05-17">
-      <div class="info">
-       <div class="date">
-        17/05/2026
-       </div>
-       <div class="label">
-        7º Domingo da Páscoa
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1ixrF_SI_9BXTFG5VG3sehaF0XaKKpw_8/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "Evangelho Segundo Satanás" - Seja o protagonista da sua história - Igor Miguel
-      </a>
-     </div>
-    </div>
-   </section>
-   <!-- QUARESMA -->
-   <section aria-labelledby="quaresma-title" class="season quaresma">
-    <h2 id="quaresma-title">
-     Quaresma
-    </h2>
-    <div class="grid">
-     <div class="day" data-date="2025-04-06">
-      <div class="info">
-       <div class="date">
-        06/04/2025
-       </div>
-       <div class="label">
-        5º Domingo da Quaresma
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-03-23">
-      <div class="info">
-       <div class="date">
-        23/03/2025
-       </div>
-       <div class="label">
-        3º Domingo da Quaresma
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - Leonardo Amaral
-      </a>
-     </div>
-     <div class="day" data-date="2025-03-09">
-      <div class="info">
-       <div class="date">
-        09/03/2025
-       </div>
-       <div class="label">
-        3º Domingo da Quaresma
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1p86iu0WW47bYWTCoseTRnOXhZ3pHZ5QX/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Igreja Importa" - A Glória do Ministério - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-04-13">
-      <div class="info">
-       <div class="date">
-        13/04/2025
-       </div>
-       <div class="label">
-        Domingo de Ramos
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1Oo_Pj1cNKaWuCpS-k8dnyeJR_Bn-GyQ1/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Igreja do Futuro" - O Próprio Senhor Descerá Dos Céus - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2026-02-22">
-      <div class="info">
-       <div class="date">
-        22/02/2026
-       </div>
-       <div class="label">
-        1º Domingo da Quaresma
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1dxU4cN7wyCY4Mu6M_kr1pxuAH7bUUGYM/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° Temporada: O livro, selos e trombetas" - Anjos, trovões, João e um livrinho - Igor Miguel
-      </a>
-     </div>
-     <div class="day" data-date="2026-03-01">
-      <div class="info">
-       <div class="date">
-        01/03/2026
-       </div>
-       <div class="label">
-        2º Domingo da Quaresma
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1izYAegOw1WTqsTaaPo9dzh392QSdTEKo/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° temporada: O livro, selos e trombetas" - As duas testemunhas e o martírio - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2026-03-08">
-      <div class="info">
-       <div class="date">
-        08/03/2026
-       </div>
-       <div class="label">
-        3º Domingo da Quaresma
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/17V9BCqswD--sDSZKzqP3jWb1yBmM504R/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° Temporada: O livro, selos e trombetas" - A Sétima Trombeta - Filipe Breder
-      </a>
-     </div>
-     <div class="day" data-date="2026-03-15">
-      <div class="info">
-       <div class="date">
-        15/03/2026
-       </div>
-       <div class="label">
-        4º Domingo da Quaresma
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1Lsds5_fVXHo7g8NLbdgQAulPliDzD3K0/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Cruz Entre os Pactos" - Mesa - Filipe Breder
-      </a>
-     </div>
-     <div class="day" data-date="2026-03-22">
-      <div class="info">
-       <div class="date">
-        22/03/2026
-       </div>
-       <div class="label">
-        5º Domingo da Quaresma
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1Fu6tj6f2a-twUvDxh_r-hs6hg1yYoAgc/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Cruz Entre os Pactos" - Jardim - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2026-03-29">
-      <div class="info">
-       <div class="date">
-        29/03/2026
-       </div>
-       <div class="label">
-        Domingo de Ramos
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1TUvLG1JmAZMGc2Vlyg9DJ-vAORq96qo2/view?usp=sharing" rel="noopener" target="_blank">
-       Série "A Cruz Entre os Pactos" - Cruz - Igor Miguel
-      </a>
-     </div>
-    </div>
-   </section>
-   <!-- EPIFANIA -->
-   <section aria-labelledby="epifania-title" class="season epifania">
-    <h2 id="epifania-title">
-     Epifania
-    </h2>
-    <div class="grid">
-     <div class="day" data-date="2025-02-09">
-      <div class="info">
-       <div class="date">
-        09/02/2025
-       </div>
-       <div class="label">
-        6º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "A Igreja Importa" - Igor Miguel
-      </a>
-     </div>
-     <div class="day" data-date="2025-02-02">
-      <div class="info">
-       <div class="date">
-        02/02/2025
-       </div>
-       <div class="label">
-        5º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "A Igreja Importa" - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-01-19">
-      <div class="info">
-       <div class="date">
-        19/01/2025
-       </div>
-       <div class="label">
-        3º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "A Igreja Importa" - Guilherme de Carvalho
-      </a>
-     </div>
-     <div class="day" data-date="2025-01-12">
-      <div class="info">
-       <div class="date">
-        12/01/2025
-       </div>
-       <div class="label">
-        2º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "A Igreja Importa" - Beto Mello
-      </a>
-     </div>
-     <div class="day" data-date="2026-01-04">
-      <div class="info">
-       <div class="date">
-        04/01/2026
-       </div>
-       <div class="label">
-        2º Domingo Após natal
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1bK5j0Xqf0nCaTkvmoIywsULlCT7IWal1/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° Temporada: O Livro, selos e trombetas" - A Visão do Trono de Deus - Guilherme de Carvalho
-      </a>
-     </div>
-     <div class="day" data-date="2026-01-11">
-      <div class="info">
-       <div class="date">
-        11/01/2026
-       </div>
-       <div class="label">
-        2º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1jfKohrEMPT8BMyK0L5OV2uWL2c9UeObJ/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° Temporada: O Livro, selos e trombetas" - Quem é digno de abrir o livro? - Igor Miguel
-      </a>
-     </div>
-     <div class="day" data-date="2026-01-18">
-      <div class="info">
-       <div class="date">
-        18/01/2026
-       </div>
-       <div class="label">
-        3º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1Si9IgXkcZgGYArKnbfcb7525DdgwXjwn/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° Temporada: O livro, selos e trombetas" - Os Seis Selos - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-01-25">
-      <div class="info">
-       <div class="date">
-        25/01/2026
-       </div>
-       <div class="label">
-        4º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1ZJdSzlm3X5-bMVVdyOM1R1WqW4XRnCGS/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° Temporada: O livro, selos e trombetas" - Os 144 mil - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2026-02-01">
-      <div class="info">
-       <div class="date">
-        01/02/2026
-       </div>
-       <div class="label">
-        5º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1CbxkSFYW_JrslS03EbEDCynYHD3BbUeB/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Especial" - Sermão Especial - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2026-02-08">
-      <div class="info">
-       <div class="date">
-        08/02/2026
-       </div>
-       <div class="label">
-        6º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1ylxpD800POCVuNNklxn75Sxynj68Uje2/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° temporada: O livro, selos e trombetas" - O setimo selo e quatro trombetas - Leonardo Amaral
-      </a>
-     </div>
-     <div class="day" data-date="2026-02-15">
-      <div class="info">
-       <div class="date">
-        15/02/2026
-       </div>
-       <div class="label">
-        7º Domingo da Epifania
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/18CiwZBCVVW8hbzdJzni0mD8cQFIgmzl2/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Apocalipse 2° Temporada: O livro, selos e trombetas" - A quinta e a sexta trombeta. - Maurício Avoletta
-      </a>
-     </div>
-    </div>
-   </section>
-   <!-- CRIAÇÃO -->
-   <section aria-labelledby="criacao-title" class="season criacao">
-    <h2 id="criacao-title">
-     Criação
-    </h2>
-    <div class="grid">
-     <div class="day" data-date="2025-09-28">
-      <div class="info">
-       <div class="date">
-        28/09/2025
-       </div>
-       <div class="label">
-        4º Domingo da Criação
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1fNTCi1nj61wNyBb__HHXMi4taQoDkYGT/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Carta às Sete Igrejas" - Carta à Igreja em Filadélfia - Leonardo Amaral
-      </a>
-     </div>
-     <div class="day" data-date="2025-09-21">
-      <div class="info">
-       <div class="date">
-        21/09/2025
-       </div>
-       <div class="label">
-        3º Domingo da Criação
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/14DZQ9tsXGISVxpRYqwI5CwTkaW5Wp0JJ/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Sermão Especial" - Lealdade Dividida Pt 3 - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-09-14">
-      <div class="info">
-       <div class="date">
-        14/09/2025
-       </div>
-       <div class="label">
-        2º Domingo da Criação
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1g0O8nqWZv7JzzxheOsftB45fRRr-rUIL/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Sermão Especial" - Aniversário Esperança Campus LS - Felipe dos Anjos
-      </a>
-     </div>
-     <div class="day" data-date="2025-09-07">
-      <div class="info">
-       <div class="date">
-        07/09/2025
-       </div>
-       <div class="label">
-        1º Domingo da Criação
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1MISxTHbWeuqsPM_z4IvCSN2wtvMpgD9H/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Carta às Sete Igrejas" - Carta a Igreja em Tiatira - Igor Miguel
-      </a>
-     </div>
-    </div>
-   </section>
-   <section class="season advento">
-    <h2>
-     Advento
-    </h2>
-    <div class="grid">
-     <div class="day" data-date="2025-12-21">
-      <div class="info">
-       <div class="date">
-        21/12/2025
-       </div>
-       <div class="label">
-        4º Domingo do Advento
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1_JvKJkWcLrMQs6PFwar1xaZXq00NerxU/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Minissérie Canticos Natalinos" - Benedictus, o Cântico de Zacarias - Maurício Avoletta
-      </a>
-     </div>
-     <div class="day" data-date="2025-12-14">
-      <div class="info">
-       <div class="date">
-        14/12/2025
-       </div>
-       <div class="label">
-        3º Domingo do Advento
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1DLpI5kfQEcaXBemCfVORRtWov17B_yU6/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Minissérie Cânticos Natalinos" - Magnificat, o Cântico de Maria - Filipe Breder
-      </a>
-     </div>
-     <div class="day" data-date="2025-12-07">
-      <div class="info">
-       <div class="date">
-        07/12/2025
-       </div>
-       <div class="label">
-        2º Domingo do Advento
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1gtT61rWjsBJVEZCqMSn9hXvguFGC1_Oz/view?usp=sharing" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - Ele Separará Ovelhas de Bodes - Filipe Breder
-      </a>
-     </div>
-     <div class="day" data-date="2025-11-30">
-      <div class="info">
-       <div class="date">
-        30/11/2025
-       </div>
-       <div class="label">
-        1º Domingo do Advento
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/10pUIzH-oUvqNr7MgnuH2j3c6sW1tMI7z/view?usp=sharing" rel="noopener" target="_blank">
-       Série "O Sermão Escatológico de Jesus" - A Parábola dos Talentos - Maurício Avoletta
-      </a>
-     </div>
-    </div>
-   </section>
-   <section class="season natal">
-    <h2>
-     Natal
-    </h2>
-    <div class="grid">
-     <div class="day" data-date="2025-12-28">
-      <div class="info">
-       <div class="date">
-        28/12/2025
-       </div>
-       <div class="label">
-        1º Domingo após o Natal
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/19U1twIcvpYlHXbYHdeNDnG61T_tGrjv0/view?usp=sharing" rel="noopener" target="_blank">
-       Série "Minissérie Cânticos Natalinos" - Nunc Dimittis, o cântico de Simeão - Igor Miguel
-      </a>
-     </div>
-    </div>
-   </section>
-   <section class="season pentecostes">
-    <h2>
-     Pentecostes
-    </h2>
-    <div class="grid">
-     <div class="day" data-date="2026-05-24">
-      <div class="info">
-       <div class="date">
-        24/05/2026
-       </div>
-       <div class="label">
-        Domingo de Pentecostes
-       </div>
-      </div>
-      <a class="link" href="https://drive.google.com/file/d/1HGQ2eN_sfLBb4tdjFfHbZjTY3eonda3D/view?usp=drive_link" rel="noopener" target="_blank">
-       Série "Sermão Especial" - Pentecostes - Felipe dos Anjos
-      </a>
-     </div>
-    </div>
-   </section>
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-inner"><p class="eyebrow">PALAVRA QUE NOS REÚNE</p><h1 id="page-title">Uma mensagem.<br>Novas escutas.</h1><p class="hero-description">Os sermões da nossa comunidade, para ouvir,<br class="desktop-break"> revisitar e compartilhar ao longo da semana.</p><a href="#acervo" class="hero-link">Explorar os sermões <span aria-hidden="true">↓</span></a></div>
+      <div id="featured" class="featured" hidden></div>
+    </section>
+    <section id="acervo" class="archive" aria-labelledby="archive-title">
+      <div class="archive-heading"><div><p class="eyebrow">NOSSO ACERVO</p><h2 id="archive-title">Encontre uma mensagem</h2></div><button id="sharePage" type="button" class="quiet-button">Compartilhar busca ↗</button></div>
+      <form id="filters" class="filter-panel" role="search">
+        <div class="search-row"><label class="search-label" for="search">Buscar no acervo<input id="search" type="search" placeholder="Título, série, preletor ou celebração…" autocomplete="off"></label><label class="sort-label" for="sort">Ordenar por<select id="sort"><option value="recent">Mais recentes</option><option value="oldest">Mais antigos</option><option value="published">Adicionados recentemente</option></select></label></div>
+        <details id="filterDetails" open><summary>Filtrar sermões <span id="activeFilters"></span></summary><div class="filter-grid">
+          <label for="filterAno">Ano<select id="filterAno"><option value="">Todos os anos</option></select></label>
+          <label for="filterMes">Mês<select id="filterMes"><option value="">Todos os meses</option></select></label>
+          <label for="filterPreletor">Preletor<select id="filterPreletor"><option value="">Todos os preletores</option></select></label>
+          <label for="filterSerie">Série<select id="filterSerie"><option value="">Todas as séries</option></select></label>
+          <label for="filterEstacao">Estação<select id="filterEstacao"><option value="">Todas as estações</option></select></label>
+        </div></details>
+        <div class="filter-bottom"><p id="resultCount" role="status" aria-live="polite"></p><button id="clearFilters" type="button">Limpar filtros</button></div>
+      </form>
+      <p id="offlineNotice" class="notice" hidden>Você está sem conexão. O acervo salvo está disponível; as gravações no Drive precisam de internet.</p>
+      <p id="publicationNotice" class="notice" hidden>O histórico anterior não tem data de publicação registrada. Ele aparece depois dos novos cadastros, pela data da pregação.</p>
+      <div id="selectedSermon" class="selected-sermon" hidden></div>
+      <div id="emptyState" class="empty-state" hidden><h3>Nenhum sermão encontrado</h3><p>Tente outro termo ou remova alguns filtros.</p><button id="emptyClear" type="button">Mostrar todos os sermões</button></div>
+      <div id="sermonList" class="sermon-grid">
+<!-- SERMOES:CARDS:START -->
+<article class="sermon-card" id="sermao-190284bc20cc64d9" data-id="190284bc20cc64d9">
+  <div class="card-meta"><time datetime="2026-09-20">20/09/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1x5yb5vnJK1kxSADx0SnKZ77fdH9K61GO/view?usp=sharing" target="_blank" rel="noopener">Dinheiro Fácil, Pobreza da Alma</a></h3>
+  <p class="preacher">Leonardo Amaral</p><p class="celebration">17º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1x5yb5vnJK1kxSADx0SnKZ77fdH9K61GO/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="190284bc20cc64d9" aria-label="Compartilhar sermão: Dinheiro Fácil, Pobreza da Alma">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-5ca030b8891406df" data-id="5ca030b8891406df">
+  <div class="card-meta"><time datetime="2026-09-13">13/09/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Sermão Especial</p><h3><a href="https://drive.google.com/file/d/1xHTjo_AZLaGLfO-VBg9E6OJqg5Y3dXmM/view?usp=sharing" target="_blank" rel="noopener">Aniversário Igreja Esperança</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">16º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1xHTjo_AZLaGLfO-VBg9E6OJqg5Y3dXmM/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="5ca030b8891406df" aria-label="Compartilhar sermão: Aniversário Igreja Esperança">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-e7e42d024d5df303" data-id="e7e42d024d5df303">
+  <div class="card-meta"><time datetime="2026-09-06">06/09/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/14xlgvdTmUzgW2CpZGiWDE8lJyogsxy29/view?usp=sharing" target="_blank" rel="noopener">Dons e Serviços na Igreja Local</a></h3>
+  <p class="preacher">Júlio Souza</p><p class="celebration">15º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/14xlgvdTmUzgW2CpZGiWDE8lJyogsxy29/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="e7e42d024d5df303" aria-label="Compartilhar sermão: Dons e Serviços na Igreja Local">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-5cfaee273a978bc3" data-id="5cfaee273a978bc3">
+  <div class="card-meta"><time datetime="2026-08-30">30/08/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1uCCuPOXXsO2fqFR91CKgj1ipMb5v5pCp/view?usp=sharing" target="_blank" rel="noopener">A Idolaria do Consumo</a></h3>
+  <p class="preacher">Guilherme de Carvalho</p><p class="celebration">14º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1uCCuPOXXsO2fqFR91CKgj1ipMb5v5pCp/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="5cfaee273a978bc3" aria-label="Compartilhar sermão: A Idolaria do Consumo">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-2191b11362c2c81f" data-id="2191b11362c2c81f">
+  <div class="card-meta"><time datetime="2026-08-23">23/08/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1_6aohMpepAPQRJfhhUUIrRQOJQEITzFF/view?usp=sharing" target="_blank" rel="noopener">Ajuntem Tesouros no Céu</a></h3>
+  <p class="preacher">Davi Lin</p><p class="celebration">13º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1_6aohMpepAPQRJfhhUUIrRQOJQEITzFF/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="2191b11362c2c81f" aria-label="Compartilhar sermão: Ajuntem Tesouros no Céu">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-d0f9c18fb3eb414a" data-id="d0f9c18fb3eb414a">
+  <div class="card-meta"><time datetime="2026-08-16">16/08/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1MhzKVd5aWJHnoA8cS0Yr2X9ns-3OPnCH/view?usp=sharing" target="_blank" rel="noopener">Trabalho: Maldição ou Chamado?</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">12º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1MhzKVd5aWJHnoA8cS0Yr2X9ns-3OPnCH/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="d0f9c18fb3eb414a" aria-label="Compartilhar sermão: Trabalho: Maldição ou Chamado?">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-d96d14b363458aa2" data-id="d96d14b363458aa2">
+  <div class="card-meta"><time datetime="2026-08-09">09/08/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1BvKkSyn0T8kz5_Xh1y68181qXnjjOTBi/view?usp=sharing" target="_blank" rel="noopener">A Mordomia do que não é nosso,</a></h3>
+  <p class="preacher">Fred Almeida</p><p class="celebration">11º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1BvKkSyn0T8kz5_Xh1y68181qXnjjOTBi/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="d96d14b363458aa2" aria-label="Compartilhar sermão: A Mordomia do que não é nosso,">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-49484e0687a9d0bd" data-id="49484e0687a9d0bd">
+  <div class="card-meta"><time datetime="2026-08-02">02/08/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1VNeJWkJEGN_9azU_0bUHyVlUQYMCQaw1/view?usp=sharing" target="_blank" rel="noopener">Contentamento: A Arte de Viver Satisfeito</a></h3>
+  <p class="preacher">Paula Breder</p><p class="celebration">10º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1VNeJWkJEGN_9azU_0bUHyVlUQYMCQaw1/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="49484e0687a9d0bd" aria-label="Compartilhar sermão: Contentamento: A Arte de Viver Satisfeito">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-e120ff49b977d0e0" data-id="e120ff49b977d0e0">
+  <div class="card-meta"><time datetime="2026-07-26">26/07/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1ir4R0ZVWCuhnKjFTqkwrGlmUKDOZIW2J/view?usp=sharing" target="_blank" rel="noopener">A Pobreza do Rico</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">9º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1ir4R0ZVWCuhnKjFTqkwrGlmUKDOZIW2J/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="e120ff49b977d0e0" aria-label="Compartilhar sermão: A Pobreza do Rico">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-338a141bec0c90c9" data-id="338a141bec0c90c9">
+  <div class="card-meta"><time datetime="2026-07-19">19/07/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/19d6YFc9z6TC7CIkrRaeKy2GIiT3tFO8D/view?usp=sharing" target="_blank" rel="noopener">Graça recebida, graça repartida</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">8º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/19d6YFc9z6TC7CIkrRaeKy2GIiT3tFO8D/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="338a141bec0c90c9" aria-label="Compartilhar sermão: Graça recebida, graça repartida">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-40d7bd20d35d3e71" data-id="40d7bd20d35d3e71">
+  <div class="card-meta"><time datetime="2026-07-12">12/07/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1eAsSszF4tJ9zqzW7eEg87rAT1DFcNb-d/view?usp=sharing" target="_blank" rel="noopener">A Economia da Graça</a></h3>
+  <p class="preacher">Daniel Nunes</p><p class="celebration">7º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1eAsSszF4tJ9zqzW7eEg87rAT1DFcNb-d/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="40d7bd20d35d3e71" aria-label="Compartilhar sermão: A Economia da Graça">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-192f68a3f7ba6eb0" data-id="192f68a3f7ba6eb0">
+  <div class="card-meta"><time datetime="2026-07-05">05/07/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Riquezas e Pobrezas</p><h3><a href="https://drive.google.com/file/d/1ncYZZ-KMw9q6L1jt3udJcWYtiYpby0Uj/view?usp=sharing" target="_blank" rel="noopener">Estreia</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">6º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1ncYZZ-KMw9q6L1jt3udJcWYtiYpby0Uj/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="192f68a3f7ba6eb0" aria-label="Compartilhar sermão: Estreia">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-9c4d5c7990aafe6a" data-id="9c4d5c7990aafe6a">
+  <div class="card-meta"><time datetime="2026-06-28">28/06/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1Jprljzbn2bkr_hV3DhYWw2Nfp0nD3iyf/view?usp=sharing" target="_blank" rel="noopener">Seu Futuro Depende de Você</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">5º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1Jprljzbn2bkr_hV3DhYWw2Nfp0nD3iyf/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="9c4d5c7990aafe6a" aria-label="Compartilhar sermão: Seu Futuro Depende de Você">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-fcb0c777397e6892" data-id="fcb0c777397e6892">
+  <div class="card-meta"><time datetime="2026-06-21">21/06/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/14fpMu6FJ_4VqnUIp0zclAxyH_sW-xq3i/view?usp=sharing" target="_blank" rel="noopener">Você precisa se amar mais!</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">4º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/14fpMu6FJ_4VqnUIp0zclAxyH_sW-xq3i/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="fcb0c777397e6892" aria-label="Compartilhar sermão: Você precisa se amar mais!">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-e93730fbcafef531" data-id="e93730fbcafef531">
+  <div class="card-meta"><time datetime="2026-06-14">14/06/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/16FsvH_85K70K2eYDYWetK6XIMRmTsuaW/view?usp=sharing" target="_blank" rel="noopener">Parabens. Você merece!</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">3º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/16FsvH_85K70K2eYDYWetK6XIMRmTsuaW/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="e93730fbcafef531" aria-label="Compartilhar sermão: Parabens. Você merece!">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-c63b822f05c71e3e" data-id="c63b822f05c71e3e">
+  <div class="card-meta"><time datetime="2026-06-07">07/06/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1ppfSkActo75-y_-2U8fkQrBXP_nq4m-2/view?usp=sharing" target="_blank" rel="noopener">Faça tua parte que Deus te ajudará!</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">2º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1ppfSkActo75-y_-2U8fkQrBXP_nq4m-2/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="c63b822f05c71e3e" aria-label="Compartilhar sermão: Faça tua parte que Deus te ajudará!">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-9f3816817d91b95d" data-id="9f3816817d91b95d">
+  <div class="card-meta"><time datetime="2026-05-31">31/05/2026</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1q4dr01xcKOOfvlIZJodO7ZT81eEOv1ql/view?usp=sharing" target="_blank" rel="noopener">Cada um cuida da sua própria vida</a></h3>
+  <p class="preacher">Leonardo Amaral</p><p class="celebration">1º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1q4dr01xcKOOfvlIZJodO7ZT81eEOv1ql/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="9f3816817d91b95d" aria-label="Compartilhar sermão: Cada um cuida da sua própria vida">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-f339e7c94fdc1253" data-id="f339e7c94fdc1253">
+  <div class="card-meta"><time datetime="2026-05-24">24/05/2026</time><span class="season">Pentecostes</span></div>
+  <p class="series">Sermão Especial</p><h3><a href="https://drive.google.com/file/d/1HGQ2eN_sfLBb4tdjFfHbZjTY3eonda3D/view?usp=drive_link" target="_blank" rel="noopener">Pentecostes</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">Domingo de Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1HGQ2eN_sfLBb4tdjFfHbZjTY3eonda3D/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="f339e7c94fdc1253" aria-label="Compartilhar sermão: Pentecostes">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-63c6c041d79a9a36" data-id="63c6c041d79a9a36">
+  <div class="card-meta"><time datetime="2026-05-17">17/05/2026</time><span class="season">Páscoa</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1ixrF_SI_9BXTFG5VG3sehaF0XaKKpw_8/view?usp=drive_link" target="_blank" rel="noopener">Seja o protagonista da sua história</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">7º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1ixrF_SI_9BXTFG5VG3sehaF0XaKKpw_8/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="63c6c041d79a9a36" aria-label="Compartilhar sermão: Seja o protagonista da sua história">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-540be59be9fcd418" data-id="540be59be9fcd418">
+  <div class="card-meta"><time datetime="2026-05-10">10/05/2026</time><span class="season">Páscoa</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1TusaY0B19Vcy1a495DKSeCbGAJuVtIeq/view?usp=sharing" target="_blank" rel="noopener">Confie em Seus Sentimentos</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">6º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1TusaY0B19Vcy1a495DKSeCbGAJuVtIeq/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="540be59be9fcd418" aria-label="Compartilhar sermão: Confie em Seus Sentimentos">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-7955fe4d2cacc9af" data-id="7955fe4d2cacc9af">
+  <div class="card-meta"><time datetime="2026-05-03">03/05/2026</time><span class="season">Páscoa</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1gnUJ9t_xvzdy5soFN7P2r0XyJ0lBWzkw/view?usp=sharing" target="_blank" rel="noopener">Aproveite! Você só tem essa vida</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">5º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1gnUJ9t_xvzdy5soFN7P2r0XyJ0lBWzkw/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="7955fe4d2cacc9af" aria-label="Compartilhar sermão: Aproveite! Você só tem essa vida">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-f90cc572fa95f67f" data-id="f90cc572fa95f67f">
+  <div class="card-meta"><time datetime="2026-04-26">26/04/2026</time><span class="season">Páscoa</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1mVGZiZBf--0X7nawpoHTuu_5PyyxDqH6/view?usp=sharing" target="_blank" rel="noopener">Que cada um viva sua verdade</a></h3>
+  <p class="preacher">Fred Almeida</p><p class="celebration">4º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1mVGZiZBf--0X7nawpoHTuu_5PyyxDqH6/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="f90cc572fa95f67f" aria-label="Compartilhar sermão: Que cada um viva sua verdade">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-39ed5a78205769ca" data-id="39ed5a78205769ca">
+  <div class="card-meta"><time datetime="2026-04-19">19/04/2026</time><span class="season">Páscoa</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1wlVJQOas8UkXTDEnSW99H1vdSxxmcAdT/view?usp=sharing" target="_blank" rel="noopener">Seja Você Mesmo</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">3º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1wlVJQOas8UkXTDEnSW99H1vdSxxmcAdT/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="39ed5a78205769ca" aria-label="Compartilhar sermão: Seja Você Mesmo">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-ed44a7b951c97f3f" data-id="ed44a7b951c97f3f">
+  <div class="card-meta"><time datetime="2026-04-12">12/04/2026</time><span class="season">Páscoa</span></div>
+  <p class="series">Evangelho Segundo Satanás</p><h3><a href="https://drive.google.com/file/d/1jlj0sUlMeBxVdj59FmQQPAFyE1WspKDV/view?usp=sharing" target="_blank" rel="noopener">O que importa é ser feliz</a></h3>
+  <p class="preacher">Filipe Breder</p><p class="celebration">2º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1jlj0sUlMeBxVdj59FmQQPAFyE1WspKDV/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="ed44a7b951c97f3f" aria-label="Compartilhar sermão: O que importa é ser feliz">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-b874aa07b273157d" data-id="b874aa07b273157d">
+  <div class="card-meta"><time datetime="2026-04-05">05/04/2026</time><span class="season">Páscoa</span></div>
+  <p class="series">Sermão Especial</p><h3><a href="https://drive.google.com/file/d/16KjCvSjuc5xt5YneIqbkjtT4zacNv6m-/view?usp=sharing" target="_blank" rel="noopener">Culto da Ressurreição</a></h3>
+  <p class="preacher">Leonardo Amaral</p><p class="celebration">Domingo da Ressurreição</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/16KjCvSjuc5xt5YneIqbkjtT4zacNv6m-/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="b874aa07b273157d" aria-label="Compartilhar sermão: Culto da Ressurreição">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-6239f0181065d084" data-id="6239f0181065d084">
+  <div class="card-meta"><time datetime="2026-03-29">29/03/2026</time><span class="season">Quaresma</span></div>
+  <p class="series">A Cruz Entre os Pactos</p><h3><a href="https://drive.google.com/file/d/1TUvLG1JmAZMGc2Vlyg9DJ-vAORq96qo2/view?usp=sharing" target="_blank" rel="noopener">Cruz</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">Domingo de Ramos</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1TUvLG1JmAZMGc2Vlyg9DJ-vAORq96qo2/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="6239f0181065d084" aria-label="Compartilhar sermão: Cruz">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-bbb2445a8c07690a" data-id="bbb2445a8c07690a">
+  <div class="card-meta"><time datetime="2026-03-22">22/03/2026</time><span class="season">Quaresma</span></div>
+  <p class="series">A Cruz Entre os Pactos</p><h3><a href="https://drive.google.com/file/d/1Fu6tj6f2a-twUvDxh_r-hs6hg1yYoAgc/view?usp=sharing" target="_blank" rel="noopener">Jardim</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">5º Domingo da Quaresma</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1Fu6tj6f2a-twUvDxh_r-hs6hg1yYoAgc/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="bbb2445a8c07690a" aria-label="Compartilhar sermão: Jardim">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-1fcb1b999f7d8bdf" data-id="1fcb1b999f7d8bdf">
+  <div class="card-meta"><time datetime="2026-03-15">15/03/2026</time><span class="season">Quaresma</span></div>
+  <p class="series">A Cruz Entre os Pactos</p><h3><a href="https://drive.google.com/file/d/1Lsds5_fVXHo7g8NLbdgQAulPliDzD3K0/view?usp=sharing" target="_blank" rel="noopener">Mesa</a></h3>
+  <p class="preacher">Filipe Breder</p><p class="celebration">4º Domingo da Quaresma</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1Lsds5_fVXHo7g8NLbdgQAulPliDzD3K0/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="1fcb1b999f7d8bdf" aria-label="Compartilhar sermão: Mesa">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-46698b5886501bb6" data-id="46698b5886501bb6">
+  <div class="card-meta"><time datetime="2026-03-08">08/03/2026</time><span class="season">Quaresma</span></div>
+  <p class="series">Apocalipse 2° Temporada: O livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/17V9BCqswD--sDSZKzqP3jWb1yBmM504R/view?usp=sharing" target="_blank" rel="noopener">A Sétima Trombeta</a></h3>
+  <p class="preacher">Filipe Breder</p><p class="celebration">3º Domingo da Quaresma</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/17V9BCqswD--sDSZKzqP3jWb1yBmM504R/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="46698b5886501bb6" aria-label="Compartilhar sermão: A Sétima Trombeta">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-6b6f499ec8eee89f" data-id="6b6f499ec8eee89f">
+  <div class="card-meta"><time datetime="2026-03-01">01/03/2026</time><span class="season">Quaresma</span></div>
+  <p class="series">Apocalipse 2° temporada: O livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/1izYAegOw1WTqsTaaPo9dzh392QSdTEKo/view?usp=sharing" target="_blank" rel="noopener">As duas testemunhas e o martírio</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">2º Domingo da Quaresma</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1izYAegOw1WTqsTaaPo9dzh392QSdTEKo/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="6b6f499ec8eee89f" aria-label="Compartilhar sermão: As duas testemunhas e o martírio">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-acf17b4ee6f0985e" data-id="acf17b4ee6f0985e">
+  <div class="card-meta"><time datetime="2026-02-22">22/02/2026</time><span class="season">Quaresma</span></div>
+  <p class="series">Apocalipse 2° Temporada: O livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/1dxU4cN7wyCY4Mu6M_kr1pxuAH7bUUGYM/view?usp=sharing" target="_blank" rel="noopener">Anjos, trovões, João e um livrinho</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">1º Domingo da Quaresma</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1dxU4cN7wyCY4Mu6M_kr1pxuAH7bUUGYM/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="acf17b4ee6f0985e" aria-label="Compartilhar sermão: Anjos, trovões, João e um livrinho">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-1e11238a14e15a55" data-id="1e11238a14e15a55">
+  <div class="card-meta"><time datetime="2026-02-15">15/02/2026</time><span class="season">Epifania</span></div>
+  <p class="series">Apocalipse 2° Temporada: O livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/18CiwZBCVVW8hbzdJzni0mD8cQFIgmzl2/view?usp=sharing" target="_blank" rel="noopener">A quinta e a sexta trombeta.</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">7º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/18CiwZBCVVW8hbzdJzni0mD8cQFIgmzl2/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="1e11238a14e15a55" aria-label="Compartilhar sermão: A quinta e a sexta trombeta.">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-625ae79eb691bca0" data-id="625ae79eb691bca0">
+  <div class="card-meta"><time datetime="2026-02-08">08/02/2026</time><span class="season">Epifania</span></div>
+  <p class="series">Apocalipse 2° temporada: O livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/1ylxpD800POCVuNNklxn75Sxynj68Uje2/view?usp=sharing" target="_blank" rel="noopener">O setimo selo e quatro trombetas</a></h3>
+  <p class="preacher">Leonardo Amaral</p><p class="celebration">6º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1ylxpD800POCVuNNklxn75Sxynj68Uje2/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="625ae79eb691bca0" aria-label="Compartilhar sermão: O setimo selo e quatro trombetas">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-676721b35bfcce67" data-id="676721b35bfcce67">
+  <div class="card-meta"><time datetime="2026-02-01">01/02/2026</time><span class="season">Epifania</span></div>
+  <p class="series">Especial</p><h3><a href="https://drive.google.com/file/d/1CbxkSFYW_JrslS03EbEDCynYHD3BbUeB/view?usp=sharing" target="_blank" rel="noopener">Sermão Especial</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">5º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1CbxkSFYW_JrslS03EbEDCynYHD3BbUeB/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="676721b35bfcce67" aria-label="Compartilhar sermão: Sermão Especial">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-5c485d517bb14ace" data-id="5c485d517bb14ace">
+  <div class="card-meta"><time datetime="2026-01-25">25/01/2026</time><span class="season">Epifania</span></div>
+  <p class="series">Apocalipse 2° Temporada: O livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/1ZJdSzlm3X5-bMVVdyOM1R1WqW4XRnCGS/view?usp=sharing" target="_blank" rel="noopener">Os 144 mil</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">4º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1ZJdSzlm3X5-bMVVdyOM1R1WqW4XRnCGS/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="5c485d517bb14ace" aria-label="Compartilhar sermão: Os 144 mil">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-11125092489ed2fe" data-id="11125092489ed2fe">
+  <div class="card-meta"><time datetime="2026-01-18">18/01/2026</time><span class="season">Epifania</span></div>
+  <p class="series">Apocalipse 2° Temporada: O livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/1Si9IgXkcZgGYArKnbfcb7525DdgwXjwn/view?usp=sharing" target="_blank" rel="noopener">Os Seis Selos</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">3º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1Si9IgXkcZgGYArKnbfcb7525DdgwXjwn/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="11125092489ed2fe" aria-label="Compartilhar sermão: Os Seis Selos">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-9f04a65ab34e8ae3" data-id="9f04a65ab34e8ae3">
+  <div class="card-meta"><time datetime="2026-01-11">11/01/2026</time><span class="season">Epifania</span></div>
+  <p class="series">Apocalipse 2° Temporada: O Livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/1jfKohrEMPT8BMyK0L5OV2uWL2c9UeObJ/view?usp=sharing" target="_blank" rel="noopener">Quem é digno de abrir o livro?</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">2º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1jfKohrEMPT8BMyK0L5OV2uWL2c9UeObJ/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="9f04a65ab34e8ae3" aria-label="Compartilhar sermão: Quem é digno de abrir o livro?">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-752490399cb2712e" data-id="752490399cb2712e">
+  <div class="card-meta"><time datetime="2026-01-04">04/01/2026</time><span class="season">Epifania</span></div>
+  <p class="series">Apocalipse 2° Temporada: O Livro, selos e trombetas</p><h3><a href="https://drive.google.com/file/d/1bK5j0Xqf0nCaTkvmoIywsULlCT7IWal1/view?usp=sharing" target="_blank" rel="noopener">A Visão do Trono de Deus</a></h3>
+  <p class="preacher">Guilherme de Carvalho</p><p class="celebration">2º Domingo Após natal</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1bK5j0Xqf0nCaTkvmoIywsULlCT7IWal1/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="752490399cb2712e" aria-label="Compartilhar sermão: A Visão do Trono de Deus">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-2cb9e4c8b3b3cfc8" data-id="2cb9e4c8b3b3cfc8">
+  <div class="card-meta"><time datetime="2025-12-28">28/12/2025</time><span class="season">Natal</span></div>
+  <p class="series">Minissérie Cânticos Natalinos</p><h3><a href="https://drive.google.com/file/d/19U1twIcvpYlHXbYHdeNDnG61T_tGrjv0/view?usp=sharing" target="_blank" rel="noopener">Nunc Dimittis, o cântico de Simeão</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">1º Domingo após o Natal</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/19U1twIcvpYlHXbYHdeNDnG61T_tGrjv0/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="2cb9e4c8b3b3cfc8" aria-label="Compartilhar sermão: Nunc Dimittis, o cântico de Simeão">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-a36712a2b44740d4" data-id="a36712a2b44740d4">
+  <div class="card-meta"><time datetime="2025-12-21">21/12/2025</time><span class="season">Advento</span></div>
+  <p class="series">Minissérie Canticos Natalinos</p><h3><a href="https://drive.google.com/file/d/1_JvKJkWcLrMQs6PFwar1xaZXq00NerxU/view?usp=sharing" target="_blank" rel="noopener">Benedictus, o Cântico de Zacarias</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">4º Domingo do Advento</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1_JvKJkWcLrMQs6PFwar1xaZXq00NerxU/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="a36712a2b44740d4" aria-label="Compartilhar sermão: Benedictus, o Cântico de Zacarias">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-f659311257397daf" data-id="f659311257397daf">
+  <div class="card-meta"><time datetime="2025-12-14">14/12/2025</time><span class="season">Advento</span></div>
+  <p class="series">Minissérie Cânticos Natalinos</p><h3><a href="https://drive.google.com/file/d/1DLpI5kfQEcaXBemCfVORRtWov17B_yU6/view?usp=sharing" target="_blank" rel="noopener">Magnificat, o Cântico de Maria</a></h3>
+  <p class="preacher">Filipe Breder</p><p class="celebration">3º Domingo do Advento</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1DLpI5kfQEcaXBemCfVORRtWov17B_yU6/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="f659311257397daf" aria-label="Compartilhar sermão: Magnificat, o Cântico de Maria">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-d715bf935edb559d" data-id="d715bf935edb559d">
+  <div class="card-meta"><time datetime="2025-12-07">07/12/2025</time><span class="season">Advento</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/1gtT61rWjsBJVEZCqMSn9hXvguFGC1_Oz/view?usp=sharing" target="_blank" rel="noopener">Ele Separará Ovelhas de Bodes</a></h3>
+  <p class="preacher">Filipe Breder</p><p class="celebration">2º Domingo do Advento</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1gtT61rWjsBJVEZCqMSn9hXvguFGC1_Oz/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="d715bf935edb559d" aria-label="Compartilhar sermão: Ele Separará Ovelhas de Bodes">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-a5798be05aa3d6da" data-id="a5798be05aa3d6da">
+  <div class="card-meta"><time datetime="2025-11-30">30/11/2025</time><span class="season">Advento</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/10pUIzH-oUvqNr7MgnuH2j3c6sW1tMI7z/view?usp=sharing" target="_blank" rel="noopener">A Parábola dos Talentos</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">1º Domingo do Advento</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/10pUIzH-oUvqNr7MgnuH2j3c6sW1tMI7z/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="a5798be05aa3d6da" aria-label="Compartilhar sermão: A Parábola dos Talentos">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-8e13f778c1aab6ea" data-id="8e13f778c1aab6ea">
+  <div class="card-meta"><time datetime="2025-11-23">23/11/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/1esYFAr4pRN_obsxZaO3jqy6VXeq64SGK/view?usp=sharing" target="_blank" rel="noopener">A Parábola das Dez Virgens</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">24º Domingo de Cristo Rei</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1esYFAr4pRN_obsxZaO3jqy6VXeq64SGK/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="8e13f778c1aab6ea" aria-label="Compartilhar sermão: A Parábola das Dez Virgens">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-323bfa44ce1952c1" data-id="323bfa44ce1952c1">
+  <div class="card-meta"><time datetime="2025-11-16">16/11/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/18EiXbjVFGrfVmBtkWU3a2Ki3RLcSXf7F/view?usp=drive_link" target="_blank" rel="noopener">A Parábola dos Dois Servos</a></h3>
+  <p class="preacher">Filipe Breder</p><p class="celebration">23º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/18EiXbjVFGrfVmBtkWU3a2Ki3RLcSXf7F/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="323bfa44ce1952c1" aria-label="Compartilhar sermão: A Parábola dos Dois Servos">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-c64f85ce93e36ffb" data-id="c64f85ce93e36ffb">
+  <div class="card-meta"><time datetime="2025-11-09">09/11/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/1NiWeHlvzw3ReJf-lsZ6VE0trHp3CtTQJ/view?usp=sharing" target="_blank" rel="noopener">A Parábola da Figueira</a></h3>
+  <p class="preacher">Maurício Avoletta</p><p class="celebration">22º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1NiWeHlvzw3ReJf-lsZ6VE0trHp3CtTQJ/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="c64f85ce93e36ffb" aria-label="Compartilhar sermão: A Parábola da Figueira">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-6e72b2473a401599" data-id="6e72b2473a401599">
+  <div class="card-meta"><time datetime="2025-11-02">02/11/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/1-mn_xz99LZmglDehUcQV_XNt29oTSGEm/view?usp=sharing" target="_blank" rel="noopener">A Parousia</a></h3>
+  <p class="preacher">Leonardo Amaral</p><p class="celebration">21º Domingo Tempo Comum</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1-mn_xz99LZmglDehUcQV_XNt29oTSGEm/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="6e72b2473a401599" aria-label="Compartilhar sermão: A Parousia">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-a534ed2129948e61" data-id="a534ed2129948e61">
+  <div class="card-meta"><time datetime="2025-10-26">26/10/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/1QObGm5pcUCo3rfSopu1FnKp-q7nFoYKK/view?usp=drive_link" target="_blank" rel="noopener">Os Falsos Cristos</a></h3>
+  <p class="preacher">Fred Almeida</p><p class="celebration">20º Domingo da Reforma Protestante</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1QObGm5pcUCo3rfSopu1FnKp-q7nFoYKK/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="a534ed2129948e61" aria-label="Compartilhar sermão: Os Falsos Cristos">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-ee4756dc78f44900" data-id="ee4756dc78f44900">
+  <div class="card-meta"><time datetime="2025-10-19">19/10/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/19crF19-GHl-soNYdgvZ2KQh4-TxVe5zi/view?usp=sharing" target="_blank" rel="noopener">A Grande Tribulação</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">19º Domingo Tempo Comum</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/19crF19-GHl-soNYdgvZ2KQh4-TxVe5zi/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="ee4756dc78f44900" aria-label="Compartilhar sermão: A Grande Tribulação">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-6e36e70466bf3b2e" data-id="6e36e70466bf3b2e">
+  <div class="card-meta"><time datetime="2025-10-12">12/10/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">O Sermão Escatológico de Jesus</p><h3><a href="https://drive.google.com/file/d/1ORAKpyTk2WuwTZeQrvOUc7tnEKA9_SW5/view?usp=sharing" target="_blank" rel="noopener">As Dores de Parto</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">18º Domingo Tempo Comum</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1ORAKpyTk2WuwTZeQrvOUc7tnEKA9_SW5/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="6e36e70466bf3b2e" aria-label="Compartilhar sermão: As Dores de Parto">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-b862676a9788b614" data-id="b862676a9788b614">
+  <div class="card-meta"><time datetime="2025-10-05">05/10/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Carta às Sete Igrejas</p><h3><a href="https://drive.google.com/file/d/1qnSaLkzHxIltgh_dIL9ZkZAfxSO1cSnd/view?usp=sharing" target="_blank" rel="noopener">Carta a Igreja de Laodiceia</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">17º Domingo Tempo Comum</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1qnSaLkzHxIltgh_dIL9ZkZAfxSO1cSnd/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="b862676a9788b614" aria-label="Compartilhar sermão: Carta a Igreja de Laodiceia">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-254cc73f6263f282" data-id="254cc73f6263f282">
+  <div class="card-meta"><time datetime="2025-09-28">28/09/2025</time><span class="season">Criação</span></div>
+  <p class="series">Carta às Sete Igrejas</p><h3><a href="https://drive.google.com/file/d/1fNTCi1nj61wNyBb__HHXMi4taQoDkYGT/view?usp=sharing" target="_blank" rel="noopener">Carta à Igreja em Filadélfia</a></h3>
+  <p class="preacher">Leonardo Amaral</p><p class="celebration">4º Domingo da Criação</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1fNTCi1nj61wNyBb__HHXMi4taQoDkYGT/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="254cc73f6263f282" aria-label="Compartilhar sermão: Carta à Igreja em Filadélfia">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-0ff91718b5c06688" data-id="0ff91718b5c06688">
+  <div class="card-meta"><time datetime="2025-09-21">21/09/2025</time><span class="season">Criação</span></div>
+  <p class="series">Sermão Especial</p><h3><a href="https://drive.google.com/file/d/14DZQ9tsXGISVxpRYqwI5CwTkaW5Wp0JJ/view?usp=sharing" target="_blank" rel="noopener">Lealdade Dividida Pt 3</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">3º Domingo da Criação</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/14DZQ9tsXGISVxpRYqwI5CwTkaW5Wp0JJ/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="0ff91718b5c06688" aria-label="Compartilhar sermão: Lealdade Dividida Pt 3">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-b54692ccc1aecac0" data-id="b54692ccc1aecac0">
+  <div class="card-meta"><time datetime="2025-09-14">14/09/2025</time><span class="season">Criação</span></div>
+  <p class="series">Sermão Especial</p><h3><a href="https://drive.google.com/file/d/1g0O8nqWZv7JzzxheOsftB45fRRr-rUIL/view?usp=sharing" target="_blank" rel="noopener">Aniversário Esperança Campus LS</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">2º Domingo da Criação</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1g0O8nqWZv7JzzxheOsftB45fRRr-rUIL/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="b54692ccc1aecac0" aria-label="Compartilhar sermão: Aniversário Esperança Campus LS">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-a9d81c689b0c58fc" data-id="a9d81c689b0c58fc">
+  <div class="card-meta"><time datetime="2025-09-07">07/09/2025</time><span class="season">Criação</span></div>
+  <p class="series">Carta às Sete Igrejas</p><h3><a href="https://drive.google.com/file/d/1MISxTHbWeuqsPM_z4IvCSN2wtvMpgD9H/view?usp=sharing" target="_blank" rel="noopener">Carta a Igreja em Tiatira</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">1º Domingo da Criação</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1MISxTHbWeuqsPM_z4IvCSN2wtvMpgD9H/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="a9d81c689b0c58fc" aria-label="Compartilhar sermão: Carta a Igreja em Tiatira">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-b51a912231c5fe3d" data-id="b51a912231c5fe3d">
+  <div class="card-meta"><time datetime="2025-08-31">31/08/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Carta às Sete Igrejas</p><h3><a href="https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing" target="_blank" rel="noopener">Carta à Igreja em Pérgamo</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">14º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="b51a912231c5fe3d" aria-label="Compartilhar sermão: Carta à Igreja em Pérgamo">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-afb34809a5b4cb27" data-id="afb34809a5b4cb27">
+  <div class="card-meta"><time datetime="2025-08-24">24/08/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Carta às Sete Igrejas</p><h3><a href="https://drive.google.com/file/d/11BnIY6pCsY66qFLFYR4DN8pCzWppRyBQ/view?usp=sharing" target="_blank" rel="noopener">Carta à Igreja em Esmirna</a></h3>
+  <p class="preacher">Filipe Breder</p><p class="celebration">13º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/11BnIY6pCsY66qFLFYR4DN8pCzWppRyBQ/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="afb34809a5b4cb27" aria-label="Compartilhar sermão: Carta à Igreja em Esmirna">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-594c31442b7c47aa" data-id="594c31442b7c47aa">
+  <div class="card-meta"><time datetime="2025-08-17">17/08/2025</time><span class="season">Tempo Comum</span></div>
+  <h3><a href="https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing" target="_blank" rel="noopener">Sermão Especial &quot;A Autoridade da Palavra de Deus&quot;</a></h3>
+  <p class="preacher">Rosifran Macedo</p><p class="celebration">12º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="594c31442b7c47aa" aria-label="Compartilhar sermão: Sermão Especial &quot;A Autoridade da Palavra de Deus&quot;">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-8d9248039eea4baf" data-id="8d9248039eea4baf">
+  <div class="card-meta"><time datetime="2025-08-10">10/08/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Carta às Sete Igrejas</p><h3><a href="https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link" target="_blank" rel="noopener">Carta à Igreja em Éfeso</a></h3>
+  <p class="preacher">Filipe Breder</p><p class="celebration">11º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="8d9248039eea4baf" aria-label="Compartilhar sermão: Carta à Igreja em Éfeso">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-f847a3d1ba1837dc" data-id="f847a3d1ba1837dc">
+  <div class="card-meta"><time datetime="2025-08-03">03/08/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Carta às Sete Igrejas</p><h3><a href="https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing" target="_blank" rel="noopener">A Visão do Cristo Exaltado</a></h3>
+  <p class="preacher">Guilherme de Carvalho</p><p class="celebration">10º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="f847a3d1ba1837dc" aria-label="Compartilhar sermão: A Visão do Cristo Exaltado">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-6c1784a2f9b8ce1e" data-id="6c1784a2f9b8ce1e">
+  <div class="card-meta"><time datetime="2025-07-20">20/07/2025</time><span class="season">Tempo Comum</span></div>
+  <p class="series">Carta às Sete Igrejas</p><h3><a href="https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing" target="_blank" rel="noopener">Apocalipse Para Bem-Aventurados</a></h3>
+  <p class="preacher">Rodolfo Amorim</p><p class="celebration">9º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="6c1784a2f9b8ce1e" aria-label="Compartilhar sermão: Apocalipse Para Bem-Aventurados">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-91900cdaf20f33f9" data-id="91900cdaf20f33f9">
+  <div class="card-meta"><time datetime="2025-07-13">13/07/2025</time><span class="season">Tempo Comum</span></div>
+  <h3><a href="https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Rosifran Macedo</p><p class="celebration">8º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="91900cdaf20f33f9" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-cea1c30d7fbae72a" data-id="cea1c30d7fbae72a">
+  <div class="card-meta"><time datetime="2025-07-06">06/07/2025</time><span class="season">Tempo Comum</span></div>
+  <h3><a href="https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=drive_link" target="_blank" rel="noopener">Sermão Especial</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">7º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="cea1c30d7fbae72a" aria-label="Compartilhar sermão: Sermão Especial">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-8752f06417fc2ff3" data-id="8752f06417fc2ff3">
+  <div class="card-meta"><time datetime="2025-06-29">29/06/2025</time><span class="season">Tempo Comum</span></div>
+  <h3><a href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Douglas Rafael</p><p class="celebration">3º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="8752f06417fc2ff3" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-c13a97a482833849" data-id="c13a97a482833849">
+  <div class="card-meta"><time datetime="2025-06-22">22/06/2025</time><span class="season">Tempo Comum</span></div>
+  <h3><a href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">2º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="c13a97a482833849" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-0712fa2506d1944a" data-id="0712fa2506d1944a">
+  <div class="card-meta"><time datetime="2025-06-01">01/06/2025</time><span class="season">Tempo Comum</span></div>
+  <h3><a href="https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Vanessa Belmonte</p><p class="celebration">1º Domingo após Pentecostes</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="0712fa2506d1944a" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-b0315931cdb401ba" data-id="b0315931cdb401ba">
+  <div class="card-meta"><time datetime="2025-05-25">25/05/2025</time><span class="season">Páscoa</span></div>
+  <h3><a href="https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">7º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="b0315931cdb401ba" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-cc94732b2711c74f" data-id="cc94732b2711c74f">
+  <div class="card-meta"><time datetime="2025-05-11">11/05/2025</time><span class="season">Páscoa</span></div>
+  <h3><a href="https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Sabrina Uchôa</p><p class="celebration">6º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="cc94732b2711c74f" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-71d2bc840ae423ee" data-id="71d2bc840ae423ee">
+  <div class="card-meta"><time datetime="2025-05-04">04/05/2025</time><span class="season">Páscoa</span></div>
+  <h3><a href="https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Leonardo Amaral</p><p class="celebration">5º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="71d2bc840ae423ee" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-7a077883f3d1db4f" data-id="7a077883f3d1db4f">
+  <div class="card-meta"><time datetime="2025-04-27">27/04/2025</time><span class="season">Páscoa</span></div>
+  <p class="series">A Igreja Importa</p><h3><a href="https://drive.google.com/file/d/1zfOY3lS_V7PleO-43PvS9kLpM_zpIlDs/view?usp=sharing" target="_blank" rel="noopener">Muitas formas de Amar</a></h3>
+  <p class="preacher">Beto Mello</p><p class="celebration">2º Domingo da Páscoa</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1zfOY3lS_V7PleO-43PvS9kLpM_zpIlDs/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="7a077883f3d1db4f" aria-label="Compartilhar sermão: Muitas formas de Amar">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-984db96341922ef9" data-id="984db96341922ef9">
+  <div class="card-meta"><time datetime="2025-04-13">13/04/2025</time><span class="season">Quaresma</span></div>
+  <p class="series">A Igreja do Futuro</p><h3><a href="https://drive.google.com/file/d/1Oo_Pj1cNKaWuCpS-k8dnyeJR_Bn-GyQ1/view?usp=sharing" target="_blank" rel="noopener">O Próprio Senhor Descerá Dos Céus</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">Domingo de Ramos</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1Oo_Pj1cNKaWuCpS-k8dnyeJR_Bn-GyQ1/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="984db96341922ef9" aria-label="Compartilhar sermão: O Próprio Senhor Descerá Dos Céus">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-5ca9031b3cb5fe4b" data-id="5ca9031b3cb5fe4b">
+  <div class="card-meta"><time datetime="2025-04-06">06/04/2025</time><span class="season">Quaresma</span></div>
+  <h3><a href="https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">5º Domingo da Quaresma</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="5ca9031b3cb5fe4b" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-140fbb9395bcde35" data-id="140fbb9395bcde35">
+  <div class="card-meta"><time datetime="2025-03-23">23/03/2025</time><span class="season">Quaresma</span></div>
+  <h3><a href="https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link" target="_blank" rel="noopener">A Igreja do Futuro</a></h3>
+  <p class="preacher">Leonardo Amaral</p><p class="celebration">3º Domingo da Quaresma</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="140fbb9395bcde35" aria-label="Compartilhar sermão: A Igreja do Futuro">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-6d74ae1eb05c9504" data-id="6d74ae1eb05c9504">
+  <div class="card-meta"><time datetime="2025-03-09">09/03/2025</time><span class="season">Quaresma</span></div>
+  <p class="series">A Igreja Importa</p><h3><a href="https://drive.google.com/file/d/1p86iu0WW47bYWTCoseTRnOXhZ3pHZ5QX/view?usp=sharing" target="_blank" rel="noopener">A Glória do Ministério</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">3º Domingo da Quaresma</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1p86iu0WW47bYWTCoseTRnOXhZ3pHZ5QX/view?usp=sharing" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="6d74ae1eb05c9504" aria-label="Compartilhar sermão: A Glória do Ministério">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-dfc2007bfe6564d1" data-id="dfc2007bfe6564d1">
+  <div class="card-meta"><time datetime="2025-02-09">09/02/2025</time><span class="season">Epifania</span></div>
+  <h3><a href="https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link" target="_blank" rel="noopener">A Igreja Importa</a></h3>
+  <p class="preacher">Igor Miguel</p><p class="celebration">6º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="dfc2007bfe6564d1" aria-label="Compartilhar sermão: A Igreja Importa">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-9084fc19b196ca6a" data-id="9084fc19b196ca6a">
+  <div class="card-meta"><time datetime="2025-02-02">02/02/2025</time><span class="season">Epifania</span></div>
+  <h3><a href="https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link" target="_blank" rel="noopener">A Igreja Importa</a></h3>
+  <p class="preacher">Felipe dos Anjos</p><p class="celebration">5º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="9084fc19b196ca6a" aria-label="Compartilhar sermão: A Igreja Importa">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-3b20b84598c34b87" data-id="3b20b84598c34b87">
+  <div class="card-meta"><time datetime="2025-01-19">19/01/2025</time><span class="season">Epifania</span></div>
+  <h3><a href="https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link" target="_blank" rel="noopener">A Igreja Importa</a></h3>
+  <p class="preacher">Guilherme de Carvalho</p><p class="celebration">3º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="3b20b84598c34b87" aria-label="Compartilhar sermão: A Igreja Importa">Compartilhar</button></div>
+</article>
+<article class="sermon-card" id="sermao-854925652b6f9f42" data-id="854925652b6f9f42">
+  <div class="card-meta"><time datetime="2025-01-12">12/01/2025</time><span class="season">Epifania</span></div>
+  <h3><a href="https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link" target="_blank" rel="noopener">A Igreja Importa</a></h3>
+  <p class="preacher">Beto Mello</p><p class="celebration">2º Domingo da Epifania</p>
+  <div class="card-actions"><a class="listen" href="https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link" target="_blank" rel="noopener">Abrir gravação <span aria-hidden="true">↗</span></a><button class="share-sermon" type="button" data-share="854925652b6f9f42" aria-label="Compartilhar sermão: A Igreja Importa">Compartilhar</button></div>
+</article>
+<!-- SERMOES:CARDS:END -->
+      </div>
+      <noscript><p>Todos os sermões estão listados por data. Ative o JavaScript para utilizar a busca e os filtros.</p></noscript>
+      <p class="drive-note">As gravações abrem no Google Drive, em outra aba.</p>
+    </section>
   </main>
-  <footer>
-   © IGREJA ESPERANÇA ® 2025. TODOS OS DIREITOS RESERVADOS.
-  </footer>
-  <button class="float-btn" id="shareBtn" title="Compartilhar">
-   🔗
-  </button>
-  <button class="float-btn" id="visitBtn">
-   Visite-nos
-  </button>
-  <script>
-   const originalSections=[...document.querySelectorAll('section.season')];
-const main=document.getElementById('content');
-
-/* ===== AGRUPAMENTO POR ANO ===== */
-function rebuildByYear(){
-main.innerHTML='';
-const years={};
-
-originalSections.forEach(sec=>{
-const seasonClass=[...sec.classList].find(c=>c!=='season');
-sec.querySelectorAll('.day').forEach(card=>{
-const year=card.dataset.date.substring(0,4);
-if(!years[year])years[year]={};
-if(!years[year][seasonClass]){
-const clone=sec.cloneNode(false);
-clone.innerHTML='<h2>'+sec.querySelector('h2').innerHTML+'</h2><div class="grid"></div>';
-clone.className=sec.className;
-years[year][seasonClass]=clone;
+  <footer><div><strong>Igreja Esperança</strong><span>Campus Lagoa Santa</span></div><p>Um acervo para toda a comunidade.</p><a href="https://maps.app.goo.gl/fHui3ZgWdFU8hWVcA" target="_blank" rel="noopener">Visite-nos ↗</a><a href="#page-title">Voltar ao início ↑</a></footer>
+  <dialog id="installDialog"><form method="dialog"><button class="dialog-close" aria-label="Fechar instruções">×</button><h2>Leve os sermões com você</h2><p>Instale o site para abri-lo pela tela inicial.</p><p><strong>Android e computador:</strong> no menu do navegador, procure “Instalar aplicativo” ou “Instalar página como app”.</p><p><strong>iPhone e iPad:</strong> no Safari, toque em Compartilhar e em “Adicionar à Tela de Início”.</p><p>O catálogo pode ser consultado offline após o primeiro acesso completo. As gravações no Drive precisam de conexão.</p><button class="primary-button">Entendi</button></form></dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <script id="sermoes-data" type="application/json">
+{
+  "version": 2,
+  "sermons": [
+    {
+      "id": "8e13f778c1aab6ea",
+      "date": "2025-11-23",
+      "title": "A Parábola das Dez Virgens",
+      "preacher": "Felipe dos Anjos",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/1esYFAr4pRN_obsxZaO3jqy6VXeq64SGK/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "24º Domingo de Cristo Rei",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - A Parábola das Dez Virgens - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "323bfa44ce1952c1",
+      "date": "2025-11-16",
+      "title": "A Parábola dos Dois Servos",
+      "preacher": "Filipe Breder",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/18EiXbjVFGrfVmBtkWU3a2Ki3RLcSXf7F/view?usp=drive_link",
+      "season": "Tempo Comum",
+      "celebration": "23º Domingo após Pentecostes",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - A Parábola dos Dois Servos - Filipe Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "c64f85ce93e36ffb",
+      "date": "2025-11-09",
+      "title": "A Parábola da Figueira",
+      "preacher": "Maurício Avoletta",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/1NiWeHlvzw3ReJf-lsZ6VE0trHp3CtTQJ/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "22º Domingo após Pentecostes",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - A Parábola da Figueira - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "6e72b2473a401599",
+      "date": "2025-11-02",
+      "title": "A Parousia",
+      "preacher": "Leonardo Amaral",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/1-mn_xz99LZmglDehUcQV_XNt29oTSGEm/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "21º Domingo Tempo Comum",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - A Parousia - Leonardo Amaral",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "a534ed2129948e61",
+      "date": "2025-10-26",
+      "title": "Os Falsos Cristos",
+      "preacher": "Fred Almeida",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/1QObGm5pcUCo3rfSopu1FnKp-q7nFoYKK/view?usp=drive_link",
+      "season": "Tempo Comum",
+      "celebration": "20º Domingo da Reforma Protestante",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - Os Falsos Cristos - Fred Almeida",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "ee4756dc78f44900",
+      "date": "2025-10-19",
+      "title": "A Grande Tribulação",
+      "preacher": "Igor Miguel",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/19crF19-GHl-soNYdgvZ2KQh4-TxVe5zi/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "19º Domingo Tempo Comum",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - A Grande Tribulação - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "6e36e70466bf3b2e",
+      "date": "2025-10-12",
+      "title": "As Dores de Parto",
+      "preacher": "Felipe dos Anjos",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/1ORAKpyTk2WuwTZeQrvOUc7tnEKA9_SW5/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "18º Domingo Tempo Comum",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - As Dores de Parto - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "b862676a9788b614",
+      "date": "2025-10-05",
+      "title": "Carta a Igreja de Laodiceia",
+      "preacher": "Felipe dos Anjos",
+      "series": "Carta às Sete Igrejas",
+      "url": "https://drive.google.com/file/d/1qnSaLkzHxIltgh_dIL9ZkZAfxSO1cSnd/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "17º Domingo Tempo Comum",
+      "originalText": "Série \"Carta às Sete Igrejas\" - Carta a Igreja de Laodiceia - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "b51a912231c5fe3d",
+      "date": "2025-08-31",
+      "title": "Carta à Igreja em Pérgamo",
+      "preacher": "Felipe dos Anjos",
+      "series": "Carta às Sete Igrejas",
+      "url": "https://drive.google.com/file/d/1Bhib1xSDuNXI3Tp21YkPsqhaDqi5OS-Q/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "14º Domingo após Pentecostes",
+      "originalText": "Série \"Carta às Sete Igrejas - Carta à Igreja em Pérgamo\" - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "afb34809a5b4cb27",
+      "date": "2025-08-24",
+      "title": "Carta à Igreja em Esmirna",
+      "preacher": "Filipe Breder",
+      "series": "Carta às Sete Igrejas",
+      "url": "https://drive.google.com/file/d/11BnIY6pCsY66qFLFYR4DN8pCzWppRyBQ/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "13º Domingo após Pentecostes",
+      "originalText": "Série \"Carta às Sete Igrejas - Carta à Igreja em Esmirna\" - Filipe Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "594c31442b7c47aa",
+      "date": "2025-08-17",
+      "title": "Sermão Especial \"A Autoridade da Palavra de Deus\"",
+      "preacher": "Rosifran Macedo",
+      "series": "",
+      "url": "https://drive.google.com/file/d/1LXKEJ8WLW4IjC5t0p6-9MY2noSzeTTRv/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "12º Domingo após Pentecostes",
+      "originalText": "Sermão Especial \"A Autoridade da Palavra de Deus\" - Rosifran Macedo",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "8d9248039eea4baf",
+      "date": "2025-08-10",
+      "title": "Carta à Igreja em Éfeso",
+      "preacher": "Filipe Breder",
+      "series": "Carta às Sete Igrejas",
+      "url": "https://drive.google.com/file/d/1B_ynotz7dQvYKYy4U-MiJiKm0eso-geg/view?usp=drive_link",
+      "season": "Tempo Comum",
+      "celebration": "11º Domingo após Pentecostes",
+      "originalText": "Série \"Carta às Sete Igrejas - Carta à Igreja em Éfeso\" - Filipe Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "f847a3d1ba1837dc",
+      "date": "2025-08-03",
+      "title": "A Visão do Cristo Exaltado",
+      "preacher": "Guilherme de Carvalho",
+      "series": "Carta às Sete Igrejas",
+      "url": "https://drive.google.com/file/d/1L59wjGQy4rBgT0Kq8OFV4dyNve7VJaQs/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "10º Domingo após Pentecostes",
+      "originalText": "Série \"Carta às Sete Igrejas - A Visão do Cristo Exaltado\" - Guilherme de Carvalho",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "6c1784a2f9b8ce1e",
+      "date": "2025-07-20",
+      "title": "Apocalipse Para Bem-Aventurados",
+      "preacher": "Rodolfo Amorim",
+      "series": "Carta às Sete Igrejas",
+      "url": "https://drive.google.com/file/d/1Kikwp5jfwjKjIeK3myff3sDcHPa8APOA/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "9º Domingo após Pentecostes",
+      "originalText": "Série \"Carta às Sete Igrejas - Apocalipse Para Bem-Aventurados\" - Rodolfo Amorim",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "91900cdaf20f33f9",
+      "date": "2025-07-13",
+      "title": "A Igreja do Futuro",
+      "preacher": "Rosifran Macedo",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/16_FfmujXWlVjt4KBoxMDGdfbqBpsl68H/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "8º Domingo após Pentecostes",
+      "originalText": "Série \"A Igreja do Futuro\" - Rosifran Macedo",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "cea1c30d7fbae72a",
+      "date": "2025-07-06",
+      "title": "Sermão Especial",
+      "preacher": "Igor Miguel",
+      "series": "",
+      "url": "https://drive.google.com/file/d/1--ibNDRw_YsPKNvN-tTeaGYLB0R8P0cf/view?usp=drive_link",
+      "season": "Tempo Comum",
+      "celebration": "7º Domingo após Pentecostes",
+      "originalText": "Sermão Especial - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "8752f06417fc2ff3",
+      "date": "2025-06-29",
+      "title": "A Igreja do Futuro",
+      "preacher": "Douglas Rafael",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "3º Domingo após Pentecostes",
+      "originalText": "Série \"A Igreja do Futuro\" - Douglas Rafael",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "c13a97a482833849",
+      "date": "2025-06-22",
+      "title": "A Igreja do Futuro",
+      "preacher": "Felipe dos Anjos",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/1z8SZC4WZ8aB90rx9JlbxdIZZiOkXcZxI/view?usp=drive_link",
+      "season": "Tempo Comum",
+      "celebration": "2º Domingo após Pentecostes",
+      "originalText": "Série \"A Igreja do Futuro\" - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "0712fa2506d1944a",
+      "date": "2025-06-01",
+      "title": "A Igreja do Futuro",
+      "preacher": "Vanessa Belmonte",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/1be7AD16Qv01cPbsW2Wvj42cXiT3jk5Wd/view",
+      "season": "Tempo Comum",
+      "celebration": "1º Domingo após Pentecostes",
+      "originalText": "Série \"A Igreja do Futuro\" - Vanessa Belmonte",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "9f3816817d91b95d",
+      "date": "2026-05-31",
+      "title": "Cada um cuida da sua própria vida",
+      "preacher": "Leonardo Amaral",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1q4dr01xcKOOfvlIZJodO7ZT81eEOv1ql/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "1º Domingo após Pentecostes",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Cada um cuida da sua própria vida - Leonardo Amaral",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "c63b822f05c71e3e",
+      "date": "2026-06-07",
+      "title": "Faça tua parte que Deus te ajudará!",
+      "preacher": "Igor Miguel",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1ppfSkActo75-y_-2U8fkQrBXP_nq4m-2/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "2º Domingo após Pentecostes",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Faça tua parte que Deus te ajudará! - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "e93730fbcafef531",
+      "date": "2026-06-14",
+      "title": "Parabens. Você merece!",
+      "preacher": "Maurício Avoletta",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/16FsvH_85K70K2eYDYWetK6XIMRmTsuaW/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "3º Domingo após Pentecostes",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Parabens. Você merece! - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "fcb0c777397e6892",
+      "date": "2026-06-21",
+      "title": "Você precisa se amar mais!",
+      "preacher": "Igor Miguel",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/14fpMu6FJ_4VqnUIp0zclAxyH_sW-xq3i/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "4º Domingo após Pentecostes",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Você precisa se amar mais! - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "9c4d5c7990aafe6a",
+      "date": "2026-06-28",
+      "title": "Seu Futuro Depende de Você",
+      "preacher": "Maurício Avoletta",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1Jprljzbn2bkr_hV3DhYWw2Nfp0nD3iyf/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "5º Domingo após Pentecostes",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Seu Futuro Depende de Você - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "192f68a3f7ba6eb0",
+      "date": "2026-07-05",
+      "title": "Estreia",
+      "preacher": "Maurício Avoletta",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1ncYZZ-KMw9q6L1jt3udJcWYtiYpby0Uj/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "6º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - Estreia - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "40d7bd20d35d3e71",
+      "date": "2026-07-12",
+      "title": "A Economia da Graça",
+      "preacher": "Daniel Nunes",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1eAsSszF4tJ9zqzW7eEg87rAT1DFcNb-d/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "7º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - A Economia da Graça - Daniel Nunes",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "338a141bec0c90c9",
+      "date": "2026-07-19",
+      "title": "Graça recebida, graça repartida",
+      "preacher": "Felipe dos Anjos",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/19d6YFc9z6TC7CIkrRaeKy2GIiT3tFO8D/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "8º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - Graça recebida, graça repartida - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "e120ff49b977d0e0",
+      "date": "2026-07-26",
+      "title": "A Pobreza do Rico",
+      "preacher": "Maurício Avoletta",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1ir4R0ZVWCuhnKjFTqkwrGlmUKDOZIW2J/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "9º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - A Pobreza do Rico - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "49484e0687a9d0bd",
+      "date": "2026-08-02",
+      "title": "Contentamento: A Arte de Viver Satisfeito",
+      "preacher": "Paula Breder",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1VNeJWkJEGN_9azU_0bUHyVlUQYMCQaw1/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "10º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - Contentamento: A Arte de Viver Satisfeito - Paula Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "d96d14b363458aa2",
+      "date": "2026-08-09",
+      "title": "A Mordomia do que não é nosso,",
+      "preacher": "Fred Almeida",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1BvKkSyn0T8kz5_Xh1y68181qXnjjOTBi/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "11º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - A Mordomia do que não é nosso, - Fred Almeida",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "d0f9c18fb3eb414a",
+      "date": "2026-08-16",
+      "title": "Trabalho: Maldição ou Chamado?",
+      "preacher": "Igor Miguel",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1MhzKVd5aWJHnoA8cS0Yr2X9ns-3OPnCH/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "12º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - Trabalho: Maldição ou Chamado? - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "2191b11362c2c81f",
+      "date": "2026-08-23",
+      "title": "Ajuntem Tesouros no Céu",
+      "preacher": "Davi Lin",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1_6aohMpepAPQRJfhhUUIrRQOJQEITzFF/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "13º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - Ajuntem Tesouros no Céu - Davi Lin",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "5cfaee273a978bc3",
+      "date": "2026-08-30",
+      "title": "A Idolaria do Consumo",
+      "preacher": "Guilherme de Carvalho",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1uCCuPOXXsO2fqFR91CKgj1ipMb5v5pCp/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "14º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - A Idolaria do Consumo - Guilherme de Carvalho",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "e7e42d024d5df303",
+      "date": "2026-09-06",
+      "title": "Dons e Serviços na Igreja Local",
+      "preacher": "Júlio Souza",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/14xlgvdTmUzgW2CpZGiWDE8lJyogsxy29/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "15º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - Dons e Serviços na Igreja Local - Júlio Souza",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "5ca030b8891406df",
+      "date": "2026-09-13",
+      "title": "Aniversário Igreja Esperança",
+      "preacher": "Maurício Avoletta",
+      "series": "Sermão Especial",
+      "url": "https://drive.google.com/file/d/1xHTjo_AZLaGLfO-VBg9E6OJqg5Y3dXmM/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "16º Domingo após Pentecostes",
+      "originalText": "Série \"Sermão Especial\" - Aniversário Igreja Esperança - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "190284bc20cc64d9",
+      "date": "2026-09-20",
+      "title": "Dinheiro Fácil, Pobreza da Alma",
+      "preacher": "Leonardo Amaral",
+      "series": "Riquezas e Pobrezas",
+      "url": "https://drive.google.com/file/d/1x5yb5vnJK1kxSADx0SnKZ77fdH9K61GO/view?usp=sharing",
+      "season": "Tempo Comum",
+      "celebration": "17º Domingo após Pentecostes",
+      "originalText": "Série \"Riquezas e Pobrezas\" - Dinheiro Fácil, Pobreza da Alma - Leonardo Amaral",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "b0315931cdb401ba",
+      "date": "2025-05-25",
+      "title": "A Igreja do Futuro",
+      "preacher": "Felipe dos Anjos",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/16CIUlc_Bq5d8LKvGlPKqPRRpFrS1SAWg/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "7º Domingo da Páscoa",
+      "originalText": "Série \"A Igreja do Futuro\" - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "cc94732b2711c74f",
+      "date": "2025-05-11",
+      "title": "A Igreja do Futuro",
+      "preacher": "Sabrina Uchôa",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/1LWfsK05hq2tcPropfRUj_r6yPIzx16ZA/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "6º Domingo da Páscoa",
+      "originalText": "Série \"A Igreja do Futuro\" - Sabrina Uchôa",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "71d2bc840ae423ee",
+      "date": "2025-05-04",
+      "title": "A Igreja do Futuro",
+      "preacher": "Leonardo Amaral",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/1GrFrVLrmCG4jacFU8VZxg98tHKc4N5q8/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "5º Domingo da Páscoa",
+      "originalText": "Série \"A Igreja do Futuro\" - Leonardo Amaral",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "7a077883f3d1db4f",
+      "date": "2025-04-27",
+      "title": "Muitas formas de Amar",
+      "preacher": "Beto Mello",
+      "series": "A Igreja Importa",
+      "url": "https://drive.google.com/file/d/1zfOY3lS_V7PleO-43PvS9kLpM_zpIlDs/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "2º Domingo da Páscoa",
+      "originalText": "Série \"A Igreja Importa\" - Muitas formas de Amar - Beto Mello",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "b874aa07b273157d",
+      "date": "2026-04-05",
+      "title": "Culto da Ressurreição",
+      "preacher": "Leonardo Amaral",
+      "series": "Sermão Especial",
+      "url": "https://drive.google.com/file/d/16KjCvSjuc5xt5YneIqbkjtT4zacNv6m-/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "Domingo da Ressurreição",
+      "originalText": "Série \"Sermão Especial\" - Culto da Ressurreição - Leonardo Amaral",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "ed44a7b951c97f3f",
+      "date": "2026-04-12",
+      "title": "O que importa é ser feliz",
+      "preacher": "Filipe Breder",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1jlj0sUlMeBxVdj59FmQQPAFyE1WspKDV/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "2º Domingo da Páscoa",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - O que importa é ser feliz - Filipe Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "39ed5a78205769ca",
+      "date": "2026-04-19",
+      "title": "Seja Você Mesmo",
+      "preacher": "Maurício Avoletta",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1wlVJQOas8UkXTDEnSW99H1vdSxxmcAdT/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "3º Domingo da Páscoa",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Seja Você Mesmo - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "f90cc572fa95f67f",
+      "date": "2026-04-26",
+      "title": "Que cada um viva sua verdade",
+      "preacher": "Fred Almeida",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1mVGZiZBf--0X7nawpoHTuu_5PyyxDqH6/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "4º Domingo da Páscoa",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Que cada um viva sua verdade - Fred Almeida",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "7955fe4d2cacc9af",
+      "date": "2026-05-03",
+      "title": "Aproveite! Você só tem essa vida",
+      "preacher": "Maurício Avoletta",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1gnUJ9t_xvzdy5soFN7P2r0XyJ0lBWzkw/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "5º Domingo da Páscoa",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Aproveite! Você só tem essa vida - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "540be59be9fcd418",
+      "date": "2026-05-10",
+      "title": "Confie em Seus Sentimentos",
+      "preacher": "Felipe dos Anjos",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1TusaY0B19Vcy1a495DKSeCbGAJuVtIeq/view?usp=sharing",
+      "season": "Páscoa",
+      "celebration": "6º Domingo da Páscoa",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Confie em Seus Sentimentos - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "63c6c041d79a9a36",
+      "date": "2026-05-17",
+      "title": "Seja o protagonista da sua história",
+      "preacher": "Igor Miguel",
+      "series": "Evangelho Segundo Satanás",
+      "url": "https://drive.google.com/file/d/1ixrF_SI_9BXTFG5VG3sehaF0XaKKpw_8/view?usp=drive_link",
+      "season": "Páscoa",
+      "celebration": "7º Domingo da Páscoa",
+      "originalText": "Série \"Evangelho Segundo Satanás\" - Seja o protagonista da sua história - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "5ca9031b3cb5fe4b",
+      "date": "2025-04-06",
+      "title": "A Igreja do Futuro",
+      "preacher": "Felipe dos Anjos",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/1yCyPB-RJhANBwhrxzmjVTj8ppJyTPQKp/view?usp=drive_link",
+      "season": "Quaresma",
+      "celebration": "5º Domingo da Quaresma",
+      "originalText": "Série \"A Igreja do Futuro\" - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "140fbb9395bcde35",
+      "date": "2025-03-23",
+      "title": "A Igreja do Futuro",
+      "preacher": "Leonardo Amaral",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/1U06c0zOd8Yi1yjMJdx_bZHhjCWQSp39-/view?usp=drive_link",
+      "season": "Quaresma",
+      "celebration": "3º Domingo da Quaresma",
+      "originalText": "Série \"A Igreja do Futuro\" - Leonardo Amaral",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "6d74ae1eb05c9504",
+      "date": "2025-03-09",
+      "title": "A Glória do Ministério",
+      "preacher": "Felipe dos Anjos",
+      "series": "A Igreja Importa",
+      "url": "https://drive.google.com/file/d/1p86iu0WW47bYWTCoseTRnOXhZ3pHZ5QX/view?usp=sharing",
+      "season": "Quaresma",
+      "celebration": "3º Domingo da Quaresma",
+      "originalText": "Série \"A Igreja Importa\" - A Glória do Ministério - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "984db96341922ef9",
+      "date": "2025-04-13",
+      "title": "O Próprio Senhor Descerá Dos Céus",
+      "preacher": "Felipe dos Anjos",
+      "series": "A Igreja do Futuro",
+      "url": "https://drive.google.com/file/d/1Oo_Pj1cNKaWuCpS-k8dnyeJR_Bn-GyQ1/view?usp=sharing",
+      "season": "Quaresma",
+      "celebration": "Domingo de Ramos",
+      "originalText": "Série \"A Igreja do Futuro\" - O Próprio Senhor Descerá Dos Céus - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "acf17b4ee6f0985e",
+      "date": "2026-02-22",
+      "title": "Anjos, trovões, João e um livrinho",
+      "preacher": "Igor Miguel",
+      "series": "Apocalipse 2° Temporada: O livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/1dxU4cN7wyCY4Mu6M_kr1pxuAH7bUUGYM/view?usp=sharing",
+      "season": "Quaresma",
+      "celebration": "1º Domingo da Quaresma",
+      "originalText": "Série \"Apocalipse 2° Temporada: O livro, selos e trombetas\" - Anjos, trovões, João e um livrinho - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "6b6f499ec8eee89f",
+      "date": "2026-03-01",
+      "title": "As duas testemunhas e o martírio",
+      "preacher": "Felipe dos Anjos",
+      "series": "Apocalipse 2° temporada: O livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/1izYAegOw1WTqsTaaPo9dzh392QSdTEKo/view?usp=sharing",
+      "season": "Quaresma",
+      "celebration": "2º Domingo da Quaresma",
+      "originalText": "Série \"Apocalipse 2° temporada: O livro, selos e trombetas\" - As duas testemunhas e o martírio - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "46698b5886501bb6",
+      "date": "2026-03-08",
+      "title": "A Sétima Trombeta",
+      "preacher": "Filipe Breder",
+      "series": "Apocalipse 2° Temporada: O livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/17V9BCqswD--sDSZKzqP3jWb1yBmM504R/view?usp=sharing",
+      "season": "Quaresma",
+      "celebration": "3º Domingo da Quaresma",
+      "originalText": "Série \"Apocalipse 2° Temporada: O livro, selos e trombetas\" - A Sétima Trombeta - Filipe Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "1fcb1b999f7d8bdf",
+      "date": "2026-03-15",
+      "title": "Mesa",
+      "preacher": "Filipe Breder",
+      "series": "A Cruz Entre os Pactos",
+      "url": "https://drive.google.com/file/d/1Lsds5_fVXHo7g8NLbdgQAulPliDzD3K0/view?usp=sharing",
+      "season": "Quaresma",
+      "celebration": "4º Domingo da Quaresma",
+      "originalText": "Série \"A Cruz Entre os Pactos\" - Mesa - Filipe Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "bbb2445a8c07690a",
+      "date": "2026-03-22",
+      "title": "Jardim",
+      "preacher": "Felipe dos Anjos",
+      "series": "A Cruz Entre os Pactos",
+      "url": "https://drive.google.com/file/d/1Fu6tj6f2a-twUvDxh_r-hs6hg1yYoAgc/view?usp=sharing",
+      "season": "Quaresma",
+      "celebration": "5º Domingo da Quaresma",
+      "originalText": "Série \"A Cruz Entre os Pactos\" - Jardim - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "6239f0181065d084",
+      "date": "2026-03-29",
+      "title": "Cruz",
+      "preacher": "Igor Miguel",
+      "series": "A Cruz Entre os Pactos",
+      "url": "https://drive.google.com/file/d/1TUvLG1JmAZMGc2Vlyg9DJ-vAORq96qo2/view?usp=sharing",
+      "season": "Quaresma",
+      "celebration": "Domingo de Ramos",
+      "originalText": "Série \"A Cruz Entre os Pactos\" - Cruz - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "dfc2007bfe6564d1",
+      "date": "2025-02-09",
+      "title": "A Igreja Importa",
+      "preacher": "Igor Miguel",
+      "series": "A Igreja Importa",
+      "url": "https://drive.google.com/file/d/18b_XapUvp8UDzC3PyAG3Fn9_p9ubSS7U/view?usp=drive_link",
+      "season": "Epifania",
+      "celebration": "6º Domingo da Epifania",
+      "originalText": "Série \"A Igreja Importa\" - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "9084fc19b196ca6a",
+      "date": "2025-02-02",
+      "title": "A Igreja Importa",
+      "preacher": "Felipe dos Anjos",
+      "series": "A Igreja Importa",
+      "url": "https://drive.google.com/file/d/1oZes6guV9D1JNtKtaMBWXvHtJQh0d3kM/view?usp=drive_link",
+      "season": "Epifania",
+      "celebration": "5º Domingo da Epifania",
+      "originalText": "Série \"A Igreja Importa\" - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "3b20b84598c34b87",
+      "date": "2025-01-19",
+      "title": "A Igreja Importa",
+      "preacher": "Guilherme de Carvalho",
+      "series": "A Igreja Importa",
+      "url": "https://drive.google.com/file/d/1DkR-w88yFM3m5XbdDO2m1dwOO-DUCWRZ/view?usp=drive_link",
+      "season": "Epifania",
+      "celebration": "3º Domingo da Epifania",
+      "originalText": "Série \"A Igreja Importa\" - Guilherme de Carvalho",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "854925652b6f9f42",
+      "date": "2025-01-12",
+      "title": "A Igreja Importa",
+      "preacher": "Beto Mello",
+      "series": "A Igreja Importa",
+      "url": "https://drive.google.com/file/d/19BiXgYdLy49QndIcgQn8OfvdtYxBhQuo/view?usp=drive_link",
+      "season": "Epifania",
+      "celebration": "2º Domingo da Epifania",
+      "originalText": "Série \"A Igreja Importa\" - Beto Mello",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "752490399cb2712e",
+      "date": "2026-01-04",
+      "title": "A Visão do Trono de Deus",
+      "preacher": "Guilherme de Carvalho",
+      "series": "Apocalipse 2° Temporada: O Livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/1bK5j0Xqf0nCaTkvmoIywsULlCT7IWal1/view?usp=sharing",
+      "season": "Epifania",
+      "celebration": "2º Domingo Após natal",
+      "originalText": "Série \"Apocalipse 2° Temporada: O Livro, selos e trombetas\" - A Visão do Trono de Deus - Guilherme de Carvalho",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "9f04a65ab34e8ae3",
+      "date": "2026-01-11",
+      "title": "Quem é digno de abrir o livro?",
+      "preacher": "Igor Miguel",
+      "series": "Apocalipse 2° Temporada: O Livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/1jfKohrEMPT8BMyK0L5OV2uWL2c9UeObJ/view?usp=sharing",
+      "season": "Epifania",
+      "celebration": "2º Domingo da Epifania",
+      "originalText": "Série \"Apocalipse 2° Temporada: O Livro, selos e trombetas\" - Quem é digno de abrir o livro? - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "11125092489ed2fe",
+      "date": "2026-01-18",
+      "title": "Os Seis Selos",
+      "preacher": "Maurício Avoletta",
+      "series": "Apocalipse 2° Temporada: O livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/1Si9IgXkcZgGYArKnbfcb7525DdgwXjwn/view?usp=sharing",
+      "season": "Epifania",
+      "celebration": "3º Domingo da Epifania",
+      "originalText": "Série \"Apocalipse 2° Temporada: O livro, selos e trombetas\" - Os Seis Selos - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "5c485d517bb14ace",
+      "date": "2026-01-25",
+      "title": "Os 144 mil",
+      "preacher": "Felipe dos Anjos",
+      "series": "Apocalipse 2° Temporada: O livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/1ZJdSzlm3X5-bMVVdyOM1R1WqW4XRnCGS/view?usp=sharing",
+      "season": "Epifania",
+      "celebration": "4º Domingo da Epifania",
+      "originalText": "Série \"Apocalipse 2° Temporada: O livro, selos e trombetas\" - Os 144 mil - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "676721b35bfcce67",
+      "date": "2026-02-01",
+      "title": "Sermão Especial",
+      "preacher": "Maurício Avoletta",
+      "series": "Especial",
+      "url": "https://drive.google.com/file/d/1CbxkSFYW_JrslS03EbEDCynYHD3BbUeB/view?usp=sharing",
+      "season": "Epifania",
+      "celebration": "5º Domingo da Epifania",
+      "originalText": "Série \"Especial\" - Sermão Especial - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "625ae79eb691bca0",
+      "date": "2026-02-08",
+      "title": "O setimo selo e quatro trombetas",
+      "preacher": "Leonardo Amaral",
+      "series": "Apocalipse 2° temporada: O livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/1ylxpD800POCVuNNklxn75Sxynj68Uje2/view?usp=sharing",
+      "season": "Epifania",
+      "celebration": "6º Domingo da Epifania",
+      "originalText": "Série \"Apocalipse 2° temporada: O livro, selos e trombetas\" - O setimo selo e quatro trombetas - Leonardo Amaral",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "1e11238a14e15a55",
+      "date": "2026-02-15",
+      "title": "A quinta e a sexta trombeta.",
+      "preacher": "Maurício Avoletta",
+      "series": "Apocalipse 2° Temporada: O livro, selos e trombetas",
+      "url": "https://drive.google.com/file/d/18CiwZBCVVW8hbzdJzni0mD8cQFIgmzl2/view?usp=sharing",
+      "season": "Epifania",
+      "celebration": "7º Domingo da Epifania",
+      "originalText": "Série \"Apocalipse 2° Temporada: O livro, selos e trombetas\" - A quinta e a sexta trombeta. - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "254cc73f6263f282",
+      "date": "2025-09-28",
+      "title": "Carta à Igreja em Filadélfia",
+      "preacher": "Leonardo Amaral",
+      "series": "Carta às Sete Igrejas",
+      "url": "https://drive.google.com/file/d/1fNTCi1nj61wNyBb__HHXMi4taQoDkYGT/view?usp=sharing",
+      "season": "Criação",
+      "celebration": "4º Domingo da Criação",
+      "originalText": "Série \"Carta às Sete Igrejas\" - Carta à Igreja em Filadélfia - Leonardo Amaral",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "0ff91718b5c06688",
+      "date": "2025-09-21",
+      "title": "Lealdade Dividida Pt 3",
+      "preacher": "Felipe dos Anjos",
+      "series": "Sermão Especial",
+      "url": "https://drive.google.com/file/d/14DZQ9tsXGISVxpRYqwI5CwTkaW5Wp0JJ/view?usp=sharing",
+      "season": "Criação",
+      "celebration": "3º Domingo da Criação",
+      "originalText": "Série \"Sermão Especial\" - Lealdade Dividida Pt 3 - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "b54692ccc1aecac0",
+      "date": "2025-09-14",
+      "title": "Aniversário Esperança Campus LS",
+      "preacher": "Felipe dos Anjos",
+      "series": "Sermão Especial",
+      "url": "https://drive.google.com/file/d/1g0O8nqWZv7JzzxheOsftB45fRRr-rUIL/view?usp=sharing",
+      "season": "Criação",
+      "celebration": "2º Domingo da Criação",
+      "originalText": "Série \"Sermão Especial\" - Aniversário Esperança Campus LS - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "a9d81c689b0c58fc",
+      "date": "2025-09-07",
+      "title": "Carta a Igreja em Tiatira",
+      "preacher": "Igor Miguel",
+      "series": "Carta às Sete Igrejas",
+      "url": "https://drive.google.com/file/d/1MISxTHbWeuqsPM_z4IvCSN2wtvMpgD9H/view?usp=sharing",
+      "season": "Criação",
+      "celebration": "1º Domingo da Criação",
+      "originalText": "Série \"Carta às Sete Igrejas\" - Carta a Igreja em Tiatira - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "a36712a2b44740d4",
+      "date": "2025-12-21",
+      "title": "Benedictus, o Cântico de Zacarias",
+      "preacher": "Maurício Avoletta",
+      "series": "Minissérie Canticos Natalinos",
+      "url": "https://drive.google.com/file/d/1_JvKJkWcLrMQs6PFwar1xaZXq00NerxU/view?usp=sharing",
+      "season": "Advento",
+      "celebration": "4º Domingo do Advento",
+      "originalText": "Série \"Minissérie Canticos Natalinos\" - Benedictus, o Cântico de Zacarias - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "f659311257397daf",
+      "date": "2025-12-14",
+      "title": "Magnificat, o Cântico de Maria",
+      "preacher": "Filipe Breder",
+      "series": "Minissérie Cânticos Natalinos",
+      "url": "https://drive.google.com/file/d/1DLpI5kfQEcaXBemCfVORRtWov17B_yU6/view?usp=sharing",
+      "season": "Advento",
+      "celebration": "3º Domingo do Advento",
+      "originalText": "Série \"Minissérie Cânticos Natalinos\" - Magnificat, o Cântico de Maria - Filipe Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "d715bf935edb559d",
+      "date": "2025-12-07",
+      "title": "Ele Separará Ovelhas de Bodes",
+      "preacher": "Filipe Breder",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/1gtT61rWjsBJVEZCqMSn9hXvguFGC1_Oz/view?usp=sharing",
+      "season": "Advento",
+      "celebration": "2º Domingo do Advento",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - Ele Separará Ovelhas de Bodes - Filipe Breder",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "a5798be05aa3d6da",
+      "date": "2025-11-30",
+      "title": "A Parábola dos Talentos",
+      "preacher": "Maurício Avoletta",
+      "series": "O Sermão Escatológico de Jesus",
+      "url": "https://drive.google.com/file/d/10pUIzH-oUvqNr7MgnuH2j3c6sW1tMI7z/view?usp=sharing",
+      "season": "Advento",
+      "celebration": "1º Domingo do Advento",
+      "originalText": "Série \"O Sermão Escatológico de Jesus\" - A Parábola dos Talentos - Maurício Avoletta",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "2cb9e4c8b3b3cfc8",
+      "date": "2025-12-28",
+      "title": "Nunc Dimittis, o cântico de Simeão",
+      "preacher": "Igor Miguel",
+      "series": "Minissérie Cânticos Natalinos",
+      "url": "https://drive.google.com/file/d/19U1twIcvpYlHXbYHdeNDnG61T_tGrjv0/view?usp=sharing",
+      "season": "Natal",
+      "celebration": "1º Domingo após o Natal",
+      "originalText": "Série \"Minissérie Cânticos Natalinos\" - Nunc Dimittis, o cântico de Simeão - Igor Miguel",
+      "legacy": true,
+      "publishedAt": null
+    },
+    {
+      "id": "f339e7c94fdc1253",
+      "date": "2026-05-24",
+      "title": "Pentecostes",
+      "preacher": "Felipe dos Anjos",
+      "series": "Sermão Especial",
+      "url": "https://drive.google.com/file/d/1HGQ2eN_sfLBb4tdjFfHbZjTY3eonda3D/view?usp=drive_link",
+      "season": "Pentecostes",
+      "celebration": "Domingo de Pentecostes",
+      "originalText": "Série \"Sermão Especial\" - Pentecostes - Felipe dos Anjos",
+      "legacy": true,
+      "publishedAt": null
+    }
+  ]
 }
-years[year][seasonClass].querySelector('.grid').appendChild(card.cloneNode(true));
-});
-});
-
-['2026','2025'].forEach(y=>{
-if(years[y]){
-const t=document.createElement('div');
-t.className='year-title';t.textContent=y;
-main.appendChild(t);
-Object.values(years[y]).forEach(s=>main.appendChild(s));
-}
-});
-}
-
-/* ===== PRELETOR ===== */
-function populatePreletor(){
-const sel=document.getElementById('filterPreletor');
-const names=new Set();
-document.querySelectorAll('.day a').forEach(a=>{
-const parts=a.textContent.split(' - ');
-names.add(parts[parts.length-1].trim());
-});
-names.forEach(n=>{
-const o=document.createElement('option');
-o.value=o.textContent=n;sel.appendChild(o);
-});
-}
-
-/* ===== FILTROS ===== */
-function applyFilters(){
-const ano=filterAno.value;
-const mes=filterMes.value;
-const est=filterEstacao.value;
-const pre=filterPreletor.value.toLowerCase();
-
-document.querySelectorAll('.year-title').forEach(t=>{
-t.style.display=!ano||t.textContent===ano?'':'none';
-});
-
-document.querySelectorAll('.day').forEach(d=>{
-const date=d.dataset.date;
-const okMes=!mes||(+date.substring(5,7)===+mes);
-const okPre=!pre||d.textContent.toLowerCase().includes(pre);
-const okEst=!est||d.closest('section').classList.contains(est);
-d.style.display=okMes&&okPre&&okEst?'':'none';
-});
-}
-
-['filterAno','filterMes','filterEstacao','filterPreletor']
-.forEach(id=>document.getElementById(id).addEventListener('change',applyFilters));
-
-document.getElementById('shareBtn').onclick=()=>{
-navigator.share?
-navigator.share({title:document.title,url:location.href}):
-alert('Copie o link da barra do navegador');
-};
-document.getElementById('visitBtn').onclick=()=>{
-window.open('https://maps.app.goo.gl/fHui3ZgWdFU8hWVcA','_blank');
-};
-
-rebuildByYear();
-populatePreletor();
   </script>
- </body>
+  <script src="./core.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
 </html>

@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+backups/
+integrador-config.json
+*.tmp
+build/
+dist/
+*.spec
+Integrador-Sermoes.exe
